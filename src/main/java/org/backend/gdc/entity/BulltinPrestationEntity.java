@@ -49,7 +49,7 @@ public class BulltinPrestationEntity {
 
     private String texte;
 
-    private boolean numero_bon_cmd;
+    private int numero_bon_cmd;
 
     private int numero_cmd;
 

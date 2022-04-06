@@ -30,7 +30,7 @@ public class UserEntity {
 
     private String lastname;
 
-    private int phone;
+    private String phone;
 
     private int matriculation;
 

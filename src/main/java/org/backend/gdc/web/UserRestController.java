@@ -1,6 +1,6 @@
 package org.backend.gdc.web;
 
-import org.backend.gdc.entity.User;
+import org.backend.gdc.entity.UserEntity;
 import org.backend.gdc.repository.UserRepository;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,22 +18,22 @@ public class UserRestController {
     }
 
     @GetMapping(path = "/users")//requete http
-    public List<User> listUsers() {
+    public List<UserEntity> listUsers() {
         return userRepository.findAll();
     }
 
     @GetMapping(path = "/users/{id}")//requete http
-    public User getUser(@PathVariable(name = "id") Long code) {//affecter id a code
+    public UserEntity getUserEntity(@PathVariable(name = "id") Long code) {//affecter id a code
         return userRepository.findById(code).get();
     }
 
     @PostMapping(path = "/users")//requete http
-    public User save(@RequestBody User user) {//resevoir des information sur le user
+    public UserEntity save(@RequestBody UserEntity user) {//resevoir des information sur le user
         return userRepository.save(user);
     }
 
     @PutMapping(path = "/users/{id}")
-    public User update(@PathVariable Long id, @RequestBody User user) {
+    public UserEntity update(@PathVariable Long id, @RequestBody UserEntity user) {
         user.setId(id);
         return userRepository.save(user);
     }

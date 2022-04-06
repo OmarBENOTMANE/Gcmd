@@ -24,6 +24,6 @@ public class ClientEntity {
 
     private String email;
 
-    private int phone;
+    private String phone;
 
 }

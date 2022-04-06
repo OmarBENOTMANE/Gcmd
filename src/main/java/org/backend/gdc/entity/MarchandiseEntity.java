@@ -21,6 +21,6 @@ public class MarchandiseEntity {
     private Long id;
     private String Designation;
     private String reference;
-    private double quantity;
+    private double quantite;
 
 }

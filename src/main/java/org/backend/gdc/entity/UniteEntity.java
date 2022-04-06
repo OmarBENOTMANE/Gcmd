@@ -14,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class UniteeEntity {
+public class UniteEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
