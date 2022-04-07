@@ -1,12 +1,12 @@
-package org.backend.gdc.entity;
+package org.backend.gdc.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.backend.gdc.enums.EngineColisEnum;
-import org.backend.gdc.enums.ImportExportEnum;
-import org.backend.gdc.enums.MmMcEnum;
+import org.backend.gdc.model.enums.EngineColisEnum;
+import org.backend.gdc.model.enums.ImportExportEnum;
+import org.backend.gdc.model.enums.MmMcEnum;
 
 import javax.persistence.*;
 import java.util.Date;

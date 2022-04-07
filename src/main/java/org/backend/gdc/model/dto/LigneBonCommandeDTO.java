@@ -1,8 +1,11 @@
-package org.backend.gdc.dto;
+package org.backend.gdc.model.dto;
 
-import lombok.*;
-import org.backend.gdc.enums.SenstraficEnum;
-import javax.persistence.*;
+import lombok.Data;
+import org.backend.gdc.model.enums.SenstraficEnum;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
 @Data

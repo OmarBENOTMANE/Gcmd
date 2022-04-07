@@ -1,8 +1,6 @@
 package org.backend.gdc.dto;
 
-import lombok.*;
-
-import javax.persistence.*;
+import lombok.Data;
 
 @Data
 public class LigneDevisDTO {

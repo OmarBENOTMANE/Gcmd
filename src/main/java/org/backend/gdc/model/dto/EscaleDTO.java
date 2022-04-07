@@ -1,8 +1,10 @@
 package org.backend.gdc.dto;
 
-import lombok.*;
+import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Data
 public class EscaleDTO {

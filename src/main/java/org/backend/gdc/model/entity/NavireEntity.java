@@ -1,4 +1,4 @@
-package org.backend.gdc.entity;
+package org.backend.gdc.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

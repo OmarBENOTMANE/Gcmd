@@ -1,10 +1,10 @@
-package org.backend.gdc.entity;
+package org.backend.gdc.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.backend.gdc.enums.SenstraficEnum;
+import org.backend.gdc.model.enums.SenstraficEnum;
 
 import javax.persistence.*;
 import java.util.Date;

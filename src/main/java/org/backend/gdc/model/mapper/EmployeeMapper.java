@@ -1,7 +1,7 @@
-package org.backend.gdc.mapper;
+package org.backend.gdc.model.mapper;
 
 import org.backend.gdc.dto.EmployeeDTO;
-import org.backend.gdc.entity.EmployeeEntity;
+import org.backend.gdc.model.entity.EmployeeEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 

@@ -1,7 +1,7 @@
-package org.backend.gdc.dto;
+package org.backend.gdc.model.dto;
 
 import lombok.Data;
-import org.backend.gdc.enums.typePaiementEnum;
+import org.backend.gdc.model.enums.typePaiementEnum;
 
 import java.util.Date;
 

@@ -1,7 +1,7 @@
-package org.backend.gdc.dto;
+package org.backend.gdc.model.dto;
 
 import lombok.Data;
-import org.backend.gdc.enums.SenstraficEnum;
+import org.backend.gdc.model.enums.SenstraficEnum;
 
 import java.util.Date;
 

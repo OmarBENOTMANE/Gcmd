@@ -1,6 +1,6 @@
 package org.backend.gdc.web;
 
-import org.backend.gdc.entity.UserEntity;
+import org.backend.gdc.model.entity.UserEntity;
 import org.backend.gdc.repository.UserRepository;
 import org.springframework.web.bind.annotation.*;
 

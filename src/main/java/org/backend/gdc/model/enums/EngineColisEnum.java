@@ -1,4 +1,4 @@
-package org.backend.gdc.enums;
+package org.backend.gdc.model.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,6 +1,7 @@
 package org.backend.gdc.dto;
 
-import lombok.*;
+import lombok.Data;
+
 import java.util.Date;
 
 @Data

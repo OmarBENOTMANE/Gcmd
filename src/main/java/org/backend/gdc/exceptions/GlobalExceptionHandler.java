@@ -1,7 +1,7 @@
 package org.backend.gdc.exceptions;
 
 import org.backend.gdc.dto.ErrorDTO;
-import org.backend.gdc.enums.ErrorCode;
+import org.backend.gdc.model.enums.ErrorCode;
 import org.backend.gdc.exceptions.technical.IllegalNullParamException;
 import org.backend.gdc.exceptions.technical.ObjectNotFoundException;
 import org.springframework.http.HttpStatus;

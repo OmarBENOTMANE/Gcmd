@@ -1,9 +1,9 @@
 package org.backend.gdc.service;
 
 import org.backend.gdc.dto.EmployeeDTO;
-import org.backend.gdc.entity.EmployeeEntity;
+import org.backend.gdc.model.entity.EmployeeEntity;
 import org.backend.gdc.exceptions.technical.ObjectNotFoundException;
-import org.backend.gdc.mapper.EmployeeMapper;
+import org.backend.gdc.model.mapper.EmployeeMapper;
 import org.backend.gdc.repository.EmployeeRepository;
 import org.backend.gdc.validator.Validate;
 import org.springframework.beans.factory.annotation.Autowired;
