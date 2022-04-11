@@ -1,4 +1,4 @@
-package org.backend.gdc.model.mapper;
+package org.backend.gdc.mapper;
 
 import org.springframework.data.domain.Page;
 

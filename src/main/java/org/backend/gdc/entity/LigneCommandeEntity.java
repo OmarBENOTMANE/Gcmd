@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-@Table(name = "lignecommande")
+@Table(name = "lignecommandes")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

@@ -9,19 +9,14 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Table(name = "uniteorgas")
+@Table(name = "soustypeprestations")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class UniteOrganisationelleEntity {
-
+public class SousTypePrestationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String label;
-
-    private String type;
-
-    private String description;
+    private String name;
 }
