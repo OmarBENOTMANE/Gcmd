@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-@Table(name = "bulltin_prestations")
+@Table(name = "Gcmd_bulltinPrestation")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -27,19 +27,20 @@ public class BulltinPrestationEntity {
 
     private Date heure;
 
-    private int  n_dossier_prestation;
+    private Integer  n_dossier_prestation;
 
+    @Enumerated(EnumType.STRING)
     private typePaiementEnum typePaiement;
 
-    private int code_client;
+    private Integer code_client;
 
     private String nom_client;
 
-    private int escale;
+    private Integer n_escale;
 
     private boolean moyen_odep_client;
 
-    private int code_nature;
+    private Integer code_nature;
 
     private boolean pre_validation;
 
@@ -49,9 +50,9 @@ public class BulltinPrestationEntity {
 
     private String texte;
 
-    private int numero_bon_cmd;
+    private Integer numero_bon_cmd;
 
-    private int numero_cmd;
+    private Integer numero_cmd;
 
 
 }
