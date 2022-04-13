@@ -6,7 +6,7 @@ import org.backend.gdc.enums.SenstraficEnum;
 import java.util.Date;
 
 @Data
-public class lignebpDTO {
+public class LigneBpDTO {
 
     private Long id;
 

@@ -2,10 +2,8 @@ package org.backend.gdc.dto;
 
 import lombok.Data;
 
-import java.util.Date;
-
 @Data
-public class SousTypePrestationsDTO {
+public class SousTypePrestationDTO {
 
     private Long id;
 

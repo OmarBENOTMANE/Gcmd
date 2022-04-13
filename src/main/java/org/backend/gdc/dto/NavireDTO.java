@@ -9,7 +9,7 @@ public class NavireDTO {
 
     private Long id;
     private String name;
-    private double numero_escale;
+    private Double numero_escale;
     private String consignataire;
     private Date date_navire;
     private String etat;

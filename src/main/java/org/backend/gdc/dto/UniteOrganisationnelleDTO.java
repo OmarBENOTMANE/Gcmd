@@ -3,7 +3,7 @@ package org.backend.gdc.dto;
 import lombok.Data;
 
 @Data
-public class organisationnelleDTO {
+public class UniteOrganisationnelleDTO {
 
     private Long id;
 

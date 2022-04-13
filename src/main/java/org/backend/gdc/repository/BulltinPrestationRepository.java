@@ -4,5 +4,6 @@ import org.backend.gdc.entity.BulltinPrestationEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+@Repository
 public interface BulltinPrestationRepository extends JpaRepository<BulltinPrestationEntity, Long> {
 }
