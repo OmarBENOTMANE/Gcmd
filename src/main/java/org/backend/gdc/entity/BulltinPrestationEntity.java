@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-@Table(name = "Gcmd_bulltinPrestation")
+@Table(name = "gcmd_bulltin_prestation")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -27,9 +27,9 @@ public class BulltinPrestationEntity {
 
     private Date heure;
 
-    private Integer  n_dossier_prestation;
+    private Integer n_dossier_prestation;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     private typePaiementEnum typePaiement;
 
     private Integer code_client;
@@ -49,8 +49,6 @@ public class BulltinPrestationEntity {
     private Date date_probable_execution;
 
     private String texte;
-
-    private Integer numero_bon_cmd;
 
     private Integer numero_cmd;
 

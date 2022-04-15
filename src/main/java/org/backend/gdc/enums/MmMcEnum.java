@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum MmMcEnum {
 
-    MM("MM"),MC("MC");
+    MM("MM"), MC("MC");
 
     private String value;
 }

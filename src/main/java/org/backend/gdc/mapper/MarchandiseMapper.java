@@ -10,16 +10,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class MarchandiseMapper implements Mapper<MarchandiseDTO,MarchandiseEntity>{
+public class MarchandiseMapper implements Mapper<MarchandiseDTO, MarchandiseEntity> {
 
     @Override
     public Page<MarchandiseDTO> convertToPageDto(Page<MarchandiseEntity> page) {
-           return page.map(this::convertToDto);
+        return page.map(this::convertToDto);
     }
 
     @Override
     public MarchandiseDTO convertToDto(MarchandiseEntity entity) {
-        MarchandiseDTO dto= new MarchandiseDTO();
+        MarchandiseDTO dto = new MarchandiseDTO();
         dto.setId(entity.getId());
         return dto;
     }
@@ -32,12 +32,12 @@ public class MarchandiseMapper implements Mapper<MarchandiseDTO,MarchandiseEntit
     }
 
     @Override
-	public List<MarchandiseDTO> convertToDtoList(List<MarchandiseEntity> entities) {
-		return entities.stream().map(this::convertToDto).collect(Collectors.toCollection(ArrayList::new));
-	}
+    public List<MarchandiseDTO> convertToDtoList(List<MarchandiseEntity> entities) {
+        return entities.stream().map(this::convertToDto).collect(Collectors.toCollection(ArrayList::new));
+    }
 
-	@Override
-	public List<MarchandiseEntity> convertToEntitiesList(List<MarchandiseDTO> dtos) {
-		return dtos.stream().map(this::convertToEntity).collect(Collectors.toCollection(ArrayList::new));
-	}
+    @Override
+    public List<MarchandiseEntity> convertToEntitiesList(List<MarchandiseDTO> dtos) {
+        return dtos.stream().map(this::convertToEntity).collect(Collectors.toCollection(ArrayList::new));
+    }
 }

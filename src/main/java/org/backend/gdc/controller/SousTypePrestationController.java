@@ -12,37 +12,37 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/Gcmd_sousTypePrestation")
 public class SousTypePrestationController {
-	
 
-	@Autowired
-	private SousTypePrestationService sousTypePrestationService;
 
-	@GetMapping("{id}")
-	public ResponseEntity<SousTypePrestationDTO> findById(@PathVariable Long id) {
-		SousTypePrestationDTO sousTypePrestationDTO = sousTypePrestationService.findById(id);
-		return ResponseEntity.status(HttpStatus.OK).body(sousTypePrestationDTO);
-	}
+    @Autowired
+    private SousTypePrestationService sousTypePrestationService;
 
-	@PostMapping
-	public ResponseEntity<SousTypePrestationDTO> save(@RequestBody SousTypePrestationDTO sousTypePrestationDTO) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(sousTypePrestationService.save(sousTypePrestationDTO));
-	}
+    @GetMapping("{id}")
+    public ResponseEntity<SousTypePrestationDTO> findById(@PathVariable Long id) {
+        SousTypePrestationDTO sousTypePrestationDTO = sousTypePrestationService.findById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(sousTypePrestationDTO);
+    }
 
-	@PutMapping("{id}")
-	public ResponseEntity<SousTypePrestationDTO> update(@PathVariable Long id,
-			@RequestBody SousTypePrestationDTO sousTypePrestationDTO) {
-		sousTypePrestationDTO.setId(id);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(sousTypePrestationService.update(sousTypePrestationDTO));
-	}
+    @PostMapping
+    public ResponseEntity<SousTypePrestationDTO> save(@RequestBody SousTypePrestationDTO sousTypePrestationDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(sousTypePrestationService.save(sousTypePrestationDTO));
+    }
 
-	@DeleteMapping("{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		sousTypePrestationService.delete(id);
-		return new ResponseEntity<>(HttpStatus.ACCEPTED);
-	}
+    @PutMapping("{id}")
+    public ResponseEntity<SousTypePrestationDTO> update(@PathVariable Long id,
+                                                        @RequestBody SousTypePrestationDTO sousTypePrestationDTO) {
+        sousTypePrestationDTO.setId(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(sousTypePrestationService.update(sousTypePrestationDTO));
+    }
 
-	@GetMapping
-	public ResponseEntity<Page<SousTypePrestationDTO>> findAll(Pageable pageable) {
-		return ResponseEntity.status(HttpStatus.OK).body(sousTypePrestationService.findAll(pageable));
-	}
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        sousTypePrestationService.delete(id);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<SousTypePrestationDTO>> findAll(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(sousTypePrestationService.findAll(pageable));
+    }
 }

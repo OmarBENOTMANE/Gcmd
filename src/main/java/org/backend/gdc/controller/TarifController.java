@@ -12,37 +12,37 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/Gcmd_tarif")
 public class TarifController {
-	
 
-	@Autowired
-	private TarifService tarifService;
 
-	@GetMapping("{id}")
-	public ResponseEntity<TarifDTO> findById(@PathVariable Long id) {
-		TarifDTO tarifDTO = tarifService.findById(id);
-		return ResponseEntity.status(HttpStatus.OK).body(tarifDTO);
-	}
+    @Autowired
+    private TarifService tarifService;
 
-	@PostMapping
-	public ResponseEntity<TarifDTO> save(@RequestBody TarifDTO tarifDTO) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(tarifService.save(tarifDTO));
-	}
+    @GetMapping("{id}")
+    public ResponseEntity<TarifDTO> findById(@PathVariable Long id) {
+        TarifDTO tarifDTO = tarifService.findById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(tarifDTO);
+    }
 
-	@PutMapping("{id}")
-	public ResponseEntity<TarifDTO> update(@PathVariable Long id,
-			@RequestBody TarifDTO tarifDTO) {
-		tarifDTO.setId(id);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(tarifService.update(tarifDTO));
-	}
+    @PostMapping
+    public ResponseEntity<TarifDTO> save(@RequestBody TarifDTO tarifDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(tarifService.save(tarifDTO));
+    }
 
-	@DeleteMapping("{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		tarifService.delete(id);
-		return new ResponseEntity<>(HttpStatus.ACCEPTED);
-	}
+    @PutMapping("{id}")
+    public ResponseEntity<TarifDTO> update(@PathVariable Long id,
+                                           @RequestBody TarifDTO tarifDTO) {
+        tarifDTO.setId(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(tarifService.update(tarifDTO));
+    }
 
-	@GetMapping
-	public ResponseEntity<Page<TarifDTO>> findAll(Pageable pageable) {
-		return ResponseEntity.status(HttpStatus.OK).body(tarifService.findAll(pageable));
-	}
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        tarifService.delete(id);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<TarifDTO>> findAll(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(tarifService.findAll(pageable));
+    }
 }

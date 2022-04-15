@@ -26,5 +26,4 @@ public class PrestationEntity {
     private int type_tarif;
 
 
-
 }

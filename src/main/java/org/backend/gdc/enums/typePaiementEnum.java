@@ -7,8 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum typePaiementEnum {
 
-    COMPTANT(1)
-    ,CREDIT(0);
+    COMPTANT(1), CREDIT(0);
 
     private int value;
 }

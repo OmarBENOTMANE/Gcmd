@@ -10,16 +10,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class CommandeMapper implements Mapper<CommandeDTO,CommandeEntity>{
+public class CommandeMapper implements Mapper<CommandeDTO, CommandeEntity> {
 
     @Override
     public Page<CommandeDTO> convertToPageDto(Page<CommandeEntity> page) {
-           return page.map(this::convertToDto);
+        return page.map(this::convertToDto);
     }
 
     @Override
     public CommandeDTO convertToDto(CommandeEntity entity) {
-        CommandeDTO dto= new CommandeDTO();
+        CommandeDTO dto = new CommandeDTO();
         dto.setId(entity.getId());
         return dto;
     }
@@ -32,12 +32,12 @@ public class CommandeMapper implements Mapper<CommandeDTO,CommandeEntity>{
     }
 
     @Override
-	public List<CommandeDTO> convertToDtoList(List<CommandeEntity> entities) {
-		return entities.stream().map(this::convertToDto).collect(Collectors.toCollection(ArrayList::new));
-	}
+    public List<CommandeDTO> convertToDtoList(List<CommandeEntity> entities) {
+        return entities.stream().map(this::convertToDto).collect(Collectors.toCollection(ArrayList::new));
+    }
 
-	@Override
-	public List<CommandeEntity> convertToEntitiesList(List<CommandeDTO> dtos) {
-		return dtos.stream().map(this::convertToEntity).collect(Collectors.toCollection(ArrayList::new));
-	}
+    @Override
+    public List<CommandeEntity> convertToEntitiesList(List<CommandeDTO> dtos) {
+        return dtos.stream().map(this::convertToEntity).collect(Collectors.toCollection(ArrayList::new));
+    }
 }

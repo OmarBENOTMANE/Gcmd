@@ -10,16 +10,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class LigneCommandeMapper implements Mapper<LigneCommandeDTO,LigneCommandeEntity>{
+public class LigneCommandeMapper implements Mapper<LigneCommandeDTO, LigneCommandeEntity> {
 
     @Override
     public Page<LigneCommandeDTO> convertToPageDto(Page<LigneCommandeEntity> page) {
-           return page.map(this::convertToDto);
+        return page.map(this::convertToDto);
     }
 
     @Override
     public LigneCommandeDTO convertToDto(LigneCommandeEntity entity) {
-        LigneCommandeDTO dto= new LigneCommandeDTO();
+        LigneCommandeDTO dto = new LigneCommandeDTO();
         dto.setId(entity.getId());
         return dto;
     }
@@ -32,12 +32,12 @@ public class LigneCommandeMapper implements Mapper<LigneCommandeDTO,LigneCommand
     }
 
     @Override
-	public List<LigneCommandeDTO> convertToDtoList(List<LigneCommandeEntity> entities) {
-		return entities.stream().map(this::convertToDto).collect(Collectors.toCollection(ArrayList::new));
-	}
+    public List<LigneCommandeDTO> convertToDtoList(List<LigneCommandeEntity> entities) {
+        return entities.stream().map(this::convertToDto).collect(Collectors.toCollection(ArrayList::new));
+    }
 
-	@Override
-	public List<LigneCommandeEntity> convertToEntitiesList(List<LigneCommandeDTO> dtos) {
-		return dtos.stream().map(this::convertToEntity).collect(Collectors.toCollection(ArrayList::new));
-	}
+    @Override
+    public List<LigneCommandeEntity> convertToEntitiesList(List<LigneCommandeDTO> dtos) {
+        return dtos.stream().map(this::convertToEntity).collect(Collectors.toCollection(ArrayList::new));
+    }
 }

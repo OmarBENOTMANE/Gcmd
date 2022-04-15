@@ -18,49 +18,49 @@ import java.util.Optional;
 @Transactional
 public class PrestationService {
 
-	@Autowired
-	private PrestationRepository prestationRepository;
+    @Autowired
+    private PrestationRepository prestationRepository;
 
-	@Autowired
-	private PrestationMapper prestationMapper;
+    @Autowired
+    private PrestationMapper prestationMapper;
 
-	public PrestationDTO findById(Long id) {
-		Validate.notNull(id, "id mus be not null");
-		Optional<PrestationEntity> entity = prestationRepository.findById(id);
-		if (entity.isPresent()) {
-			return prestationMapper.convertToDto(entity.get());
-		} else {
-			throw new ObjectNotFoundException("PrestationDTO not found");
-		}
-	}
+    public PrestationDTO findById(Long id) {
+        Validate.notNull(id, "id mus be not null");
+        Optional<PrestationEntity> entity = prestationRepository.findById(id);
+        if (entity.isPresent()) {
+            return prestationMapper.convertToDto(entity.get());
+        } else {
+            throw new ObjectNotFoundException("PrestationDTO not found");
+        }
+    }
 
-	public PrestationDTO save(PrestationDTO dto) {
-		Validate.notNull(dto, "PrestationDTO must be not null");
-		PrestationEntity entity = prestationMapper.convertToEntity(dto);
+    public PrestationDTO save(PrestationDTO dto) {
+        Validate.notNull(dto, "PrestationDTO must be not null");
+        PrestationEntity entity = prestationMapper.convertToEntity(dto);
 
-		PrestationEntity saved = prestationRepository.save(entity);
-		return prestationMapper.convertToDto(saved);
-	}
+        PrestationEntity saved = prestationRepository.save(entity);
+        return prestationMapper.convertToDto(saved);
+    }
 
-	public PrestationDTO update(PrestationDTO dto) {
-		Validate.notNull(dto, "PrestationDTO must be not null");
-		Validate.notNull(dto.getId(), "PrestationDTO id must be not null");
-		findById(dto.getId());
-		PrestationEntity entity = prestationMapper.convertToEntity(dto);
-		PrestationEntity saved = prestationRepository.save(entity);
-		return prestationMapper.convertToDto(saved);
+    public PrestationDTO update(PrestationDTO dto) {
+        Validate.notNull(dto, "PrestationDTO must be not null");
+        Validate.notNull(dto.getId(), "PrestationDTO id must be not null");
+        findById(dto.getId());
+        PrestationEntity entity = prestationMapper.convertToEntity(dto);
+        PrestationEntity saved = prestationRepository.save(entity);
+        return prestationMapper.convertToDto(saved);
 
-	}
+    }
 
-	public void delete(Long id) {
-		Validate.notNull(id, "Id must be not null");
-		findById(id);
-		prestationRepository.deleteById(id);
-	}
+    public void delete(Long id) {
+        Validate.notNull(id, "Id must be not null");
+        findById(id);
+        prestationRepository.deleteById(id);
+    }
 
-	public Page<PrestationDTO> findAll(Pageable pageable) {
-		Page<PrestationEntity> page = prestationRepository.findAll(pageable);
-		return prestationMapper.convertToPageDto(page);
+    public Page<PrestationDTO> findAll(Pageable pageable) {
+        Page<PrestationEntity> page = prestationRepository.findAll(pageable);
+        return prestationMapper.convertToPageDto(page);
 
-	}
+    }
 }

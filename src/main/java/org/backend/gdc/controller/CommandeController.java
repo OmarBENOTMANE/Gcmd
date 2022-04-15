@@ -12,37 +12,37 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/commandes")
 public class CommandeController {
-	
 
-	@Autowired
-	private CommandeService CommandeService;
 
-	@GetMapping("{id}")
-	public ResponseEntity<CommandeDTO> findById(@PathVariable Long id) {
-		CommandeDTO CommandeDTO = CommandeService.findById(id);
-		return ResponseEntity.status(HttpStatus.OK).body(CommandeDTO);
-	}
+    @Autowired
+    private CommandeService CommandeService;
 
-	@PostMapping
-	public ResponseEntity<CommandeDTO> save(@RequestBody CommandeDTO CommandeDTO) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(CommandeService.save(CommandeDTO));
-	}
+    @GetMapping("{id}")
+    public ResponseEntity<CommandeDTO> findById(@PathVariable Long id) {
+        CommandeDTO CommandeDTO = CommandeService.findById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(CommandeDTO);
+    }
 
-	@PutMapping("{id}")
-	public ResponseEntity<CommandeDTO> update(@PathVariable Long id,
-			@RequestBody CommandeDTO CommandeDTO) {
-		CommandeDTO.setId(id);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(CommandeService.update(CommandeDTO));
-	}
+    @PostMapping
+    public ResponseEntity<CommandeDTO> save(@RequestBody CommandeDTO CommandeDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(CommandeService.save(CommandeDTO));
+    }
 
-	@DeleteMapping("{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		CommandeService.delete(id);
-		return new ResponseEntity<>(HttpStatus.ACCEPTED);
-	}
+    @PutMapping("{id}")
+    public ResponseEntity<CommandeDTO> update(@PathVariable Long id,
+                                              @RequestBody CommandeDTO CommandeDTO) {
+        CommandeDTO.setId(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(CommandeService.update(CommandeDTO));
+    }
 
-	@GetMapping
-	public ResponseEntity<Page<CommandeDTO>> findAll(Pageable pageable) {
-		return ResponseEntity.status(HttpStatus.OK).body(CommandeService.findAll(pageable));
-	}
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        CommandeService.delete(id);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<CommandeDTO>> findAll(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(CommandeService.findAll(pageable));
+    }
 }

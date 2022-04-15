@@ -1,2 +1,1 @@
-TRUNCATE TABLE Employee;
-TRUNCATE TABLE Gcmd_bulltinPrestation;
+TRUNCATE TABLE gcmd_bulltin_prestation;

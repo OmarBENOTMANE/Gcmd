@@ -10,16 +10,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class ClientMapper implements Mapper<ClientDTO,ClientEntity>{
+public class ClientMapper implements Mapper<ClientDTO, ClientEntity> {
 
     @Override
     public Page<ClientDTO> convertToPageDto(Page<ClientEntity> page) {
-           return page.map(this::convertToDto);
+        return page.map(this::convertToDto);
     }
 
     @Override
     public ClientDTO convertToDto(ClientEntity entity) {
-        ClientDTO dto= new ClientDTO();
+        ClientDTO dto = new ClientDTO();
         dto.setId(entity.getId());
         return dto;
     }
@@ -32,12 +32,12 @@ public class ClientMapper implements Mapper<ClientDTO,ClientEntity>{
     }
 
     @Override
-	public List<ClientDTO> convertToDtoList(List<ClientEntity> entities) {
-		return entities.stream().map(this::convertToDto).collect(Collectors.toCollection(ArrayList::new));
-	}
+    public List<ClientDTO> convertToDtoList(List<ClientEntity> entities) {
+        return entities.stream().map(this::convertToDto).collect(Collectors.toCollection(ArrayList::new));
+    }
 
-	@Override
-	public List<ClientEntity> convertToEntitiesList(List<ClientDTO> dtos) {
-		return dtos.stream().map(this::convertToEntity).collect(Collectors.toCollection(ArrayList::new));
-	}
+    @Override
+    public List<ClientEntity> convertToEntitiesList(List<ClientDTO> dtos) {
+        return dtos.stream().map(this::convertToEntity).collect(Collectors.toCollection(ArrayList::new));
+    }
 }

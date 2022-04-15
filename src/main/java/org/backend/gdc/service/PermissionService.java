@@ -18,49 +18,49 @@ import java.util.Optional;
 @Transactional
 public class PermissionService {
 
-	@Autowired
-	private PermissionRepository permissionRepository;
+    @Autowired
+    private PermissionRepository permissionRepository;
 
-	@Autowired
-	private PermissionMapper permissionMapper;
+    @Autowired
+    private PermissionMapper permissionMapper;
 
-	public PermissionDTO findById(Long id) {
-		Validate.notNull(id, "id mus be not null");
-		Optional<PermissionEntity> entity = permissionRepository.findById(id);
-		if (entity.isPresent()) {
-			return permissionMapper.convertToDto(entity.get());
-		} else {
-			throw new ObjectNotFoundException("PermissionDTO not found");
-		}
-	}
+    public PermissionDTO findById(Long id) {
+        Validate.notNull(id, "id mus be not null");
+        Optional<PermissionEntity> entity = permissionRepository.findById(id);
+        if (entity.isPresent()) {
+            return permissionMapper.convertToDto(entity.get());
+        } else {
+            throw new ObjectNotFoundException("PermissionDTO not found");
+        }
+    }
 
-	public PermissionDTO save(PermissionDTO dto) {
-		Validate.notNull(dto, "PermissionDTO must be not null");
-		PermissionEntity entity = permissionMapper.convertToEntity(dto);
+    public PermissionDTO save(PermissionDTO dto) {
+        Validate.notNull(dto, "PermissionDTO must be not null");
+        PermissionEntity entity = permissionMapper.convertToEntity(dto);
 
-		PermissionEntity saved = permissionRepository.save(entity);
-		return permissionMapper.convertToDto(saved);
-	}
+        PermissionEntity saved = permissionRepository.save(entity);
+        return permissionMapper.convertToDto(saved);
+    }
 
-	public PermissionDTO update(PermissionDTO dto) {
-		Validate.notNull(dto, "PermissionDTO must be not null");
-		Validate.notNull(dto.getId(), "UserDTO id must be not null");
-		findById(dto.getId());
-		PermissionEntity entity = permissionMapper.convertToEntity(dto);
-		PermissionEntity saved = permissionRepository.save(entity);
-		return permissionMapper.convertToDto(saved);
+    public PermissionDTO update(PermissionDTO dto) {
+        Validate.notNull(dto, "PermissionDTO must be not null");
+        Validate.notNull(dto.getId(), "UserDTO id must be not null");
+        findById(dto.getId());
+        PermissionEntity entity = permissionMapper.convertToEntity(dto);
+        PermissionEntity saved = permissionRepository.save(entity);
+        return permissionMapper.convertToDto(saved);
 
-	}
+    }
 
-	public void delete(Long id) {
-		Validate.notNull(id, "Id must be not null");
-		findById(id);
-		permissionRepository.deleteById(id);
-	}
+    public void delete(Long id) {
+        Validate.notNull(id, "Id must be not null");
+        findById(id);
+        permissionRepository.deleteById(id);
+    }
 
-	public Page<PermissionDTO> findAll(Pageable pageable) {
-		Page<PermissionEntity> page = permissionRepository.findAll(pageable);
-		return permissionMapper.convertToPageDto(page);
+    public Page<PermissionDTO> findAll(Pageable pageable) {
+        Page<PermissionEntity> page = permissionRepository.findAll(pageable);
+        return permissionMapper.convertToPageDto(page);
 
-	}
+    }
 }

@@ -10,16 +10,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class PermissionMapper implements Mapper<PermissionDTO,PermissionEntity>{
+public class PermissionMapper implements Mapper<PermissionDTO, PermissionEntity> {
 
     @Override
     public Page<PermissionDTO> convertToPageDto(Page<PermissionEntity> page) {
-           return page.map(this::convertToDto);
+        return page.map(this::convertToDto);
     }
 
     @Override
     public PermissionDTO convertToDto(PermissionEntity entity) {
-        PermissionDTO dto= new PermissionDTO();
+        PermissionDTO dto = new PermissionDTO();
         dto.setId(entity.getId());
         return dto;
     }
@@ -32,12 +32,12 @@ public class PermissionMapper implements Mapper<PermissionDTO,PermissionEntity>{
     }
 
     @Override
-	public List<PermissionDTO> convertToDtoList(List<PermissionEntity> entities) {
-		return entities.stream().map(this::convertToDto).collect(Collectors.toCollection(ArrayList::new));
-	}
+    public List<PermissionDTO> convertToDtoList(List<PermissionEntity> entities) {
+        return entities.stream().map(this::convertToDto).collect(Collectors.toCollection(ArrayList::new));
+    }
 
-	@Override
-	public List<PermissionEntity> convertToEntitiesList(List<PermissionDTO> dtos) {
-		return dtos.stream().map(this::convertToEntity).collect(Collectors.toCollection(ArrayList::new));
-	}
+    @Override
+    public List<PermissionEntity> convertToEntitiesList(List<PermissionDTO> dtos) {
+        return dtos.stream().map(this::convertToEntity).collect(Collectors.toCollection(ArrayList::new));
+    }
 }

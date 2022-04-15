@@ -18,47 +18,47 @@ import java.util.Optional;
 @Transactional
 public class LigneCommandeService {
 
-	@Autowired
-	private LigneCommandeRepository ligneCommandeRepository;
+    @Autowired
+    private LigneCommandeRepository ligneCommandeRepository;
 
-	@Autowired
-	private LigneCommandeMapper ligneCommandeMapper;
+    @Autowired
+    private LigneCommandeMapper ligneCommandeMapper;
 
-	public LigneCommandeDTO findById(Long id) {
-		Validate.notNull(id, "id mus be not null");
-		Optional<LigneCommandeEntity> entity = ligneCommandeRepository.findById(id);
-		if (entity.isPresent()) {
-			return ligneCommandeMapper.convertToDto(entity.get());
-		} else {
-			throw new ObjectNotFoundException("LigneCommandeDTO not found");
-		}
-	}
+    public LigneCommandeDTO findById(Long id) {
+        Validate.notNull(id, "id mus be not null");
+        Optional<LigneCommandeEntity> entity = ligneCommandeRepository.findById(id);
+        if (entity.isPresent()) {
+            return ligneCommandeMapper.convertToDto(entity.get());
+        } else {
+            throw new ObjectNotFoundException("LigneCommandeDTO not found");
+        }
+    }
 
-	public LigneCommandeDTO save(LigneCommandeDTO dto) {
-		Validate.notNull(dto, "LigneCommandeDTO must be not null");
-		LigneCommandeEntity entity = ligneCommandeMapper.convertToEntity(dto);
+    public LigneCommandeDTO save(LigneCommandeDTO dto) {
+        Validate.notNull(dto, "LigneCommandeDTO must be not null");
+        LigneCommandeEntity entity = ligneCommandeMapper.convertToEntity(dto);
 
-		LigneCommandeEntity saved = ligneCommandeRepository.save(entity);
-		return ligneCommandeMapper.convertToDto(saved);
-	}
+        LigneCommandeEntity saved = ligneCommandeRepository.save(entity);
+        return ligneCommandeMapper.convertToDto(saved);
+    }
 
-	public LigneCommandeDTO update(LigneCommandeDTO dto) {
-		Validate.notNull(dto, "LigneCommandeDTO must be not null");
-		Validate.notNull(dto.getId(), "UserDTO id must be not null");
-		findById(dto.getId());
-		LigneCommandeEntity entity = ligneCommandeMapper.convertToEntity(dto);
-		LigneCommandeEntity saved = ligneCommandeRepository.save(entity);
-		return ligneCommandeMapper.convertToDto(saved);
-	}
+    public LigneCommandeDTO update(LigneCommandeDTO dto) {
+        Validate.notNull(dto, "LigneCommandeDTO must be not null");
+        Validate.notNull(dto.getId(), "UserDTO id must be not null");
+        findById(dto.getId());
+        LigneCommandeEntity entity = ligneCommandeMapper.convertToEntity(dto);
+        LigneCommandeEntity saved = ligneCommandeRepository.save(entity);
+        return ligneCommandeMapper.convertToDto(saved);
+    }
 
-	public void delete(Long id) {
-		Validate.notNull(id, "Id must be not null");
-		findById(id);
-		ligneCommandeRepository.deleteById(id);
-	}
+    public void delete(Long id) {
+        Validate.notNull(id, "Id must be not null");
+        findById(id);
+        ligneCommandeRepository.deleteById(id);
+    }
 
-	public Page<LigneCommandeDTO> findAll(Pageable pageable) {
-		Page<LigneCommandeEntity> page = ligneCommandeRepository.findAll(pageable);
-		return ligneCommandeMapper.convertToPageDto(page);
-	}
+    public Page<LigneCommandeDTO> findAll(Pageable pageable) {
+        Page<LigneCommandeEntity> page = ligneCommandeRepository.findAll(pageable);
+        return ligneCommandeMapper.convertToPageDto(page);
+    }
 }

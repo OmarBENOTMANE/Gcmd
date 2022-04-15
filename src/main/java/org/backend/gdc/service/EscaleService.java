@@ -18,49 +18,49 @@ import java.util.Optional;
 @Transactional
 public class EscaleService {
 
-	@Autowired
-	private EscaleRepository escaleRepository;
+    @Autowired
+    private EscaleRepository escaleRepository;
 
-	@Autowired
-	private EscaleMapper escaleMapper;
+    @Autowired
+    private EscaleMapper escaleMapper;
 
-	public EscaleDTO findById(Long id) {
-		Validate.notNull(id, "id mus be not null");
-		Optional<EscaleEntity> entity = escaleRepository.findById(id);
-		if (entity.isPresent()) {
-			return escaleMapper.convertToDto(entity.get());
-		} else {
-			throw new ObjectNotFoundException("EscaleDTO not found");
-		}
-	}
+    public EscaleDTO findById(Long id) {
+        Validate.notNull(id, "id mus be not null");
+        Optional<EscaleEntity> entity = escaleRepository.findById(id);
+        if (entity.isPresent()) {
+            return escaleMapper.convertToDto(entity.get());
+        } else {
+            throw new ObjectNotFoundException("EscaleDTO not found");
+        }
+    }
 
-	public EscaleDTO save(EscaleDTO dto) {
-		Validate.notNull(dto, "EscaleDTO must be not null");
-		EscaleEntity entity = escaleMapper.convertToEntity(dto);
+    public EscaleDTO save(EscaleDTO dto) {
+        Validate.notNull(dto, "EscaleDTO must be not null");
+        EscaleEntity entity = escaleMapper.convertToEntity(dto);
 
-		EscaleEntity saved = escaleRepository.save(entity);
-		return escaleMapper.convertToDto(saved);
-	}
+        EscaleEntity saved = escaleRepository.save(entity);
+        return escaleMapper.convertToDto(saved);
+    }
 
-	public EscaleDTO update(EscaleDTO dto) {
-		Validate.notNull(dto, "EscaleDTO must be not null");
-		Validate.notNull(dto.getId(), "UserDTO id must be not null");
-		findById(dto.getId());
-		EscaleEntity entity = escaleMapper.convertToEntity(dto);
-		EscaleEntity saved = escaleRepository.save(entity);
-		return escaleMapper.convertToDto(saved);
+    public EscaleDTO update(EscaleDTO dto) {
+        Validate.notNull(dto, "EscaleDTO must be not null");
+        Validate.notNull(dto.getId(), "UserDTO id must be not null");
+        findById(dto.getId());
+        EscaleEntity entity = escaleMapper.convertToEntity(dto);
+        EscaleEntity saved = escaleRepository.save(entity);
+        return escaleMapper.convertToDto(saved);
 
-	}
+    }
 
-	public void delete(Long id) {
-		Validate.notNull(id, "Id must be not null");
-		findById(id);
-		escaleRepository.deleteById(id);
-	}
+    public void delete(Long id) {
+        Validate.notNull(id, "Id must be not null");
+        findById(id);
+        escaleRepository.deleteById(id);
+    }
 
-	public Page<EscaleDTO> findAll(Pageable pageable) {
-		Page<EscaleEntity> page = escaleRepository.findAll(pageable);
-		return escaleMapper.convertToPageDto(page);
+    public Page<EscaleDTO> findAll(Pageable pageable) {
+        Page<EscaleEntity> page = escaleRepository.findAll(pageable);
+        return escaleMapper.convertToPageDto(page);
 
-	}
+    }
 }

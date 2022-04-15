@@ -12,37 +12,37 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/navires")
 public class NavireController {
-	
 
-	@Autowired
-	private NavireService navireService;
 
-	@GetMapping("{id}")
-	public ResponseEntity<NavireDTO> findById(@PathVariable Long id) {
-		NavireDTO navireDTO = navireService.findById(id);
-		return ResponseEntity.status(HttpStatus.OK).body(navireDTO);
-	}
+    @Autowired
+    private NavireService navireService;
 
-	@PostMapping
-	public ResponseEntity<NavireDTO> save(@RequestBody NavireDTO navireDTO) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(navireService.save(navireDTO));
-	}
+    @GetMapping("{id}")
+    public ResponseEntity<NavireDTO> findById(@PathVariable Long id) {
+        NavireDTO navireDTO = navireService.findById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(navireDTO);
+    }
 
-	@PutMapping("{id}")
-	public ResponseEntity<NavireDTO> update(@PathVariable Long id,
-			@RequestBody NavireDTO navireDTO) {
-		navireDTO.setId(id);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(navireService.update(navireDTO));
-	}
+    @PostMapping
+    public ResponseEntity<NavireDTO> save(@RequestBody NavireDTO navireDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(navireService.save(navireDTO));
+    }
 
-	@DeleteMapping("{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		navireService.delete(id);
-		return new ResponseEntity<>(HttpStatus.ACCEPTED);
-	}
+    @PutMapping("{id}")
+    public ResponseEntity<NavireDTO> update(@PathVariable Long id,
+                                            @RequestBody NavireDTO navireDTO) {
+        navireDTO.setId(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(navireService.update(navireDTO));
+    }
 
-	@GetMapping
-	public ResponseEntity<Page<NavireDTO>> findAll(Pageable pageable) {
-		return ResponseEntity.status(HttpStatus.OK).body(navireService.findAll(pageable));
-	}
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        navireService.delete(id);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<NavireDTO>> findAll(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(navireService.findAll(pageable));
+    }
 }

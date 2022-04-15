@@ -12,37 +12,37 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/devis")
 public class DevisController {
-	
 
-	@Autowired
-	private DevisService devisService;
 
-	@GetMapping("{id}")
-	public ResponseEntity<DevisDTO> findById(@PathVariable Long id) {
-		DevisDTO devisDTO = devisService.findById(id);
-		return ResponseEntity.status(HttpStatus.OK).body(devisDTO);
-	}
+    @Autowired
+    private DevisService devisService;
 
-	@PostMapping
-	public ResponseEntity<DevisDTO> save(@RequestBody DevisDTO devisDTO) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(devisService.save(devisDTO));
-	}
+    @GetMapping("{id}")
+    public ResponseEntity<DevisDTO> findById(@PathVariable Long id) {
+        DevisDTO devisDTO = devisService.findById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(devisDTO);
+    }
 
-	@PutMapping("{id}")
-	public ResponseEntity<DevisDTO> update(@PathVariable Long id,
-			@RequestBody DevisDTO devisDTO) {
-		devisDTO.setId(id);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(devisService.update(devisDTO));
-	}
+    @PostMapping
+    public ResponseEntity<DevisDTO> save(@RequestBody DevisDTO devisDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(devisService.save(devisDTO));
+    }
 
-	@DeleteMapping("{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		devisService.delete(id);
-		return new ResponseEntity<>(HttpStatus.ACCEPTED);
-	}
+    @PutMapping("{id}")
+    public ResponseEntity<DevisDTO> update(@PathVariable Long id,
+                                           @RequestBody DevisDTO devisDTO) {
+        devisDTO.setId(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(devisService.update(devisDTO));
+    }
 
-	@GetMapping
-	public ResponseEntity<Page<DevisDTO>> findAll(Pageable pageable) {
-		return ResponseEntity.status(HttpStatus.OK).body(devisService.findAll(pageable));
-	}
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        devisService.delete(id);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<DevisDTO>> findAll(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(devisService.findAll(pageable));
+    }
 }

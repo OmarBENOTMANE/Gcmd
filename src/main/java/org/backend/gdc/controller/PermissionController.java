@@ -12,37 +12,37 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/permissions")
 public class PermissionController {
-	
 
-	@Autowired
-	private PermissionService permissionService;
 
-	@GetMapping("{id}")
-	public ResponseEntity<PermissionDTO> findById(@PathVariable Long id) {
-		PermissionDTO permissionDTO = permissionService.findById(id);
-		return ResponseEntity.status(HttpStatus.OK).body(permissionDTO);
-	}
+    @Autowired
+    private PermissionService permissionService;
 
-	@PostMapping
-	public ResponseEntity<PermissionDTO> save(@RequestBody PermissionDTO permissionDTO) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(permissionService.save(permissionDTO));
-	}
+    @GetMapping("{id}")
+    public ResponseEntity<PermissionDTO> findById(@PathVariable Long id) {
+        PermissionDTO permissionDTO = permissionService.findById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(permissionDTO);
+    }
 
-	@PutMapping("{id}")
-	public ResponseEntity<PermissionDTO> update(@PathVariable Long id,
-			@RequestBody PermissionDTO permissionDTO) {
-		permissionDTO.setId(id);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(permissionService.update(permissionDTO));
-	}
+    @PostMapping
+    public ResponseEntity<PermissionDTO> save(@RequestBody PermissionDTO permissionDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(permissionService.save(permissionDTO));
+    }
 
-	@DeleteMapping("{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		permissionService.delete(id);
-		return new ResponseEntity<>(HttpStatus.ACCEPTED);
-	}
+    @PutMapping("{id}")
+    public ResponseEntity<PermissionDTO> update(@PathVariable Long id,
+                                                @RequestBody PermissionDTO permissionDTO) {
+        permissionDTO.setId(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(permissionService.update(permissionDTO));
+    }
 
-	@GetMapping
-	public ResponseEntity<Page<PermissionDTO>> findAll(Pageable pageable) {
-		return ResponseEntity.status(HttpStatus.OK).body(permissionService.findAll(pageable));
-	}
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        permissionService.delete(id);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<PermissionDTO>> findAll(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(permissionService.findAll(pageable));
+    }
 }

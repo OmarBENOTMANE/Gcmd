@@ -18,49 +18,49 @@ import java.util.Optional;
 @Transactional
 public class TarifService {
 
-	@Autowired
-	private TarifRepository tarifRepository;
+    @Autowired
+    private TarifRepository tarifRepository;
 
-	@Autowired
-	private TarifMapper tarifMapper;
+    @Autowired
+    private TarifMapper tarifMapper;
 
-	public TarifDTO findById(Long id) {
-		Validate.notNull(id, "id mus be not null");
-		Optional<TarifEntity> entity = tarifRepository.findById(id);
-		if (entity.isPresent()) {
-			return tarifMapper.convertToDto(entity.get());
-		} else {
-			throw new ObjectNotFoundException("TarifDTO not found");
-		}
-	}
+    public TarifDTO findById(Long id) {
+        Validate.notNull(id, "id mus be not null");
+        Optional<TarifEntity> entity = tarifRepository.findById(id);
+        if (entity.isPresent()) {
+            return tarifMapper.convertToDto(entity.get());
+        } else {
+            throw new ObjectNotFoundException("TarifDTO not found");
+        }
+    }
 
-	public TarifDTO save(TarifDTO dto) {
-		Validate.notNull(dto, "TarifDTO must be not null");
-		TarifEntity entity = tarifMapper.convertToEntity(dto);
+    public TarifDTO save(TarifDTO dto) {
+        Validate.notNull(dto, "TarifDTO must be not null");
+        TarifEntity entity = tarifMapper.convertToEntity(dto);
 
-		TarifEntity saved = tarifRepository.save(entity);
-		return tarifMapper.convertToDto(saved);
-	}
+        TarifEntity saved = tarifRepository.save(entity);
+        return tarifMapper.convertToDto(saved);
+    }
 
-	public TarifDTO update(TarifDTO dto) {
-		Validate.notNull(dto, "TarifDTO must be not null");
-		Validate.notNull(dto.getId(), "TarifDTO id must be not null");
-		findById(dto.getId());
-		TarifEntity entity = tarifMapper.convertToEntity(dto);
-		TarifEntity saved = tarifRepository.save(entity);
-		return tarifMapper.convertToDto(saved);
+    public TarifDTO update(TarifDTO dto) {
+        Validate.notNull(dto, "TarifDTO must be not null");
+        Validate.notNull(dto.getId(), "TarifDTO id must be not null");
+        findById(dto.getId());
+        TarifEntity entity = tarifMapper.convertToEntity(dto);
+        TarifEntity saved = tarifRepository.save(entity);
+        return tarifMapper.convertToDto(saved);
 
-	}
+    }
 
-	public void delete(Long id) {
-		Validate.notNull(id, "Id must be not null");
-		findById(id);
-		tarifRepository.deleteById(id);
-	}
+    public void delete(Long id) {
+        Validate.notNull(id, "Id must be not null");
+        findById(id);
+        tarifRepository.deleteById(id);
+    }
 
-	public Page<TarifDTO> findAll(Pageable pageable) {
-		Page<TarifEntity> page = tarifRepository.findAll(pageable);
-		return tarifMapper.convertToPageDto(page);
+    public Page<TarifDTO> findAll(Pageable pageable) {
+        Page<TarifEntity> page = tarifRepository.findAll(pageable);
+        return tarifMapper.convertToPageDto(page);
 
-	}
+    }
 }

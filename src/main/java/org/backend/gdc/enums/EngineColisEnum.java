@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum EngineColisEnum {
 
-    ENGINE("Engins"),COLIS("Colis");
+    ENGINE("Engins"), COLIS("Colis");
 
     private String value;
 }

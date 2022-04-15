@@ -10,16 +10,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class LigneBpMapper implements Mapper<LigneBpDTO,LigneBpEntity>{
+public class LigneBpMapper implements Mapper<LigneBpDTO, LigneBpEntity> {
 
     @Override
     public Page<LigneBpDTO> convertToPageDto(Page<LigneBpEntity> page) {
-           return page.map(this::convertToDto);
+        return page.map(this::convertToDto);
     }
 
     @Override
     public LigneBpDTO convertToDto(LigneBpEntity entity) {
-        LigneBpDTO dto= new LigneBpDTO();
+        LigneBpDTO dto = new LigneBpDTO();
         dto.setId(entity.getId());
         return dto;
     }
@@ -32,12 +32,12 @@ public class LigneBpMapper implements Mapper<LigneBpDTO,LigneBpEntity>{
     }
 
     @Override
-	public List<LigneBpDTO> convertToDtoList(List<LigneBpEntity> entities) {
-		return entities.stream().map(this::convertToDto).collect(Collectors.toCollection(ArrayList::new));
-	}
+    public List<LigneBpDTO> convertToDtoList(List<LigneBpEntity> entities) {
+        return entities.stream().map(this::convertToDto).collect(Collectors.toCollection(ArrayList::new));
+    }
 
-	@Override
-	public List<LigneBpEntity> convertToEntitiesList(List<LigneBpDTO> dtos) {
-		return dtos.stream().map(this::convertToEntity).collect(Collectors.toCollection(ArrayList::new));
-	}
+    @Override
+    public List<LigneBpEntity> convertToEntitiesList(List<LigneBpDTO> dtos) {
+        return dtos.stream().map(this::convertToEntity).collect(Collectors.toCollection(ArrayList::new));
+    }
 }

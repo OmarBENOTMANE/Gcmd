@@ -10,16 +10,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class NavireMapper implements Mapper<NavireDTO,NavireEntity>{
+public class NavireMapper implements Mapper<NavireDTO, NavireEntity> {
 
     @Override
     public Page<NavireDTO> convertToPageDto(Page<NavireEntity> page) {
-           return page.map(this::convertToDto);
+        return page.map(this::convertToDto);
     }
 
     @Override
     public NavireDTO convertToDto(NavireEntity entity) {
-        NavireDTO dto= new NavireDTO();
+        NavireDTO dto = new NavireDTO();
         dto.setId(entity.getId());
         return dto;
     }
@@ -32,12 +32,12 @@ public class NavireMapper implements Mapper<NavireDTO,NavireEntity>{
     }
 
     @Override
-	public List<NavireDTO> convertToDtoList(List<NavireEntity> entities) {
-		return entities.stream().map(this::convertToDto).collect(Collectors.toCollection(ArrayList::new));
-	}
+    public List<NavireDTO> convertToDtoList(List<NavireEntity> entities) {
+        return entities.stream().map(this::convertToDto).collect(Collectors.toCollection(ArrayList::new));
+    }
 
-	@Override
-	public List<NavireEntity> convertToEntitiesList(List<NavireDTO> dtos) {
-		return dtos.stream().map(this::convertToEntity).collect(Collectors.toCollection(ArrayList::new));
-	}
+    @Override
+    public List<NavireEntity> convertToEntitiesList(List<NavireDTO> dtos) {
+        return dtos.stream().map(this::convertToEntity).collect(Collectors.toCollection(ArrayList::new));
+    }
 }

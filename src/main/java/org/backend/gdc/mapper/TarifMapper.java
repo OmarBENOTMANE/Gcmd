@@ -10,16 +10,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class TarifMapper implements Mapper<TarifDTO,TarifEntity>{
+public class TarifMapper implements Mapper<TarifDTO, TarifEntity> {
 
     @Override
     public Page<TarifDTO> convertToPageDto(Page<TarifEntity> page) {
-           return page.map(this::convertToDto);
+        return page.map(this::convertToDto);
     }
 
     @Override
     public TarifDTO convertToDto(TarifEntity entity) {
-        TarifDTO dto= new TarifDTO();
+        TarifDTO dto = new TarifDTO();
         dto.setId(entity.getId());
         return dto;
     }
@@ -32,12 +32,12 @@ public class TarifMapper implements Mapper<TarifDTO,TarifEntity>{
     }
 
     @Override
-	public List<TarifDTO> convertToDtoList(List<TarifEntity> entities) {
-		return entities.stream().map(this::convertToDto).collect(Collectors.toCollection(ArrayList::new));
-	}
+    public List<TarifDTO> convertToDtoList(List<TarifEntity> entities) {
+        return entities.stream().map(this::convertToDto).collect(Collectors.toCollection(ArrayList::new));
+    }
 
-	@Override
-	public List<TarifEntity> convertToEntitiesList(List<TarifDTO> dtos) {
-		return dtos.stream().map(this::convertToEntity).collect(Collectors.toCollection(ArrayList::new));
-	}
+    @Override
+    public List<TarifEntity> convertToEntitiesList(List<TarifDTO> dtos) {
+        return dtos.stream().map(this::convertToEntity).collect(Collectors.toCollection(ArrayList::new));
+    }
 }

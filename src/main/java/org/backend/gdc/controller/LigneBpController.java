@@ -12,37 +12,37 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/lignes_bp")
 public class LigneBpController {
-	
 
-	@Autowired
-	private LigneBpService ligneBpService;
 
-	@GetMapping("{id}")
-	public ResponseEntity<LigneBpDTO> findById(@PathVariable Long id) {
-		LigneBpDTO ligneBpDTO = ligneBpService.findById(id);
-		return ResponseEntity.status(HttpStatus.OK).body(ligneBpDTO);
-	}
+    @Autowired
+    private LigneBpService ligneBpService;
 
-	@PostMapping
-	public ResponseEntity<LigneBpDTO> save(@RequestBody LigneBpDTO ligneBpDTO) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(ligneBpService.save(ligneBpDTO));
-	}
+    @GetMapping("{id}")
+    public ResponseEntity<LigneBpDTO> findById(@PathVariable Long id) {
+        LigneBpDTO ligneBpDTO = ligneBpService.findById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(ligneBpDTO);
+    }
 
-	@PutMapping("{id}")
-	public ResponseEntity<LigneBpDTO> update(@PathVariable Long id,
-			@RequestBody LigneBpDTO ligneBpDTO) {
-		ligneBpDTO.setId(id);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(ligneBpService.update(ligneBpDTO));
-	}
+    @PostMapping
+    public ResponseEntity<LigneBpDTO> save(@RequestBody LigneBpDTO ligneBpDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(ligneBpService.save(ligneBpDTO));
+    }
 
-	@DeleteMapping("{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		ligneBpService.delete(id);
-		return new ResponseEntity<>(HttpStatus.ACCEPTED);
-	}
+    @PutMapping("{id}")
+    public ResponseEntity<LigneBpDTO> update(@PathVariable Long id,
+                                             @RequestBody LigneBpDTO ligneBpDTO) {
+        ligneBpDTO.setId(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(ligneBpService.update(ligneBpDTO));
+    }
 
-	@GetMapping
-	public ResponseEntity<Page<LigneBpDTO>> findAll(Pageable pageable) {
-		return ResponseEntity.status(HttpStatus.OK).body(ligneBpService.findAll(pageable));
-	}
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        ligneBpService.delete(id);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<LigneBpDTO>> findAll(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(ligneBpService.findAll(pageable));
+    }
 }

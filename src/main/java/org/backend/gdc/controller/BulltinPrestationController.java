@@ -12,37 +12,37 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/bulltinPrestation")
 public class BulltinPrestationController {
-	
 
-	@Autowired
-	private BulltinPrestationService bulltinPrestationService;
 
-	@GetMapping("{id}")
-	public ResponseEntity<BulltinPrestationDTO> findById(@PathVariable Long id) {
-		BulltinPrestationDTO bulltinPrestationDTO = bulltinPrestationService.findById(id);
-		return ResponseEntity.status(HttpStatus.OK).body(bulltinPrestationDTO);
-	}
+    @Autowired
+    private BulltinPrestationService bulltinPrestationService;
 
-	@PostMapping
-	public ResponseEntity<BulltinPrestationDTO> save(@RequestBody BulltinPrestationDTO bulltinPrestationDTO) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(bulltinPrestationService.save(bulltinPrestationDTO));
-	}
+    @GetMapping("{id}")
+    public ResponseEntity<BulltinPrestationDTO> findById(@PathVariable Long id) {
+        BulltinPrestationDTO bulltinPrestationDTO = bulltinPrestationService.findById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(bulltinPrestationDTO);
+    }
 
-	@PutMapping("{id}")
-	public ResponseEntity<BulltinPrestationDTO> update(@PathVariable Long id,
-			@RequestBody BulltinPrestationDTO bulltinPrestationDTO) {
-		bulltinPrestationDTO.setId(id);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(bulltinPrestationService.update(bulltinPrestationDTO));
-	}
+    @PostMapping
+    public ResponseEntity<BulltinPrestationDTO> save(@RequestBody BulltinPrestationDTO bulltinPrestationDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(bulltinPrestationService.save(bulltinPrestationDTO));
+    }
 
-	@DeleteMapping("{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		bulltinPrestationService.delete(id);
-		return new ResponseEntity<>(HttpStatus.ACCEPTED);
-	}
+    @PutMapping("{id}")
+    public ResponseEntity<BulltinPrestationDTO> update(@PathVariable Long id,
+                                                       @RequestBody BulltinPrestationDTO bulltinPrestationDTO) {
+        bulltinPrestationDTO.setId(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(bulltinPrestationService.update(bulltinPrestationDTO));
+    }
 
-	@GetMapping
-	public ResponseEntity<Page<BulltinPrestationDTO>> findAll(Pageable pageable) {
-		return ResponseEntity.status(HttpStatus.OK).body(bulltinPrestationService.findAll(pageable));
-	}
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        bulltinPrestationService.delete(id);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<BulltinPrestationDTO>> findAll(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(bulltinPrestationService.findAll(pageable));
+    }
 }
