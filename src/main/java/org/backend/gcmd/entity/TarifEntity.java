@@ -9,18 +9,16 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Table(name = "tarifs")
+@Table(name = "Gcmd_tarif")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 public class TarifEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private double tarif_ht;
+    private double tarifHt;
 
-    private double tarif_ttc;
+    private double tarifTtc;
 
 }

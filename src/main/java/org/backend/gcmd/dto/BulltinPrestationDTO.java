@@ -5,7 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.backend.gcmd.enums.typePaiementEnum;
-
+import java.time.OffsetDateTime;
+import java.time.OffsetTime;
 import java.util.Date;
 
 @Data
@@ -18,31 +19,31 @@ public class BulltinPrestationDTO {
 
     private String description;
 
-    private Date date;
+    private OffsetDateTime date;
 
-    private Date heure;
+    private OffsetTime heure;
 
-    private Integer n_dossier_prestation;
+    private Integer numeroDossierPrestation;
 
     private typePaiementEnum typePaiement;
 
-    private Integer code_client;
+    private Integer codeClient;
 
-    private String nom_client;
+    private String nomClient;
 
-    private Integer n_escale;
+    private Integer numeroEscale;
 
-    private boolean moyen_odep_client;
+    private boolean moyenOdepClient;
 
-    private Integer code_nature;
+    private Integer codeNature;
 
-    private boolean pre_validation;
+    private boolean preValidation;
 
-    private Date date_depot;
+    private Date dateDepot;
 
-    private Date date_probable_execution;
+    private Date dateProbableExecution;
 
     private String texte;
 
-    private Integer numero_cmd;
+    private Integer numeroCmd;
 }

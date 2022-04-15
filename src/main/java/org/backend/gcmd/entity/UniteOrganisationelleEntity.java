@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Table(name = "uniteorgas")
+@Table(name = "Gcmd_unite_orgaisationel")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

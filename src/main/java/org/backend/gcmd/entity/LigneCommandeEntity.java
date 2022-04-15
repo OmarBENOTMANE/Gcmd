@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-@Table(name = "lignecommandes")
+@Table(name = "Gcmd_ligne_commande")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -28,21 +28,22 @@ public class LigneCommandeEntity {
 
     private Date heure;
 
+    @Enumerated(EnumType.STRING)
     private SenstraficEnum sensTrafic;
 
     private String produit;
 
-    private String tc_suppl;
+    private String tcSuppl;
 
-    private boolean tc_conv;
+    private boolean tcConv;
 
-    private int nombre;
+    private Integer nombre;
 
-    private boolean tarif_unifie;
+    private boolean tarifUnifie;
 
-    private int tonnageReel;
+    private Integer tonnageReel;
 
-    private int tonnageMinimum;
+    private Integer tonnageMinimum;
 
     private String description;
 

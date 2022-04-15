@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Table(name = "typeclients")
+@Table(name = "Gcmd_type_client")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

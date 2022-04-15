@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Table(name = "lignedeviss")
+@Table(name = "Gcmd_ligne_devis")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -20,8 +20,8 @@ public class LigneDevisEntity {
     private Long id;
 
     private String designation;
-    private int quantite;
-    private double nombre_unite;
+    private Integer quantite;
+    private double nombreUnite;
     private double total;
 
 }

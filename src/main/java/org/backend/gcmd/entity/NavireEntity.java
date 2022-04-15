@@ -21,9 +21,9 @@ public class NavireEntity {
     private Long id;
 
     private String name;
-    private Double numero_escale;
+    private Double numeroEscale;
     private String consignataire;
-    private Date date_navire;
+    private Date dateNavire;
     private String etat;
 
 }

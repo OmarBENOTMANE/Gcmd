@@ -24,34 +24,34 @@ public class BulltinPrestationEntity {
 
     private String description;
 
-    private OffsetDateTime date;
+    private Date date;
 
-    private OffsetTime heure;
+    private Date heure;
 
-    private Integer n_dossier_prestation;
+    private Integer numeroDossierPrestation;
 
     @Enumerated(EnumType.ORDINAL)
     private typePaiementEnum typePaiement;
 
-    private Integer code_client;
+    private Integer codeClient;
 
-    private String nom_client;
+    private String nomClient;
 
     private Integer numeroEscale;
 
-    private boolean moyen_odep_client;
+    private boolean moyenOdepClient;
 
-    private Integer code_nature;
+    private Integer codeNature;
 
-    private boolean pre_validation;
+    private boolean preValidation;
 
-    private Date date_depot;
+    private Date dateDepot;
 
-    private Date date_probable_execution;
+    private Date dateProbableExecution;
 
-    private String texte;
+    private String text;
 
-    private Integer numero_cmd;
+    private Integer numeroCmd;
 
 
 }

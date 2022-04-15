@@ -13,7 +13,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-@Table(name = "deviss")
+@Table(name = "Gcmd_devis")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -23,19 +23,26 @@ public class DevisEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nom_navire;
+    private String nomNavire;
     private Date date;
-    private int bl;
-    private int nombre_colis;
+    private Integer bl;
+    private Integer nombreColis;
     private double poids;
     private String designation;
-    private ImportExportEnum import_export;
-    private MmMcEnum MM_MC;
-    private int numero_mafi;
-    private EngineColisEnum engine_colis;
-    private int numero_bon_commande;
-    private String nom_client;
-    private Date date_facturation;
-    private Date date_sortie;
+
+    @Enumerated(EnumType.STRING)
+    private ImportExportEnum importExport;
+
+    @Enumerated(EnumType.STRING)
+    private MmMcEnum MmMc;
+    private Integer numeroMafi;
+
+    @Enumerated(EnumType.STRING)
+    private EngineColisEnum engineColis;
+
+    private Integer numeroCommande;
+    private String nomClient;
+    private Date dateFacturation;
+    private Date dateSortie;
 
 }

@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Table(name = "marchandises")
+@Table(name = "Gcmd_marchandise")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

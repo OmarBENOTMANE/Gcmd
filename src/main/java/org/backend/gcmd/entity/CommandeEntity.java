@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-@Table(name = "boncommandes")
+@Table(name = "Gcmd_commande")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -20,31 +20,31 @@ public class CommandeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int numero_bc;
+    private Integer numeroBc;
 
     private String navire;
 
     private String consignataire;
 
-    private Date date_amarage;
+    private Date dateAmarage;
 
-    private Date date_desamarage;
+    private Date dateDesamarage;
 
-    private int lht;
+    private Integer lht;
 
-    private double jauge_brute;
+    private double jaugeBrute;
 
     private String poste;
 
     private String capitaine;
 
-    private int numero_escale;
+    private Integer numeroEscale;
 
-    private int mumero_credit;
+    private Integer mumeroCredit;
 
-    private int mumero_commande;
+    private Integer mumeroCommande;
 
-    private int connaissement;
+    private Integer connaissement;
 
-    private int bulletin_reception;
+    private Integer bulletinReception;
 }

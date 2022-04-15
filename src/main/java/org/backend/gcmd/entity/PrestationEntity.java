@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Table(name = "prestations")
+@Table(name = "Gcmd_prestations")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -21,9 +21,9 @@ public class PrestationEntity {
 
     private String designation;
 
-    private String type_prestation;
+    private String typePrestation;
 
-    private int type_tarif;
+    private Integer typeTarif;
 
 
 }

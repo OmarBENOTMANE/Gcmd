@@ -19,8 +19,8 @@ public class TarifDTO {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private double tarif_ht;
+    private double tarifHt;
 
-    private double tarif_ttc;
+    private double tarifTtc;
 
 }

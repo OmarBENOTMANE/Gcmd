@@ -1,26 +1,32 @@
 package org.backend.gcmd.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.backend.gcmd.enums.EngineColisEnum;
+import org.backend.gcmd.enums.ImportExportEnum;
+import org.backend.gcmd.enums.MmMcEnum;
 
 import java.util.Date;
-
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class DevisDTO {
 
     private Long id;
-    private String nom_navire;
+    private String nomNavire;
     private Date date;
-    private int BL;
-    private int nombre_colis;
+    private Integer bl;
+    private Integer nombreColis;
     private double poids;
     private String designation;
-    private boolean import_export;
-    private boolean MM_MC;
-    private int numero_mafi;
-    private boolean engins_colis;
-    private int num_bon_commande;
-    private String nom_client;
-    private Date date_facturation;
-    private Date date_sortie;
+    private ImportExportEnum importExport;
+    private MmMcEnum MmMc;
+    private Integer numeroMafi;
+    private EngineColisEnum engineColis;
+    private Integer numeroCommande;
+    private String nomClient;
+    private Date dateFacturation;
+    private Date dateSortie;
 
 }

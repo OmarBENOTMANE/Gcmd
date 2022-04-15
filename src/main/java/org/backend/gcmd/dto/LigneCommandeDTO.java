@@ -1,13 +1,15 @@
 package org.backend.gcmd.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.backend.gcmd.enums.SenstraficEnum;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class LigneCommandeDTO {
 
@@ -26,17 +28,17 @@ public class LigneCommandeDTO {
 
     private String produit;
 
-    private String tc_suppl;
+    private String tcSuppl;
 
-    private boolean tc_conv;
+    private boolean tcConv;
 
-    private int nombre;
+    private Integer nombre;
 
-    private boolean tarif_unifie;
+    private boolean tarifUnifie;
 
-    private int tonnageReel;
+    private Integer tonnageReel;
 
-    private int tonnageMinimum;
+    private Integer tonnageMinimum;
 
     private String description;
 

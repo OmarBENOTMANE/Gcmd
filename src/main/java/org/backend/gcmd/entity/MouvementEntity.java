@@ -1,22 +1,23 @@
 package org.backend.gcmd.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Getter
 @Setter
-@Table(name = "Gcmd_escale")
+@Table(name = "Gcmd_mouvement")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class EscaleEntity {
+public class MouvementEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int numeroEscale;
+
+    private String description;
+
+    private Date dateMouvement;
 }

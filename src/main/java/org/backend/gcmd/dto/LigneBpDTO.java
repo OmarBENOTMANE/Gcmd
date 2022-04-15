@@ -22,13 +22,13 @@ public class LigneBpDTO {
 
     private String tc_suppl;
 
-    private String tc_conv;
+    private boolean tc_conv;
 
-    private int nombre;
+    private Integer nombre;
 
-    private boolean tarif_unifie;
+    private boolean tarifUnifie;
 
-    private int tonnageReel;
+    private Integer tonnageReel;
 
-    private int tonnageMinimum;
+    private Integer tonnageMinimum;
 }

@@ -1,7 +1,11 @@
 package org.backend.gcmd.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class PrestationDTO {
 
@@ -9,9 +13,9 @@ public class PrestationDTO {
 
     private String designation;
 
-    private String type_prestation;
+    private String typePrestation;
 
-    private int type_tarif;
+    private Integer typeTarif;
 
 
 }

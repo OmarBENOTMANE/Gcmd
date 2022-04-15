@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-@Table(name = "lignebps")
+@Table(name = "gcmd_ligne_bp")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -35,12 +35,12 @@ public class LigneBpEntity {
 
     private boolean tc_conv;
 
-    private int nombre;
+    private Integer nombre;
 
-    private boolean tarif_unifie;
+    private boolean tarifUnifie;
 
-    private int tonnageReel;
+    private Integer tonnageReel;
 
-    private int tonnageMinimum;
+    private Integer tonnageMinimum;
 
 }
