@@ -43,4 +43,10 @@ public class CommandeDTO {
     private Integer connaissement;
 
     private Integer bulletinReception;
+
+    private Long commandeId;
+
+    private Long escaleId;
+
+    private Long devisId;
 }

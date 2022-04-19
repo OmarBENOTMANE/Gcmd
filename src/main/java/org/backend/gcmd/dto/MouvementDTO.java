@@ -7,7 +7,6 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 public class MouvementDTO {
 
     private Long id;
@@ -15,4 +14,6 @@ public class MouvementDTO {
     private String description;
 
     private Date dateMouvement;
+
+    private Long navirId;
 }

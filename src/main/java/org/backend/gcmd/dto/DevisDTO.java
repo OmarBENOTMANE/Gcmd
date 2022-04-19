@@ -29,4 +29,6 @@ public class DevisDTO {
     private Date dateFacturation;
     private Date dateSortie;
 
+    private Long escaleId;
+    private Long devisId;
 }

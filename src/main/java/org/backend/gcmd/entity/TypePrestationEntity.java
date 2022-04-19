@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,5 +22,9 @@ public class TypePrestationEntity {
 
     private String name;
 
+    @OneToMany(mappedBy = "typeprestation")
+    private List<SousTypePrestationEntity> soustypeprestations;
 
+    @OneToMany(mappedBy = "uniteorganisationel")
+    private List<UniteOrganisationelleEntity> uniteOrgaisationels;
 }

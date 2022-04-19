@@ -23,4 +23,6 @@ public class TarifDTO {
 
     private double tarifTtc;
 
+    private Long prestationId;
+
 }

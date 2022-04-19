@@ -19,4 +19,5 @@ public class ClientDTO {
 
     private String phone;
 
+    private Long clientId;
 }

@@ -12,4 +12,8 @@ public class SousTypePrestationDTO {
     private Long id;
 
     private String name;
+
+    private Long typeprestationId;
+
+
 }

@@ -15,10 +15,19 @@ import javax.persistence.*;
 @Entity
 public class TarifEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private double tarifHt;
 
     private double tarifTtc;
+
+    @Column(name = "prestation_id")
+    private Long prestationId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "prestation_id", nullable = false)
+    private PrestationEntity prestation;
 
 }

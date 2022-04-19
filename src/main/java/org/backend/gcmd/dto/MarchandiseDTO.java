@@ -17,4 +17,7 @@ public class MarchandiseDTO {
     private String Designation;
     private String reference;
     private double quantite;
+
+    @Column(name = "escale_id")
+    private Long escaleId;
 }

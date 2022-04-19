@@ -46,4 +46,6 @@ public class BulltinPrestationDTO {
     private String texte;
 
     private Integer numeroCmd;
+
+
 }

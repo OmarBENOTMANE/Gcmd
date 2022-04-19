@@ -5,10 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.backend.gcmd.enums.typePaiementEnum;
-import java.time.OffsetDateTime;
-import java.time.OffsetTime;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -53,5 +52,9 @@ public class BulltinPrestationEntity {
 
     private Integer numeroCmd;
 
+    @OneToMany(mappedBy = "bulltinprestation",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private List<LigneBpEntity> bulltinprestations;
 
+    @OneToMany(mappedBy = "commande")
+    private List<CommandeEntity> commandes;
 }

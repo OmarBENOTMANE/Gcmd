@@ -10,6 +10,7 @@ import org.backend.gcmd.enums.MmMcEnum;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -45,4 +46,23 @@ public class DevisEntity {
     private Date dateFacturation;
     private Date dateSortie;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "escale_id", nullable = false)
+    private EscaleEntity escale;
+
+    @Column(name = "escale_id")
+    private Long escaleId;
+
+    @OneToMany(mappedBy = "devis")
+    private List<CommandeEntity> commandes;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "devis_id", nullable = false)
+    private ClientEntity devis;
+
+    @Column(name = "devis_id")
+    private Long devisId;
+
+    @OneToMany(mappedBy = "devis")
+    private List<LigneDevisEntity> ligneDevis;
 }

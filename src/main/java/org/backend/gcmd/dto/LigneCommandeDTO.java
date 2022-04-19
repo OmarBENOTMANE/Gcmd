@@ -42,4 +42,6 @@ public class LigneCommandeDTO {
 
     private String description;
 
+    private Long commandeId;
+
 }

@@ -31,9 +31,9 @@ public class LigneBpEntity {
 
     private String produit;
 
-    private String tc_suppl;
+    private String tcSuppl;
 
-    private boolean tc_conv;
+    private boolean tcConv;
 
     private Integer nombre;
 
@@ -42,5 +42,12 @@ public class LigneBpEntity {
     private Integer tonnageReel;
 
     private Integer tonnageMinimum;
+
+    @Column(name = "bulltinprestation_id")
+    private Long bulltinprestationId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "bulltinprestation_id", nullable = false)
+    private BulltinPrestationEntity bulltinprestation;
 
 }

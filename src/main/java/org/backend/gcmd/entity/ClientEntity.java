@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -25,4 +27,13 @@ public class ClientEntity {
 
     private String phone;
 
+    @Column(name = "client_id")
+    private Long clientId;
+
+    @OneToMany(mappedBy = "devis")
+    private List<DevisEntity> devis;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id", nullable = false)
+    private TypeClientEntity client;
 }

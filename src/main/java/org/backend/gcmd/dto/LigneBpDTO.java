@@ -20,9 +20,9 @@ public class LigneBpDTO {
 
     private String produit;
 
-    private String tc_suppl;
+    private String tcSuppl;
 
-    private boolean tc_conv;
+    private boolean tcConv;
 
     private Integer nombre;
 
@@ -31,4 +31,6 @@ public class LigneBpDTO {
     private Integer tonnageReel;
 
     private Integer tonnageMinimum;
+
+    private Long bulltinprestationId;
 }

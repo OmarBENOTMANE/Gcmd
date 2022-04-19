@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,5 +26,11 @@ public class NavireEntity {
     private String consignataire;
     private Date dateNavire;
     private String etat;
+
+    @OneToMany(mappedBy = "navir")
+    private List<MouvementEntity> mouvements;
+
+    @OneToMany(mappedBy = "navire")
+    private List<EscaleEntity> escales;
 
 }

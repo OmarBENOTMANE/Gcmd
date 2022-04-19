@@ -45,4 +45,5 @@ public class BulltinPrestationController {
     public ResponseEntity<Page<BulltinPrestationDTO>> findAll(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(bulltinPrestationService.findAll(pageable));
     }
+
 }

@@ -20,4 +20,11 @@ public class MouvementEntity {
     private String description;
 
     private Date dateMouvement;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "navir_id", nullable = false)
+    private NavireEntity navir;
+
+    @Column(name = "navir_id")
+    private Long navirId;
 }

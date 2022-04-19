@@ -17,4 +17,7 @@ public class LigneDevisDTO {
     private double nombreUnite;
     private double total;
 
+    private Long prestationId;
+    private Long devisId;
+
 }

@@ -24,4 +24,11 @@ public class UniteOrganisationelleEntity {
     private String type;
 
     private String description;
+
+    @Column(name = "uniteorganisationel_id")
+    private Long uniteorganisationelId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "uniteorganisationel_id", nullable = false)
+    private TypePrestationEntity uniteorganisationel;
 }

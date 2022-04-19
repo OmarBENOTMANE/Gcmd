@@ -24,4 +24,19 @@ public class LigneDevisEntity {
     private double nombreUnite;
     private double total;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "devis_id", nullable = false)
+    private DevisEntity devis;
+
+    @Column(name = "devis_id")
+    private Long devisId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "prestation_id", nullable = false)
+    private PrestationEntity prestation;
+
+    @Column(name = "prestation_id")
+    private Long prestationId;
+
+
 }

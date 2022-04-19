@@ -47,4 +47,10 @@ public class LigneCommandeEntity {
 
     private String description;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "commande_id", nullable = false)
+    private CommandeEntity commande;
+
+    @Column(name = "commande_id")
+    private Long commandeId;
 }

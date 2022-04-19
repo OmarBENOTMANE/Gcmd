@@ -16,4 +16,6 @@ public class UniteOrganisationnelleDTO {
     private String type;
 
     private String description;
+
+    private Long uniteorganisationelId;
 }

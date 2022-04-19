@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,5 +22,6 @@ public class TypeClientEntity {
 
     private String name;
 
-
+    @OneToMany(mappedBy = "client")
+    private List<ClientEntity> clients;
 }
