@@ -9,7 +9,7 @@ import org.backend.gcmd.enums.ImportExportEnum;
 import org.backend.gcmd.enums.MmMcEnum;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -25,10 +25,10 @@ public class DevisEntity {
     private Long id;
 
     private String nomNavire;
-    private Date date;
+    private LocalDate date;
     private Integer bl;
     private Integer nombreColis;
-    private double poids;
+    private Double poids;
     private String designation;
 
     @Enumerated(EnumType.STRING)
@@ -43,14 +43,14 @@ public class DevisEntity {
 
     private Integer numeroCommande;
     private String nomClient;
-    private Date dateFacturation;
-    private Date dateSortie;
+    private LocalDate dateFacturation;
+    private LocalDate dateSortie;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "escale_id", nullable = false)
     private EscaleEntity escale;
 
-    @Column(name = "escale_id")
+    @Column(name = "escale_id",insertable=false ,updatable = false)
     private Long escaleId;
 
     @OneToMany(mappedBy = "devis")
@@ -60,7 +60,7 @@ public class DevisEntity {
     @JoinColumn(name = "devis_id", nullable = false)
     private ClientEntity devis;
 
-    @Column(name = "devis_id")
+    @Column(name = "devis_id",insertable=false ,updatable = false)
     private Long devisId;
 
     @OneToMany(mappedBy = "devis")

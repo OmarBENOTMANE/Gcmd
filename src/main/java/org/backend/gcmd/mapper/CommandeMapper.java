@@ -21,6 +21,23 @@ public class CommandeMapper implements Mapper<CommandeDTO, CommandeEntity> {
     public CommandeDTO convertToDto(CommandeEntity entity) {
         CommandeDTO dto = new CommandeDTO();
         dto.setId(entity.getId());
+        dto.setBulletinReception(entity.getBulletinReception());
+        dto.setCapitaine(entity.getCapitaine());
+        dto.setConnaissement(entity.getConnaissement());
+        dto.setConsignataire(entity.getConsignataire());
+        dto.setDateAmarage(entity.getDateAmarage());
+        dto.setDateDesamarage(entity.getDateDesamarage());
+        dto.setJaugeBrute(entity.getJaugeBrute());
+        dto.setLht(entity.getLht());
+        dto.setMumeroCommande(entity.getMumeroCommande());
+        dto.setMumeroCredit(entity.getMumeroCredit());
+        dto.setNavire(entity.getNavire());
+        dto.setNumeroBc(entity.getNumeroBc());
+        dto.setNumeroEscale(entity.getNumeroEscale());
+        dto.setPoste(entity.getPoste());
+        dto.setCommandeId(entity.getCommandeId());
+        dto.setEscaleId(entity.getEscaleId());
+        dto.setDevisId(entity.getDevisId());
         return dto;
     }
 
@@ -28,6 +45,23 @@ public class CommandeMapper implements Mapper<CommandeDTO, CommandeEntity> {
     public CommandeEntity convertToEntity(CommandeDTO dto) {
         CommandeEntity entity = new CommandeEntity();
         entity.setId(dto.getId());
+        entity.setBulletinReception(dto.getBulletinReception());
+        entity.setCapitaine(dto.getCapitaine());
+        entity.setConnaissement(dto.getConnaissement());
+        entity.setConsignataire(dto.getConsignataire());
+        entity.setDateAmarage(dto.getDateAmarage());
+        entity.setDateDesamarage(dto.getDateDesamarage());
+        entity.setJaugeBrute(dto.getJaugeBrute());
+        entity.setLht(dto.getLht());
+        entity.setMumeroCommande(dto.getMumeroCommande());
+        entity.setMumeroCredit(dto.getMumeroCredit());
+        entity.setNavire(dto.getNavire());
+        entity.setNumeroBc(dto.getNumeroBc());
+        entity.setNumeroEscale(dto.getNumeroEscale());
+        entity.setPoste(dto.getPoste());
+        entity.setCommandeId(dto.getCommandeId());
+        entity.setEscaleId(dto.getEscaleId());
+        entity.setDevisId(dto.getDevisId());
         return entity;
     }
 

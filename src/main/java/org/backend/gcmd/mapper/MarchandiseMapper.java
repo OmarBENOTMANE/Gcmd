@@ -21,6 +21,10 @@ public class MarchandiseMapper implements Mapper<MarchandiseDTO, MarchandiseEnti
     public MarchandiseDTO convertToDto(MarchandiseEntity entity) {
         MarchandiseDTO dto = new MarchandiseDTO();
         dto.setId(entity.getId());
+        dto.setDesignation(entity.getDesignation());
+        dto.setQuantite(entity.getQuantite());
+        dto.setReference(entity.getReference());
+        dto.setEscaleId(entity.getEscaleId());
         return dto;
     }
 
@@ -28,6 +32,10 @@ public class MarchandiseMapper implements Mapper<MarchandiseDTO, MarchandiseEnti
     public MarchandiseEntity convertToEntity(MarchandiseDTO dto) {
         MarchandiseEntity entity = new MarchandiseEntity();
         entity.setId(dto.getId());
+        entity.setDesignation(dto.getDesignation());
+        entity.setQuantite(dto.getQuantite());
+        entity.setReference(dto.getReference());
+        entity.setEscaleId(dto.getEscaleId());
         return entity;
     }
 

@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 
 @NoArgsConstructor
@@ -22,13 +22,13 @@ public class CommandeDTO {
 
     private String consignataire;
 
-    private Date dateAmarage;
+    private LocalDate dateAmarage;
 
-    private Date dateDesamarage;
+    private LocalDate dateDesamarage;
 
     private Integer lht;
 
-    private double jaugeBrute;
+    private Double jaugeBrute;
 
     private String poste;
 

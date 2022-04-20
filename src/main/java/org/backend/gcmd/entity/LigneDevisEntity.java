@@ -21,21 +21,21 @@ public class LigneDevisEntity {
 
     private String designation;
     private Integer quantite;
-    private double nombreUnite;
-    private double total;
+    private Double nombreUnite;
+    private Double total;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "devis_id", nullable = false)
     private DevisEntity devis;
 
-    @Column(name = "devis_id")
+    @Column(name = "devis_id",insertable=false ,updatable = false)
     private Long devisId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "prestation_id", nullable = false)
     private PrestationEntity prestation;
 
-    @Column(name = "prestation_id")
+    @Column(name = "prestation_id",insertable=false ,updatable = false)
     private Long prestationId;
 
 

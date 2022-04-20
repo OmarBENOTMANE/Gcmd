@@ -1,9 +1,9 @@
 package org.backend.gcmd.service;
 
+import org.backend.gcmd.mapper.BulltinPrestationMapper;
 import org.backend.gcmd.dto.BulltinPrestationDTO;
 import org.backend.gcmd.entity.BulltinPrestationEntity;
 import org.backend.gcmd.exceptions.technical.ObjectNotFoundException;
-import org.backend.gcmd.mapper.BulltinPrestationMapper;
 import org.backend.gcmd.repository.BulltinPrestationRepository;
 import org.backend.gcmd.validator.Validate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +18,15 @@ import java.util.Optional;
 @Transactional
 public class BulltinPrestationService {
 
-    @Autowired
-    private BulltinPrestationRepository bulltinPrestationRepository;
+
+    private final BulltinPrestationRepository bulltinPrestationRepository;
 
     @Autowired
     private BulltinPrestationMapper bulltinPrestationMapper;
+
+    public BulltinPrestationService(BulltinPrestationRepository bulltinPrestationRepository) {
+        this.bulltinPrestationRepository = bulltinPrestationRepository;
+    }
 
     public BulltinPrestationDTO findById(Long id) {
         Validate.notNull(id, "id mus be not null");

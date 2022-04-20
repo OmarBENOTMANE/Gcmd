@@ -7,7 +7,8 @@ import lombok.Setter;
 import org.backend.gcmd.enums.SenstraficEnum;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -23,9 +24,9 @@ public class LigneBpEntity {
 
     private String prestation;
 
-    private Date date;
+    private LocalDate date;
 
-    private Date heure;
+    private LocalTime heure;
 
     private SenstraficEnum sensTrafic;
 
@@ -33,17 +34,17 @@ public class LigneBpEntity {
 
     private String tcSuppl;
 
-    private boolean tcConv;
+    private Boolean tcConv;
 
     private Integer nombre;
 
-    private boolean tarifUnifie;
+    private Boolean tarifUnifie;
 
     private Integer tonnageReel;
 
     private Integer tonnageMinimum;
 
-    @Column(name = "bulltinprestation_id")
+    @Column(name = "bulltinprestation_id",insertable=false ,updatable = false)
     private Long bulltinprestationId;
 
     @ManyToOne(fetch = FetchType.LAZY)

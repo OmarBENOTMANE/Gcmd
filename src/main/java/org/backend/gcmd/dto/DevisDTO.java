@@ -7,7 +7,7 @@ import org.backend.gcmd.enums.EngineColisEnum;
 import org.backend.gcmd.enums.ImportExportEnum;
 import org.backend.gcmd.enums.MmMcEnum;
 
-import java.util.Date;
+import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -15,10 +15,10 @@ public class DevisDTO {
 
     private Long id;
     private String nomNavire;
-    private Date date;
+    private LocalDate date;
     private Integer bl;
     private Integer nombreColis;
-    private double poids;
+    private Double poids;
     private String designation;
     private ImportExportEnum importExport;
     private MmMcEnum MmMc;
@@ -26,8 +26,8 @@ public class DevisDTO {
     private EngineColisEnum engineColis;
     private Integer numeroCommande;
     private String nomClient;
-    private Date dateFacturation;
-    private Date dateSortie;
+    private LocalDate dateFacturation;
+    private LocalDate dateSortie;
 
     private Long escaleId;
     private Long devisId;

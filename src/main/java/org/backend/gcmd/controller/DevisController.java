@@ -2,7 +2,6 @@ package org.backend.gcmd.controller;
 
 import org.backend.gcmd.dto.DevisDTO;
 import org.backend.gcmd.service.DevisService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -13,9 +12,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/devis")
 public class DevisController {
 
+    private final DevisService devisService;
 
-    @Autowired
-    private DevisService devisService;
+    public DevisController(DevisService devisService) {
+        this.devisService = devisService;
+    }
 
     @GetMapping("{id}")
     public ResponseEntity<DevisDTO> findById(@PathVariable Long id) {

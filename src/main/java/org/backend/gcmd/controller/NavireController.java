@@ -2,7 +2,6 @@ package org.backend.gcmd.controller;
 
 import org.backend.gcmd.dto.NavireDTO;
 import org.backend.gcmd.service.NavireService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -13,9 +12,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/navires")
 public class NavireController {
 
+    private final NavireService navireService;
 
-    @Autowired
-    private NavireService navireService;
+    public NavireController(NavireService navireService) {
+        this.navireService = navireService;
+    }
 
     @GetMapping("{id}")
     public ResponseEntity<NavireDTO> findById(@PathVariable Long id) {

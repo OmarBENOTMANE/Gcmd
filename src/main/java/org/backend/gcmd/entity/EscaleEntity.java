@@ -19,9 +19,9 @@ public class EscaleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int numeroEscale;
+    private Integer numeroEscale;
 
-    @Column(name = "navire_id")
+    @Column(name = "navire_id",insertable=false ,updatable = false)
     private Long navireId;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -7,7 +7,8 @@ import lombok.Setter;
 import org.backend.gcmd.enums.SenstraficEnum;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -24,9 +25,9 @@ public class LigneCommandeEntity {
 
     private String prestation;
 
-    private Date date;
+    private LocalDate date;
 
-    private Date heure;
+    private LocalTime heure;
 
     @Enumerated(EnumType.STRING)
     private SenstraficEnum sensTrafic;
@@ -35,11 +36,11 @@ public class LigneCommandeEntity {
 
     private String tcSuppl;
 
-    private boolean tcConv;
+    private Boolean tcConv;
 
     private Integer nombre;
 
-    private boolean tarifUnifie;
+    private Boolean tarifUnifie;
 
     private Integer tonnageReel;
 
@@ -51,6 +52,6 @@ public class LigneCommandeEntity {
     @JoinColumn(name = "commande_id", nullable = false)
     private CommandeEntity commande;
 
-    @Column(name = "commande_id")
+    @Column(name = "commande_id",insertable=false ,updatable = false)
     private Long commandeId;
 }

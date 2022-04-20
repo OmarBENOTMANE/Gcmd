@@ -13,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class UniteOrganisationelleEntity {
+public class UniteOrganisationelEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ public class UniteOrganisationelleEntity {
 
     private String description;
 
-    @Column(name = "uniteorganisationel_id")
+    @Column(name = "uniteorganisationel_id",insertable=false ,updatable = false)
     private Long uniteorganisationelId;
 
     @ManyToOne(fetch = FetchType.LAZY)

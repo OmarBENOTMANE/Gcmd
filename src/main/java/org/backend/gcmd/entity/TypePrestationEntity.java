@@ -26,5 +26,5 @@ public class TypePrestationEntity {
     private List<SousTypePrestationEntity> soustypeprestations;
 
     @OneToMany(mappedBy = "uniteorganisationel")
-    private List<UniteOrganisationelleEntity> uniteOrgaisationels;
+    private List<UniteOrganisationelEntity> uniteOrgaisationels;
 }

@@ -21,6 +21,11 @@ public class NavireMapper implements Mapper<NavireDTO, NavireEntity> {
     public NavireDTO convertToDto(NavireEntity entity) {
         NavireDTO dto = new NavireDTO();
         dto.setId(entity.getId());
+        dto.setConsignataire(entity.getConsignataire());
+        dto.setDateNavire(entity.getDateNavire());
+        dto.setEtat(entity.getEtat());
+        dto.setName(entity.getName());
+        dto.setNumeroEscale(entity.getNumeroEscale());
         return dto;
     }
 
@@ -28,6 +33,11 @@ public class NavireMapper implements Mapper<NavireDTO, NavireEntity> {
     public NavireEntity convertToEntity(NavireDTO dto) {
         NavireEntity entity = new NavireEntity();
         entity.setId(dto.getId());
+        entity.setConsignataire(dto.getConsignataire());
+        entity.setDateNavire(dto.getDateNavire());
+        entity.setEtat(dto.getEtat());
+        entity.setName(dto.getName());
+        entity.setNumeroEscale(dto.getNumeroEscale());
         return entity;
     }
 

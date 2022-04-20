@@ -2,7 +2,6 @@ package org.backend.gcmd.controller;
 
 import org.backend.gcmd.dto.LigneDevisDTO;
 import org.backend.gcmd.service.LigneDevisService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -13,9 +12,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/lignes_devis")
 public class LigneDevisController {
 
+    private final LigneDevisService ligneDevisService;
 
-    @Autowired
-    private LigneDevisService ligneDevisService;
+    public LigneDevisController(LigneDevisService ligneDevisService) {
+        this.ligneDevisService = ligneDevisService;
+    }
 
     @GetMapping("{id}")
     public ResponseEntity<LigneDevisDTO> findById(@PathVariable Long id) {

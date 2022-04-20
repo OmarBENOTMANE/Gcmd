@@ -15,6 +15,6 @@ public class EscaleDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int numeroEscale;
+    private Integer numeroEscale;
     private Long navireId;
 }

@@ -21,6 +21,13 @@ public class LigneDevisMapper implements Mapper<LigneDevisDTO, LigneDevisEntity>
     public LigneDevisDTO convertToDto(LigneDevisEntity entity) {
         LigneDevisDTO dto = new LigneDevisDTO();
         dto.setId(entity.getId());
+        dto.setId(entity.getId());
+        dto.setDesignation(entity.getDesignation());
+        dto.setNombreUnite(entity.getNombreUnite());
+        dto.setQuantite(entity.getQuantite());
+        dto.setTotal(entity.getTotal());
+        dto.setDevisId(entity.getDevisId());
+        dto.setPrestationId(entity.getPrestationId());
         return dto;
     }
 
@@ -28,6 +35,12 @@ public class LigneDevisMapper implements Mapper<LigneDevisDTO, LigneDevisEntity>
     public LigneDevisEntity convertToEntity(LigneDevisDTO dto) {
         LigneDevisEntity entity = new LigneDevisEntity();
         entity.setId(dto.getId());
+        entity.setDesignation(dto.getDesignation());
+        entity.setNombreUnite(dto.getNombreUnite());
+        entity.setQuantite(dto.getQuantite());
+        entity.setTotal(dto.getTotal());
+        entity.setDevisId(dto.getDevisId());
+        entity.setPrestationId(dto.getPrestationId());
         return entity;
     }
 

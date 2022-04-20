@@ -1,8 +1,10 @@
 package org.backend.gcmd.dto;
 
-import lombok.*;
-import javax.persistence.*;
-import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -13,7 +15,7 @@ public class MouvementDTO {
 
     private String description;
 
-    private Date dateMouvement;
+    private LocalDate dateMouvement;
 
     private Long navirId;
 }

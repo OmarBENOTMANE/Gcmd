@@ -21,6 +21,8 @@ public class EscaleMapper implements Mapper<EscaleDTO, EscaleEntity> {
     public EscaleDTO convertToDto(EscaleEntity entity) {
         EscaleDTO dto = new EscaleDTO();
         dto.setId(entity.getId());
+        dto.setNumeroEscale(entity.getNumeroEscale());
+        dto.setNavireId(entity.getNavireId());
         return dto;
     }
 
@@ -28,6 +30,8 @@ public class EscaleMapper implements Mapper<EscaleDTO, EscaleEntity> {
     public EscaleEntity convertToEntity(EscaleDTO dto) {
         EscaleEntity entity = new EscaleEntity();
         entity.setId(dto.getId());
+        entity.setNumeroEscale(dto.getNumeroEscale());
+        entity.setNavireId(dto.getNavireId());
         return entity;
     }
 

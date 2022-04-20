@@ -21,6 +21,22 @@ public class DevisMapper implements Mapper<DevisDTO, DevisEntity> {
     public DevisDTO convertToDto(DevisEntity entity) {
         DevisDTO dto = new DevisDTO();
         dto.setId(entity.getId());
+        dto.setMmMc(entity.getMmMc());
+        dto.setBl(entity.getBl());
+        dto.setDate(entity.getDate());
+        dto.setDateFacturation(entity.getDateFacturation());
+        dto.setDateSortie(entity.getDateSortie());
+        dto.setDesignation(entity.getDesignation());
+        dto.setEngineColis(entity.getEngineColis());
+        dto.setImportExport(entity.getImportExport());
+        dto.setNomClient(entity.getNomClient());
+        dto.setNomNavire(entity.getNomNavire());
+        dto.setNombreColis(entity.getNombreColis());
+        dto.setNumeroCommande(entity.getNumeroCommande());
+        dto.setNumeroMafi(entity.getNumeroMafi());
+        dto.setPoids(entity.getPoids());
+        dto.setEscaleId(entity.getEscaleId());
+        dto.setDevisId(entity.getDevisId());
         return dto;
     }
 
@@ -28,6 +44,22 @@ public class DevisMapper implements Mapper<DevisDTO, DevisEntity> {
     public DevisEntity convertToEntity(DevisDTO dto) {
         DevisEntity entity = new DevisEntity();
         entity.setId(dto.getId());
+        entity.setMmMc(dto.getMmMc());
+        entity.setBl(dto.getBl());
+        entity.setDate(dto.getDate());
+        entity.setDateFacturation(dto.getDateFacturation());
+        entity.setDateSortie(dto.getDateSortie());
+        entity.setDesignation(dto.getDesignation());
+        entity.setEngineColis(dto.getEngineColis());
+        entity.setImportExport(dto.getImportExport());
+        entity.setNomClient(dto.getNomClient());
+        entity.setNomNavire(dto.getNomNavire());
+        entity.setNombreColis(dto.getNombreColis());
+        entity.setNumeroCommande(dto.getNumeroCommande());
+        entity.setNumeroMafi(dto.getNumeroMafi());
+        entity.setPoids(dto.getPoids());
+        entity.setEscaleId(dto.getEscaleId());
+        entity.setDevisId(dto.getDevisId());
         return entity;
     }
 

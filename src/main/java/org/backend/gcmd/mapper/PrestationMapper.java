@@ -21,6 +21,10 @@ public class PrestationMapper implements Mapper<PrestationDTO, PrestationEntity>
     public PrestationDTO convertToDto(PrestationEntity entity) {
         PrestationDTO dto = new PrestationDTO();
         dto.setId(entity.getId());
+        dto.setDesignation(entity.getDesignation());
+        dto.setTypePrestation(entity.getTypePrestation());
+        dto.setTypeTarif(entity.getTypeTarif());
+        dto.setSoustypeprestationId(entity.getSoustypeprestationId());
         return dto;
     }
 
@@ -28,6 +32,10 @@ public class PrestationMapper implements Mapper<PrestationDTO, PrestationEntity>
     public PrestationEntity convertToEntity(PrestationDTO dto) {
         PrestationEntity entity = new PrestationEntity();
         entity.setId(dto.getId());
+        entity.setDesignation(dto.getDesignation());
+        entity.setTypePrestation(dto.getTypePrestation());
+        entity.setTypeTarif(dto.getTypeTarif());
+        entity.setSoustypeprestationId(dto.getSoustypeprestationId());
         return entity;
     }
 

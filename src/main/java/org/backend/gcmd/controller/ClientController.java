@@ -2,7 +2,6 @@ package org.backend.gcmd.controller;
 
 import org.backend.gcmd.dto.ClientDTO;
 import org.backend.gcmd.service.ClientService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -14,8 +13,11 @@ import org.springframework.web.bind.annotation.*;
 public class ClientController {
 
 
-    @Autowired
-    private ClientService clientService;
+    private final ClientService clientService;
+
+    public ClientController(ClientService clientService) {
+        this.clientService = clientService;
+    }
 
     @GetMapping("{id}")
     public ResponseEntity<ClientDTO> findById(@PathVariable Long id) {

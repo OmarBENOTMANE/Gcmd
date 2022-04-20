@@ -37,6 +37,6 @@ public class PrestationEntity {
     @JoinColumn(name = "soustypeprestation_id", nullable = false)
     private SousTypePrestationEntity soustypeprestation;
 
-    @Column(name = "soustypeprestation_id")
+    @Column(name = "soustypeprestation_id",insertable=false ,updatable = false)
     private Long soustypeprestationId;
 }

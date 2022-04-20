@@ -1,9 +1,9 @@
 package org.backend.gcmd.service;
 
+import org.backend.gcmd.mapper.ClientMapper;
 import org.backend.gcmd.dto.ClientDTO;
 import org.backend.gcmd.entity.ClientEntity;
 import org.backend.gcmd.exceptions.technical.ObjectNotFoundException;
-import org.backend.gcmd.mapper.ClientMapper;
 import org.backend.gcmd.repository.ClientRepository;
 import org.backend.gcmd.validator.Validate;
 import org.springframework.beans.factory.annotation.Autowired;

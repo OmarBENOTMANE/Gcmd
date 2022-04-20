@@ -2,7 +2,6 @@ package org.backend.gcmd.controller;
 
 import org.backend.gcmd.dto.EscaleDTO;
 import org.backend.gcmd.service.EscaleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -13,9 +12,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/escales")
 public class EscaleController {
 
+    private final EscaleService escaleService;
 
-    @Autowired
-    private EscaleService escaleService;
+    public EscaleController(EscaleService escaleService) {
+        this.escaleService = escaleService;
+    }
 
     @GetMapping("{id}")
     public ResponseEntity<EscaleDTO> findById(@PathVariable Long id) {

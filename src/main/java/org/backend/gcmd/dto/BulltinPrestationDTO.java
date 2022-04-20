@@ -5,9 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.backend.gcmd.enums.typePaiementEnum;
-import java.time.OffsetDateTime;
-import java.time.OffsetTime;
-import java.util.Date;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Data
 @Builder
@@ -19,9 +19,9 @@ public class BulltinPrestationDTO {
 
     private String description;
 
-    private OffsetDateTime date;
+    private LocalDate date;
 
-    private OffsetTime heure;
+    private LocalTime heure;
 
     private Integer numeroDossierPrestation;
 
@@ -33,17 +33,17 @@ public class BulltinPrestationDTO {
 
     private Integer numeroEscale;
 
-    private boolean moyenOdepClient;
+    private Boolean moyenOdepClient;
 
     private Integer codeNature;
 
-    private boolean preValidation;
+    private Boolean preValidation;
 
-    private Date dateDepot;
+    private LocalDate dateDepot;
 
-    private Date dateProbableExecution;
+    private LocalDate dateProbableExecution;
 
-    private String texte;
+    private String text;
 
     private Integer numeroCmd;
 

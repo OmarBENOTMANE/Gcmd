@@ -19,11 +19,11 @@ public class TarifEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private double tarifHt;
+    private Double tarifHt;
 
-    private double tarifTtc;
+    private Double tarifTtc;
 
-    @Column(name = "prestation_id")
+    @Column(name = "prestation_id",insertable=false ,updatable = false)
     private Long prestationId;
 
     @ManyToOne(fetch = FetchType.LAZY)

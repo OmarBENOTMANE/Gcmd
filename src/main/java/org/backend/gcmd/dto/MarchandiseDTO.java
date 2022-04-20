@@ -1,9 +1,13 @@
 package org.backend.gcmd.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 
 @NoArgsConstructor
@@ -16,7 +20,7 @@ public class MarchandiseDTO {
     private Long id;
     private String Designation;
     private String reference;
-    private double quantite;
+    private Double quantite;
 
     @Column(name = "escale_id")
     private Long escaleId;

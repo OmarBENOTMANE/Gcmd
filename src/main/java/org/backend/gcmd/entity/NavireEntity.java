@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -24,7 +24,7 @@ public class NavireEntity {
     private String name;
     private Double numeroEscale;
     private String consignataire;
-    private Date dateNavire;
+    private LocalDate dateNavire;
     private String etat;
 
     @OneToMany(mappedBy = "navir")

@@ -5,8 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.backend.gcmd.enums.typePaiementEnum;
+
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Getter
@@ -23,9 +25,9 @@ public class BulltinPrestationEntity {
 
     private String description;
 
-    private Date date;
+    private LocalDate date;
 
-    private Date heure;
+    private LocalTime heure;
 
     private Integer numeroDossierPrestation;
 
@@ -38,15 +40,15 @@ public class BulltinPrestationEntity {
 
     private Integer numeroEscale;
 
-    private boolean moyenOdepClient;
+    private Boolean moyenOdepClient;
 
     private Integer codeNature;
 
-    private boolean preValidation;
+    private Boolean preValidation;
 
-    private Date dateDepot;
+    private LocalDate dateDepot;
 
-    private Date dateProbableExecution;
+    private LocalDate dateProbableExecution;
 
     private String text;
 
@@ -57,4 +59,6 @@ public class BulltinPrestationEntity {
 
     @OneToMany(mappedBy = "commande")
     private List<CommandeEntity> commandes;
-}
+
+
+    }

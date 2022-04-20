@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class UniteOrganisationnelleDTO {
+public class UniteOrganisationelDTO {
 
     private Long id;
 

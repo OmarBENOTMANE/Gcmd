@@ -21,6 +21,18 @@ public class LigneBpMapper implements Mapper<LigneBpDTO, LigneBpEntity> {
     public LigneBpDTO convertToDto(LigneBpEntity entity) {
         LigneBpDTO dto = new LigneBpDTO();
         dto.setId(entity.getId());
+        dto.setDate(entity.getDate());
+        dto.setHeure(entity.getHeure());
+        dto.setNombre(entity.getNombre());
+        dto.setPrestation(entity.getPrestation());
+        dto.setProduit(entity.getProduit());
+        dto.setSensTrafic(entity.getSensTrafic());
+        dto.setTarifUnifie(entity.getTarifUnifie());
+        dto.setTcConv(entity.getTcConv());
+        dto.setTcSuppl(entity.getTcSuppl());
+        dto.setTonnageMinimum(entity.getTonnageMinimum());
+        dto.setTonnageReel(entity.getTonnageReel());
+        dto.setBulltinprestationId(entity.getBulltinprestationId());
         return dto;
     }
 
@@ -28,6 +40,18 @@ public class LigneBpMapper implements Mapper<LigneBpDTO, LigneBpEntity> {
     public LigneBpEntity convertToEntity(LigneBpDTO dto) {
         LigneBpEntity entity = new LigneBpEntity();
         entity.setId(dto.getId());
+        entity.setDate(dto.getDate());
+        entity.setHeure(dto.getHeure());
+        entity.setNombre(dto.getNombre());
+        entity.setPrestation(dto.getPrestation());
+        entity.setProduit(dto.getProduit());
+        entity.setSensTrafic(dto.getSensTrafic());
+        entity.setTarifUnifie(dto.getTarifUnifie());
+        entity.setTcConv(dto.getTcConv());
+        entity.setTcSuppl(dto.getTcSuppl());
+        entity.setTonnageMinimum(dto.getTonnageMinimum());
+        entity.setTonnageReel(dto.getTonnageReel());
+        entity.setBulltinprestationId(dto.getBulltinprestationId());
         return entity;
     }
 

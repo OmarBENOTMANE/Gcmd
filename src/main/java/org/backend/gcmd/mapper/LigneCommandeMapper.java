@@ -21,6 +21,19 @@ public class LigneCommandeMapper implements Mapper<LigneCommandeDTO, LigneComman
     public LigneCommandeDTO convertToDto(LigneCommandeEntity entity) {
         LigneCommandeDTO dto = new LigneCommandeDTO();
         dto.setId(entity.getId());
+        dto.setDate(entity.getDate());
+        dto.setDescription(entity.getDescription());
+        dto.setHeure(entity.getHeure());
+        dto.setNombre(entity.getNombre());
+        dto.setPrestation(entity.getPrestation());
+        dto.setProduit(entity.getProduit());
+        dto.setSensTrafic(entity.getSensTrafic());
+        dto.setTarifUnifie(entity.getTarifUnifie());
+        dto.setTcConv(entity.getTcConv());
+        dto.setTcSuppl(entity.getTcSuppl());
+        dto.setTonnageMinimum(entity.getTonnageMinimum());
+        dto.setTonnageReel(entity.getTonnageReel());
+        dto.setCommandeId(entity.getCommandeId());
         return dto;
     }
 
@@ -28,6 +41,19 @@ public class LigneCommandeMapper implements Mapper<LigneCommandeDTO, LigneComman
     public LigneCommandeEntity convertToEntity(LigneCommandeDTO dto) {
         LigneCommandeEntity entity = new LigneCommandeEntity();
         entity.setId(dto.getId());
+        entity.setDate(dto.getDate());
+        entity.setDescription(dto.getDescription());
+        entity.setHeure(dto.getHeure());
+        entity.setNombre(dto.getNombre());
+        entity.setPrestation(dto.getPrestation());
+        entity.setProduit(dto.getProduit());
+        entity.setSensTrafic(dto.getSensTrafic());
+        entity.setTarifUnifie(dto.getTarifUnifie());
+        entity.setTcConv(dto.getTcConv());
+        entity.setTcSuppl(dto.getTcSuppl());
+        entity.setTonnageMinimum(dto.getTonnageMinimum());
+        entity.setTonnageReel(dto.getTonnageReel());
+        entity.setCommandeId(dto.getCommandeId());
         return entity;
     }
 

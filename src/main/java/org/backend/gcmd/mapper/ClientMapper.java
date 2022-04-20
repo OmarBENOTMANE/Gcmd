@@ -21,6 +21,10 @@ public class ClientMapper implements Mapper<ClientDTO, ClientEntity> {
     public ClientDTO convertToDto(ClientEntity entity) {
         ClientDTO dto = new ClientDTO();
         dto.setId(entity.getId());
+        dto.setEmail(entity.getEmail());
+        dto.setName(entity.getName());
+        dto.setPhone(entity.getPhone());
+        dto.setClientId(entity.getClientId());
         return dto;
     }
 
@@ -28,6 +32,10 @@ public class ClientMapper implements Mapper<ClientDTO, ClientEntity> {
     public ClientEntity convertToEntity(ClientDTO dto) {
         ClientEntity entity = new ClientEntity();
         entity.setId(dto.getId());
+        entity.setEmail(dto.getEmail());
+        entity.setName(dto.getName());
+        entity.setPhone(dto.getPhone());
+        entity.setClientId(dto.getClientId());
         return entity;
     }
 

@@ -21,7 +21,21 @@ public class BulltinPrestationMapper implements Mapper<BulltinPrestationDTO, Bul
     public BulltinPrestationDTO convertToDto(BulltinPrestationEntity entity) {
         BulltinPrestationDTO dto = new BulltinPrestationDTO();
         dto.setId(entity.getId());
+        dto.setCodeClient(entity.getCodeClient());
+        dto.setCodeNature(entity.getCodeNature());
+        dto.setDate(entity.getDate());
+        dto.setDateDepot(entity.getDateDepot());
+        dto.setDateProbableExecution(entity.getDateProbableExecution());
         dto.setDescription(entity.getDescription());
+        dto.setHeure(entity.getHeure());
+        dto.setMoyenOdepClient(entity.getMoyenOdepClient());
+        dto.setNomClient(entity.getNomClient());
+        dto.setNumeroCmd(entity.getNumeroCmd());
+        dto.setNumeroDossierPrestation(entity.getNumeroDossierPrestation());
+        dto.setNumeroEscale(entity.getNumeroEscale());
+        dto.setPreValidation(entity.getPreValidation());
+        dto.setText(entity.getText());
+        dto.setTypePaiement(entity.getTypePaiement());
         return dto;
     }
 
@@ -29,7 +43,21 @@ public class BulltinPrestationMapper implements Mapper<BulltinPrestationDTO, Bul
     public BulltinPrestationEntity convertToEntity(BulltinPrestationDTO dto) {
         BulltinPrestationEntity entity = new BulltinPrestationEntity();
         entity.setId(dto.getId());
+        entity.setCodeClient(dto.getCodeClient());
+        entity.setCodeNature(dto.getCodeNature());
+        entity.setDate(dto.getDate());
+        entity.setDateDepot(dto.getDateDepot());
+        entity.setDateProbableExecution(dto.getDateProbableExecution());
         entity.setDescription(dto.getDescription());
+        entity.setHeure(dto.getHeure());
+        entity.setMoyenOdepClient(dto.getMoyenOdepClient());
+        entity.setNomClient(dto.getNomClient());
+        entity.setNumeroCmd(dto.getNumeroCmd());
+        entity.setNumeroDossierPrestation(dto.getNumeroDossierPrestation());
+        entity.setNumeroEscale(dto.getNumeroEscale());
+        entity.setPreValidation(dto.getPreValidation());
+        entity.setText(dto.getText());
+        entity.setTypePaiement(dto.getTypePaiement());
         return entity;
     }
 

@@ -3,7 +3,8 @@ package org.backend.gcmd.dto;
 import lombok.Data;
 import org.backend.gcmd.enums.SenstraficEnum;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Data
 public class LigneBpDTO {
@@ -12,9 +13,9 @@ public class LigneBpDTO {
 
     private String prestation;
 
-    private Date date;
+    private LocalDate date;
 
-    private Date heure;
+    private LocalTime heure;
 
     private SenstraficEnum sensTrafic;
 
@@ -22,11 +23,11 @@ public class LigneBpDTO {
 
     private String tcSuppl;
 
-    private boolean tcConv;
+    private Boolean tcConv;
 
     private Integer nombre;
 
-    private boolean tarifUnifie;
+    private Boolean tarifUnifie;
 
     private Integer tonnageReel;
 

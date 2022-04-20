@@ -5,8 +5,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.backend.gcmd.enums.SenstraficEnum;
 
-import javax.persistence.*;
-import java.util.Date;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,9 +23,9 @@ public class LigneCommandeDTO {
 
     private String prestation;
 
-    private Date date;
+    private LocalDate date;
 
-    private Date heure;
+    private LocalTime heure;
 
     private SenstraficEnum sensTrafic;
 
@@ -30,11 +33,11 @@ public class LigneCommandeDTO {
 
     private String tcSuppl;
 
-    private boolean tcConv;
+    private Boolean tcConv;
 
     private Integer nombre;
 
-    private boolean tarifUnifie;
+    private Boolean tarifUnifie;
 
     private Integer tonnageReel;
 

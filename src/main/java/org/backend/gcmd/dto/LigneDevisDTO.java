@@ -14,8 +14,8 @@ public class LigneDevisDTO {
 
     private String designation;
     private Integer quantite;
-    private double nombreUnite;
-    private double total;
+    private Double nombreUnite;
+    private Double total;
 
     private Long prestationId;
     private Long devisId;

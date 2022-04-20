@@ -2,7 +2,6 @@ package org.backend.gcmd.controller;
 
 import org.backend.gcmd.dto.LigneBpDTO;
 import org.backend.gcmd.service.LigneBpService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -13,9 +12,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/lignes_bp")
 public class LigneBpController {
 
+    private final LigneBpService ligneBpService;
 
-    @Autowired
-    private LigneBpService ligneBpService;
+    public LigneBpController(LigneBpService ligneBpService) {
+        this.ligneBpService = ligneBpService;
+    }
 
     @GetMapping("{id}")
     public ResponseEntity<LigneBpDTO> findById(@PathVariable Long id) {

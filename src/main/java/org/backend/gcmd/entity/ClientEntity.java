@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -27,7 +26,7 @@ public class ClientEntity {
 
     private String phone;
 
-    @Column(name = "client_id")
+    @Column(name = "client_id",insertable=false ,updatable = false)
     private Long clientId;
 
     @OneToMany(mappedBy = "devis")

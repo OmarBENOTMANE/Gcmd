@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -27,13 +28,13 @@ public class CommandeEntity {
 
     private String consignataire;
 
-    private Date dateAmarage;
+    private LocalDate dateAmarage;
 
-    private Date dateDesamarage;
+    private LocalDate dateDesamarage;
 
     private Integer lht;
 
-    private double jaugeBrute;
+    private Double jaugeBrute;
 
     private String poste;
 
@@ -49,13 +50,13 @@ public class CommandeEntity {
 
     private Integer bulletinReception;
 
-    @Column(name = "commande_id")
+    @Column(name = "commande_id",insertable=false ,updatable = false)
     private Long commandeId;
 
-    @Column(name = "escale_id")
+    @Column(name = "escale_id",insertable=false ,updatable = false)
     private Long escaleId;
 
-    @Column(name = "devis_id")
+    @Column(name = "devis_id",insertable=false ,updatable = false)
     private Long devisId;
 
     @ManyToOne(fetch = FetchType.LAZY)
