@@ -9,7 +9,7 @@ public class Validate {
             throw new IllegalNullParamException(message);
     }
 
-    public static void isTrue(final boolean expression, final String message) {
+    static public void isTrue(final boolean expression, final String message) {
         if (!expression) {
             throw new IllegalNullParamException(message);
         }

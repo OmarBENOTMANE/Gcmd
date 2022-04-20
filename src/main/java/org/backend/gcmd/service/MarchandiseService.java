@@ -1,9 +1,9 @@
 package org.backend.gcmd.service;
 
-import org.backend.gcmd.mapper.MarchandiseMapper;
 import org.backend.gcmd.dto.MarchandiseDTO;
 import org.backend.gcmd.entity.MarchandiseEntity;
 import org.backend.gcmd.exceptions.technical.ObjectNotFoundException;
+import org.backend.gcmd.mapper.MarchandiseMapper;
 import org.backend.gcmd.repository.MarchandiseRepository;
 import org.backend.gcmd.validator.Validate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class MarchandiseService {
     @Autowired
     private MarchandiseMapper marchandiseMapper;
 
-    public MarchandiseDTO findById(Long id) {
+    public  MarchandiseDTO findById(Long id) {
         Validate.notNull(id, "id mus be not null");
         Optional<MarchandiseEntity> entity = marchandiseRepository.findById(id);
         if (entity.isPresent()) {
@@ -34,7 +34,7 @@ public class MarchandiseService {
         }
     }
 
-    public MarchandiseDTO save(MarchandiseDTO dto) {
+    public  MarchandiseDTO save(MarchandiseDTO dto) {
         Validate.notNull(dto, "MarchandiseDTO must be not null");
         MarchandiseEntity entity = marchandiseMapper.convertToEntity(dto);
 
@@ -42,7 +42,7 @@ public class MarchandiseService {
         return marchandiseMapper.convertToDto(saved);
     }
 
-    public MarchandiseDTO update(MarchandiseDTO dto) {
+    public  MarchandiseDTO update(MarchandiseDTO dto) {
         Validate.notNull(dto, "MarchandiseDTO must be not null");
         Validate.notNull(dto.getId(), "UserDTO id must be not null");
         findById(dto.getId());
@@ -52,13 +52,13 @@ public class MarchandiseService {
 
     }
 
-    public void delete(Long id) {
+    public  void delete(Long id) {
         Validate.notNull(id, "Id must be not null");
         findById(id);
         marchandiseRepository.deleteById(id);
     }
 
-    public Page<MarchandiseDTO> findAll(Pageable pageable) {
+    public  Page<MarchandiseDTO> findAll(Pageable pageable) {
         Page<MarchandiseEntity> page = marchandiseRepository.findAll(pageable);
         return marchandiseMapper.convertToPageDto(page);
 

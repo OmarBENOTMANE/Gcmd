@@ -12,38 +12,34 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/marchandises")
 public class MarchandiseController {
 
-    private final MarchandiseService MarchandiseService;
-
-    public MarchandiseController(org.backend.gcmd.service.MarchandiseService marchandiseService) {
-        MarchandiseService = marchandiseService;
-    }
+    private MarchandiseService marchandiseService;
 
     @GetMapping("{id}")
     public ResponseEntity<MarchandiseDTO> findById(@PathVariable Long id) {
-        MarchandiseDTO MarchandiseDTO = MarchandiseService.findById(id);
-        return ResponseEntity.status(HttpStatus.OK).body(MarchandiseDTO);
+        MarchandiseDTO marchandiseDTO = marchandiseService.findById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(marchandiseDTO);
     }
 
     @PostMapping
-    public ResponseEntity<MarchandiseDTO> save(@RequestBody MarchandiseDTO MarchandiseDTO) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(MarchandiseService.save(MarchandiseDTO));
+    public ResponseEntity<MarchandiseDTO> save(@RequestBody MarchandiseDTO marchandiseDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(marchandiseService.save(marchandiseDTO));
     }
 
     @PutMapping("{id}")
     public ResponseEntity<MarchandiseDTO> update(@PathVariable Long id,
-                                                 @RequestBody MarchandiseDTO MarchandiseDTO) {
-        MarchandiseDTO.setId(id);
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(MarchandiseService.update(MarchandiseDTO));
+                                              @RequestBody MarchandiseDTO marchandiseDTO) {
+        marchandiseDTO.setId(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(marchandiseService.update(marchandiseDTO));
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        MarchandiseService.delete(id);
+        marchandiseService.delete(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
     @GetMapping
     public ResponseEntity<Page<MarchandiseDTO>> findAll(Pageable pageable) {
-        return ResponseEntity.status(HttpStatus.OK).body(MarchandiseService.findAll(pageable));
+        return ResponseEntity.status(HttpStatus.OK).body(marchandiseService.findAll(pageable));
     }
 }
