@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/commandes")
 public class CommandeController {
     @Autowired
-    private  CommandeService commandeService;
+    private CommandeService commandeService;
 
 
     @GetMapping("{id}")

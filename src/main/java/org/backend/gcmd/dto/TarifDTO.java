@@ -9,7 +9,6 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Table(name = "tarifs")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

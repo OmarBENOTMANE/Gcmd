@@ -19,7 +19,7 @@ import java.util.Optional;
 public class BulltinPrestationService {
 
     @Autowired
-    private  BulltinPrestationRepository bulltinPrestationRepository;
+    private BulltinPrestationRepository bulltinPrestationRepository;
 
     @Autowired
     private BulltinPrestationMapper bulltinPrestationMapper;

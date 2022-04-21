@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class MouvementController {
     @Autowired
     private MouvementService mouvementService;
+
     @GetMapping("{id}")
     public ResponseEntity<MouvementDTO> findById(@PathVariable Long id) {
         MouvementDTO mouvementDTO = mouvementService.findById(id);

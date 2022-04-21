@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/lignes_cmd")
 public class LigneCommandeController {
     @Autowired
-    private  LigneCommandeService ligneCommandeService;
+    private LigneCommandeService ligneCommandeService;
 
     @GetMapping("{id}")
     public ResponseEntity<LigneCommandeDTO> findById(@PathVariable Long id) {

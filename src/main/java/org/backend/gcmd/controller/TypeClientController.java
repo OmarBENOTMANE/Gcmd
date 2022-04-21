@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/Gcmd_typeClient")
 public class TypeClientController {
     @Autowired
-    private  TypeClientService typeClientService;
+    private TypeClientService typeClientService;
 
     @GetMapping("{id}")
     public ResponseEntity<TypeClientDTO> findById(@PathVariable Long id) {

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/Gcmd_sousTypePrestation")
 public class SousTypePrestationController {
     @Autowired
-    private  SousTypePrestationService sousTypePrestationService;
+    private SousTypePrestationService sousTypePrestationService;
 
     @GetMapping("{id}")
     public ResponseEntity<SousTypePrestationDTO> findById(@PathVariable Long id) {

@@ -9,10 +9,10 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Table(name = "Gcmd_tarif")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "Gcmd_tarif")
 public class TarifEntity {
 
     @Id

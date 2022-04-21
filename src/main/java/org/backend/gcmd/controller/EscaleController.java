@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/escales")
 public class EscaleController {
     @Autowired
-    private  EscaleService escaleService;
+    private EscaleService escaleService;
 
     @GetMapping("{id}")
     public ResponseEntity<EscaleDTO> findById(@PathVariable Long id) {
