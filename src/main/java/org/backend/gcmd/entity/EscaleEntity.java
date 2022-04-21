@@ -21,7 +21,7 @@ public class EscaleEntity {
     private Long id;
     private Integer numeroEscale;
 
-    @Column(name = "navire_id",insertable=false ,updatable = false)
+    @Column(name = "navire_id", insertable = false, updatable = false)
     private Long navireId;
 
     @ManyToOne(fetch = FetchType.LAZY)

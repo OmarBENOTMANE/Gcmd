@@ -26,6 +26,6 @@ public class MarchandiseEntity {
     @JoinColumn(name = "escale_id", nullable = false)
     private EscaleEntity escale;
 
-    @Column(name = "escale_id",insertable=false ,updatable = false)
+    @Column(name = "escale_id", insertable = false, updatable = false)
     private Long escaleId;
 }

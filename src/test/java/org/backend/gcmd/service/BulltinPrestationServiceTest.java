@@ -2,6 +2,7 @@ package org.backend.gcmd.service;
 
 
 import org.backend.gcmd.dto.BulltinPrestationDTO;
+import org.backend.gcmd.enums.typePaiementEnum;
 import org.backend.gcmd.exceptions.technical.IllegalNullParamException;
 import org.backend.gcmd.exceptions.technical.ObjectNotFoundException;
 import org.junit.jupiter.api.Assertions;
@@ -11,6 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.jdbc.Sql;
+
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,7 +45,7 @@ class BulltinPrestationServiceTest {
         BulltinPrestationDTO bpdto = bulltinPrestationService.findById(1L);
         assertNotNull(bpdto);
         assertEquals(1L, bpdto.getId());
-        assertEquals("description2", bpdto.getDescription());
+        assertEquals("blabla", bpdto.getDescription());
     }
 
     @Test
@@ -66,7 +69,7 @@ class BulltinPrestationServiceTest {
     void save_OK() {
         //given
         BulltinPrestationDTO bpdto = BulltinPrestationDTO.builder()
-                .description("tddfh")
+                .codeClient(4).codeNature(44).date(LocalDate.now()).dateDepot(LocalDate.now()).dateProbableExecution(LocalDate.now()).description("new4").moyenOdepClient(true).nomClient("clinet4").numeroCmd(444).numeroDossierPrestation(4444).numeroEscale(404).preValidation(false).text("blabla").typePaiement(typePaiementEnum.COMPTANT)
                 .build();
         //when
         BulltinPrestationDTO result = bulltinPrestationService.save(bpdto);
@@ -99,7 +102,7 @@ class BulltinPrestationServiceTest {
                 });
         //given
         BulltinPrestationDTO bpdto = BulltinPrestationDTO.builder()
-                .id(1L)
+                .id(1L).description("bla").moyenOdepClient(false).preValidation(false)
                 .build();
         //when
         BulltinPrestationDTO result = bulltinPrestationService.update(bpdto);
@@ -135,7 +138,7 @@ class BulltinPrestationServiceTest {
         assertEquals(1, page.getContent().size());
         BulltinPrestationDTO bpDTO = page.getContent().get(0);
         assertEquals(1L, bpDTO.getId());
-        assertEquals("description2", bpDTO.getDescription());
+        assertEquals("blabla", bpDTO.getDescription());
     }
 
 }

@@ -49,13 +49,13 @@ public class CommandeEntity {
 
     private Integer bulletinReception;
 
-    @Column(name = "commande_id",insertable=false ,updatable = false)
+    @Column(name = "commande_id", insertable = false, updatable = false)
     private Long commandeId;
 
-    @Column(name = "escale_id",insertable=false ,updatable = false)
+    @Column(name = "escale_id", insertable = false, updatable = false)
     private Long escaleId;
 
-    @Column(name = "devis_id",insertable=false ,updatable = false)
+    @Column(name = "devis_id", insertable = false, updatable = false)
     private Long devisId;
 
     @ManyToOne(fetch = FetchType.LAZY)

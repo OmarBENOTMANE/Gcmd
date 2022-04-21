@@ -25,7 +25,7 @@ public class UniteOrganisationelEntity {
 
     private String description;
 
-    @Column(name = "uniteorganisationel_id",insertable=false ,updatable = false)
+    @Column(name = "uniteorganisationel_id", insertable = false, updatable = false)
     private Long uniteorganisationelId;
 
     @ManyToOne(fetch = FetchType.LAZY)

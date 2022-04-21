@@ -2,6 +2,7 @@ package org.backend.gcmd.controller;
 
 import org.backend.gcmd.dto.TarifDTO;
 import org.backend.gcmd.service.TarifService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -11,12 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/Gcmd_tarif")
 public class TarifController {
-
-    private final TarifService tarifService;
-
-    public TarifController(TarifService tarifService) {
-        this.tarifService = tarifService;
-    }
+    @Autowired
+    private TarifService tarifService;
 
     @GetMapping("{id}")
     public ResponseEntity<TarifDTO> findById(@PathVariable Long id) {

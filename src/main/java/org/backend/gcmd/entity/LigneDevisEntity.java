@@ -28,14 +28,14 @@ public class LigneDevisEntity {
     @JoinColumn(name = "devis_id", nullable = false)
     private DevisEntity devis;
 
-    @Column(name = "devis_id",insertable=false ,updatable = false)
+    @Column(name = "devis_id", insertable = false, updatable = false)
     private Long devisId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "prestation_id", nullable = false)
     private PrestationEntity prestation;
 
-    @Column(name = "prestation_id",insertable=false ,updatable = false)
+    @Column(name = "prestation_id", insertable = false, updatable = false)
     private Long prestationId;
 
 

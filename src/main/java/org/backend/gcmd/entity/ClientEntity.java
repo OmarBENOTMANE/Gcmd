@@ -26,7 +26,7 @@ public class ClientEntity {
 
     private String phone;
 
-    @Column(name = "client_id",insertable=false ,updatable = false)
+    @Column(name = "client_id", insertable = false, updatable = false)
     private Long clientId;
 
     @OneToMany(mappedBy = "devis")

@@ -28,6 +28,6 @@ public class MouvementEntity {
     @JoinColumn(name = "navir_id", nullable = false)
     private NavireEntity navir;
 
-    @Column(name = "navir_id",insertable=false ,updatable = false)
+    @Column(name = "navir_id", insertable = false, updatable = false)
     private Long navirId;
 }

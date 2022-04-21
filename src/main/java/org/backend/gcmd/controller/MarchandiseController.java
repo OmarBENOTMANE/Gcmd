@@ -2,6 +2,7 @@ package org.backend.gcmd.controller;
 
 import org.backend.gcmd.dto.MarchandiseDTO;
 import org.backend.gcmd.service.MarchandiseService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/marchandises")
 public class MarchandiseController {
-
+    @Autowired
     private MarchandiseService marchandiseService;
 
     @GetMapping("{id}")
@@ -27,7 +28,7 @@ public class MarchandiseController {
 
     @PutMapping("{id}")
     public ResponseEntity<MarchandiseDTO> update(@PathVariable Long id,
-                                              @RequestBody MarchandiseDTO marchandiseDTO) {
+                                                 @RequestBody MarchandiseDTO marchandiseDTO) {
         marchandiseDTO.setId(id);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(marchandiseService.update(marchandiseDTO));
     }

@@ -50,7 +50,7 @@ public class DevisEntity {
     @JoinColumn(name = "escale_id", nullable = false)
     private EscaleEntity escale;
 
-    @Column(name = "escale_id",insertable=false ,updatable = false)
+    @Column(name = "escale_id", insertable = false, updatable = false)
     private Long escaleId;
 
     @OneToMany(mappedBy = "devis")
@@ -60,7 +60,7 @@ public class DevisEntity {
     @JoinColumn(name = "devis_id", nullable = false)
     private ClientEntity devis;
 
-    @Column(name = "devis_id",insertable=false ,updatable = false)
+    @Column(name = "devis_id", insertable = false, updatable = false)
     private Long devisId;
 
     @OneToMany(mappedBy = "devis")

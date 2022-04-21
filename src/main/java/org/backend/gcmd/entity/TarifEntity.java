@@ -23,7 +23,7 @@ public class TarifEntity {
 
     private Double tarifTtc;
 
-    @Column(name = "prestation_id",insertable=false ,updatable = false)
+    @Column(name = "prestation_id", insertable = false, updatable = false)
     private Long prestationId;
 
     @ManyToOne(fetch = FetchType.LAZY)

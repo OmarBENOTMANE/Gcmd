@@ -28,6 +28,6 @@ public class SousTypePrestationEntity {
     @JoinColumn(name = "typeprestation_id", nullable = false)
     private TypePrestationEntity typeprestation;
 
-    @Column(name = "typeprestation_id",insertable=false ,updatable = false)
+    @Column(name = "typeprestation_id", insertable = false, updatable = false)
     private Long typeprestationId;
 }

@@ -2,6 +2,7 @@ package org.backend.gcmd.controller;
 
 import org.backend.gcmd.dto.PrestationDTO;
 import org.backend.gcmd.service.PrestationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -11,12 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/Gcmd_prestation")
 public class PrestationController {
-
-    private final PrestationService prestationService;
-
-    public PrestationController(PrestationService prestationService) {
-        this.prestationService = prestationService;
-    }
+    @Autowired
+    private  PrestationService prestationService;
 
     @GetMapping("{id}")
     public ResponseEntity<PrestationDTO> findById(@PathVariable Long id) {

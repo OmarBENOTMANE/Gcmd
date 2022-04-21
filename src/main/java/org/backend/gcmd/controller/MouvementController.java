@@ -2,6 +2,7 @@ package org.backend.gcmd.controller;
 
 import org.backend.gcmd.dto.MouvementDTO;
 import org.backend.gcmd.service.MouvementService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -11,13 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/Gcmd_mouvement")
 public class MouvementController {
-
-    private final MouvementService mouvementService;
-
-    public MouvementController(MouvementService mouvementService) {
-        this.mouvementService = mouvementService;
-    }
-
+    @Autowired
+    private MouvementService mouvementService;
     @GetMapping("{id}")
     public ResponseEntity<MouvementDTO> findById(@PathVariable Long id) {
         MouvementDTO mouvementDTO = mouvementService.findById(id);
@@ -31,7 +27,7 @@ public class MouvementController {
 
     @PutMapping("{id}")
     public ResponseEntity<MouvementDTO> update(@PathVariable Long id,
-                                           @RequestBody MouvementDTO mouvementDTO) {
+                                               @RequestBody MouvementDTO mouvementDTO) {
         mouvementDTO.setId(id);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(mouvementService.update(mouvementDTO));
     }

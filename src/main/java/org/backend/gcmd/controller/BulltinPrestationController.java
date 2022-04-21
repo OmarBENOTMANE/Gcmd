@@ -2,6 +2,7 @@ package org.backend.gcmd.controller;
 
 import org.backend.gcmd.dto.BulltinPrestationDTO;
 import org.backend.gcmd.service.BulltinPrestationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -12,11 +13,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/bulltinPrestation")
 public class BulltinPrestationController {
 
-    private  final  BulltinPrestationService bulltinPrestationService;
-
-    public BulltinPrestationController(BulltinPrestationService bulltinPrestationService) {
-        this.bulltinPrestationService = bulltinPrestationService;
-    }
+    @Autowired
+    private BulltinPrestationService bulltinPrestationService;
 
     @GetMapping("{id}")
     public ResponseEntity<BulltinPrestationDTO> findById(@PathVariable Long id) {

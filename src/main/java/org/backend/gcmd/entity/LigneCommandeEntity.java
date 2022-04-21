@@ -52,6 +52,6 @@ public class LigneCommandeEntity {
     @JoinColumn(name = "commande_id", nullable = false)
     private CommandeEntity commande;
 
-    @Column(name = "commande_id",insertable=false ,updatable = false)
+    @Column(name = "commande_id", insertable = false, updatable = false)
     private Long commandeId;
 }

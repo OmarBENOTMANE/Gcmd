@@ -18,15 +18,12 @@ import java.util.Optional;
 @Transactional
 public class BulltinPrestationService {
 
-
-    private final BulltinPrestationRepository bulltinPrestationRepository;
+    @Autowired
+    private  BulltinPrestationRepository bulltinPrestationRepository;
 
     @Autowired
     private BulltinPrestationMapper bulltinPrestationMapper;
 
-    public BulltinPrestationService(BulltinPrestationRepository bulltinPrestationRepository) {
-        this.bulltinPrestationRepository = bulltinPrestationRepository;
-    }
 
     public BulltinPrestationDTO findById(Long id) {
         Validate.notNull(id, "id mus be not null");
@@ -66,4 +63,5 @@ public class BulltinPrestationService {
         return bulltinPrestationMapper.convertToPageDto(page);
 
     }
+
 }

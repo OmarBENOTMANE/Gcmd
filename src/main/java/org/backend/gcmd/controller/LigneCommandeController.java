@@ -2,6 +2,7 @@ package org.backend.gcmd.controller;
 
 import org.backend.gcmd.dto.LigneCommandeDTO;
 import org.backend.gcmd.service.LigneCommandeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -11,12 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/lignes_cmd")
 public class LigneCommandeController {
-
-    private final LigneCommandeService ligneCommandeService;
-
-    public LigneCommandeController(LigneCommandeService ligneCommandeService) {
-        this.ligneCommandeService = ligneCommandeService;
-    }
+    @Autowired
+    private  LigneCommandeService ligneCommandeService;
 
     @GetMapping("{id}")
     public ResponseEntity<LigneCommandeDTO> findById(@PathVariable Long id) {

@@ -2,6 +2,7 @@ package org.backend.gcmd.controller;
 
 import org.backend.gcmd.dto.UniteOrganisationelDTO;
 import org.backend.gcmd.service.UniteOrganisationelService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -11,12 +12,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/Gcmd_uniteOrganisationel")
 public class UniteOrganisationelController {
+    @Autowired
+    private UniteOrganisationelService uniteOrganisationelService;
 
-    private final UniteOrganisationelService uniteOrganisationelService;
-
-    public UniteOrganisationelController(UniteOrganisationelService uniteOrganisationelService) {
-        this.uniteOrganisationelService = uniteOrganisationelService;
-    }
 
     @GetMapping("{id}")
     public ResponseEntity<UniteOrganisationelDTO> findById(@PathVariable Long id) {
@@ -31,7 +29,7 @@ public class UniteOrganisationelController {
 
     @PutMapping("{id}")
     public ResponseEntity<UniteOrganisationelDTO> update(@PathVariable Long id,
-                                           @RequestBody UniteOrganisationelDTO uniteOrganisationelDTO) {
+                                                         @RequestBody UniteOrganisationelDTO uniteOrganisationelDTO) {
         uniteOrganisationelDTO.setId(id);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(uniteOrganisationelService.update(uniteOrganisationelDTO));
     }

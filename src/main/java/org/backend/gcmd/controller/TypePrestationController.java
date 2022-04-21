@@ -2,6 +2,7 @@ package org.backend.gcmd.controller;
 
 import org.backend.gcmd.dto.TypePrestationDTO;
 import org.backend.gcmd.service.TypePrestationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -11,12 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/Gcmd_typePrestation")
 public class TypePrestationController {
-
-    private final TypePrestationService typePrestationService;
-
-    public TypePrestationController(TypePrestationService typePrestationService) {
-        this.typePrestationService = typePrestationService;
-    }
+    @Autowired
+    private  TypePrestationService typePrestationService;
 
     @GetMapping("{id}")
     public ResponseEntity<TypePrestationDTO> findById(@PathVariable Long id) {
@@ -31,7 +28,7 @@ public class TypePrestationController {
 
     @PutMapping("{id}")
     public ResponseEntity<TypePrestationDTO> update(@PathVariable Long id,
-                                           @RequestBody TypePrestationDTO typePrestationDTO) {
+                                                    @RequestBody TypePrestationDTO typePrestationDTO) {
         typePrestationDTO.setId(id);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(typePrestationService.update(typePrestationDTO));
     }

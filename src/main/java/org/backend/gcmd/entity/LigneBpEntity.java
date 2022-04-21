@@ -44,7 +44,7 @@ public class LigneBpEntity {
 
     private Integer tonnageMinimum;
 
-    @Column(name = "bulltinprestation_id",insertable=false ,updatable = false)
+    @Column(name = "bulltinprestation_id", insertable = false, updatable = false)
     private Long bulltinprestationId;
 
     @ManyToOne(fetch = FetchType.LAZY)

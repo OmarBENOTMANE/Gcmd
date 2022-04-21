@@ -1,6 +1,3 @@
-INSERT INTO `gcmd_bulltin_prestation` (`id`, `code_client`, `code_nature`, `date`, `date_depot`,
-                                       `date_probable_execution`, `description`, `heure`, `moyen_odep_client`,
-                                       `n_dossier_prestation`, `n_escale`, `nom_client`, `numero_cmd`, `pre_validation`,
-                                       `texte`, `type_paiement`)
-VALUES (1, '22', '2222', '2022-04-13 14:33:42', '2022-04-13 14:33:42', '2022-04-13 15:33:42', 'description2',
-        '2022-04-13 15:33:42', b'0', '22222', '22', 'client name2', '11111111', b'0', 'texte', '1');
+insert into gcmd_bulltin_prestation values (null, '2', '22', '2022-04-20', '2022-04-20', '2022-04-13', 'blabla', '2022-04-20', true, 'blabla', '222', '2222', '22222', false, 'blabla', '1')
+
+--update gcmd_bulltin_prestation set code_client=null ,code_nature=null,code_client=null,code_nature=null,date=null,date_depot=null,date_probable_execution=null,description=null,moyen_odep_client=0,nom_client=null,numero_cmd=null,numero_dossier_prestation=0,numero_escale=null,pre_validation=0,text=null,type_paiement=null;
