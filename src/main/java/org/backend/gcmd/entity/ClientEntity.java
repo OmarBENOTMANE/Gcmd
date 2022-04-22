@@ -26,13 +26,13 @@ public class ClientEntity {
 
     private String phone;
 
-    @Column(name = "client_id", insertable = false, updatable = false)
-    private Long clientId;
-
     @OneToMany(mappedBy = "devis")
     private List<DevisEntity> devis;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "client_id", nullable = false)
-    private TypeClientEntity client;
+    @JoinColumn(name = "type_client_id", nullable = false,insertable = false,updatable = false)
+    private TypeClientEntity typeClient;
+
+    @Column(name = "type_client_id")
+    private Long typeClientId;
 }

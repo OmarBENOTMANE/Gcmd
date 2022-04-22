@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.backend.gcmd.entity.ClientEntity;
 
 @Builder
 @NoArgsConstructor
@@ -19,6 +20,6 @@ public class ClientDTO {
 
     private String phone;
 
-    private Long clientId;
+    private Long typeClientId;
 
 }

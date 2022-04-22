@@ -44,7 +44,7 @@ public class ClientService {
 
     public ClientDTO update(ClientDTO dto) {
         Validate.notNull(dto, "ClientDTO must be not null");
-        Validate.notNull(dto.getId(), "UserDTO id must be not null");
+        Validate.notNull(dto.getId(), "ClientDTO id must be not null");
         findById(dto.getId());
         ClientEntity entity = clientMapper.convertToEntity(dto);
         ClientEntity saved = clientRepository.save(entity);
