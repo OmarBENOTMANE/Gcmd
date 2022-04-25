@@ -23,7 +23,6 @@ public class MouvementMapper implements Mapper<MouvementDTO, MouvementEntity> {
         dto.setId(entity.getId());
         dto.setDateMouvement(entity.getDateMouvement());
         dto.setDescription(entity.getDescription());
-        dto.setNavirId(entity.getNavirId());
         return dto;
     }
 
@@ -34,7 +33,6 @@ public class MouvementMapper implements Mapper<MouvementDTO, MouvementEntity> {
         entity.setId(dto.getId());
         entity.setDateMouvement(dto.getDateMouvement());
         entity.setDescription(dto.getDescription());
-        entity.setNavirId(dto.getNavirId());
         return entity;
     }
 

@@ -23,7 +23,6 @@ public class TarifMapper implements Mapper<TarifDTO, TarifEntity> {
         dto.setId(entity.getId());
         dto.setTarifHt(entity.getTarifHt());
         dto.setTarifTtc(entity.getTarifTtc());
-        dto.setPrestationId(entity.getPrestationId());
         return dto;
     }
 
@@ -33,7 +32,6 @@ public class TarifMapper implements Mapper<TarifDTO, TarifEntity> {
         entity.setId(dto.getId());
         entity.setTarifHt(dto.getTarifHt());
         entity.setTarifTtc(dto.getTarifTtc());
-        entity.setPrestationId(dto.getPrestationId());
         return entity;
     }
 

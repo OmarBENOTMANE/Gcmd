@@ -5,9 +5,9 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum EngineColisEnum {
+public enum EnginsColisEnum {
 
-    ENGINE("Engins"), COLIS("Colis");
+    ENGINS("engins"), COLIS("colis");
 
     private String value;
 }

@@ -24,7 +24,6 @@ public class UniteOrganisationelMapper implements Mapper<UniteOrganisationelDTO,
         dto.setDescription(entity.getDescription());
         dto.setLabel(entity.getLabel());
         dto.setType(entity.getType());
-        dto.setUniteorganisationelId(entity.getUniteorganisationelId());
         return dto;
     }
 
@@ -35,7 +34,6 @@ public class UniteOrganisationelMapper implements Mapper<UniteOrganisationelDTO,
         entity.setDescription(dto.getDescription());
         entity.setLabel(dto.getLabel());
         entity.setType(dto.getType());
-        entity.setUniteorganisationelId(dto.getUniteorganisationelId());
         return entity;
     }
 

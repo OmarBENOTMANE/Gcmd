@@ -23,11 +23,7 @@ public class TarifEntity {
 
     private Double tarifTtc;
 
-    @Column(name = "prestation_id", insertable = false, updatable = false)
-    private Long prestationId;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "prestation_id", nullable = false)
+    @OneToOne(mappedBy = "tarif",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private PrestationEntity prestation;
 
 }

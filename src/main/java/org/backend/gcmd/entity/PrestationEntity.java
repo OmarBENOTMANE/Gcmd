@@ -28,15 +28,16 @@ public class PrestationEntity {
 
 
     @OneToMany(mappedBy = "prestation")
-    private List<LigneDevisEntity> prestationLigneDevis;
+    private List<LigneDevisEntity> LigneDevisList;
 
-    @OneToMany(mappedBy = "prestation")
-    private List<TarifEntity> tarifs;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name="tarif_id")
+    private TarifEntity tarif;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "soustypeprestation_id", nullable = false)
+    @JoinColumn(name = "soustypeprestation_id")
     private SousTypePrestationEntity soustypeprestation;
 
-    @Column(name = "soustypeprestation_id", insertable = false, updatable = false)
+    @Column(name = "soustypeprestation_id", nullable=false, insertable=false, updatable=false)
     private Long soustypeprestationId;
 }

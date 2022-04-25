@@ -21,19 +21,19 @@ public class EscaleEntity {
     private Long id;
     private Integer numeroEscale;
 
-    @Column(name = "navire_id", insertable = false, updatable = false)
+    @Column(name = "navire_id", nullable = false, insertable = false, updatable = false)
     private Long navireId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "navire_id", nullable = false)
+    @JoinColumn(name = "navire_id")
     private NavireEntity navire;
 
-    @OneToMany(mappedBy = "escale")
-    private List<MarchandiseEntity> marchandises;
+    @OneToMany(mappedBy = "escale",fetch = FetchType.LAZY)
+    private List<MarchandiseEntity> marchandiseList;
 
-    @OneToMany(mappedBy = "escale")
-    private List<DevisEntity> devis;
+    @OneToMany(mappedBy = "escale",fetch = FetchType.LAZY)
+    private List<DevisEntity> devisList;
 
-    @OneToMany(mappedBy = "escale")
-    private List<CommandeEntity> commandes;
+    @OneToMany(mappedBy = "escale",fetch = FetchType.LAZY)
+    private List<CommandeEntity> CommandeList;
 }

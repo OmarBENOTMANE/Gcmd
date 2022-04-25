@@ -25,17 +25,17 @@ public class LigneDevisEntity {
     private Double total;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "devis_id", nullable = false)
+    @JoinColumn(name = "devis_id")
     private DevisEntity devis;
 
-    @Column(name = "devis_id", insertable = false, updatable = false)
+    @Column(name = "devis_id", nullable=false, insertable=false, updatable=false)
     private Long devisId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "prestation_id", nullable = false)
+    @JoinColumn(name = "prestation_id")
     private PrestationEntity prestation;
 
-    @Column(name = "prestation_id", insertable = false, updatable = false)
+    @Column(name = "prestation_id", nullable=false, insertable=false, updatable=false)
     private Long prestationId;
 
 

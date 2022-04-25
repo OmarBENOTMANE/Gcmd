@@ -1,5 +1,6 @@
 package org.backend.gcmd.service;
 
+import org.backend.gcmd.dto.BulltinPrestationDTO;
 import org.backend.gcmd.dto.CommandeDTO;
 import org.backend.gcmd.entity.CommandeEntity;
 import org.backend.gcmd.exceptions.technical.ObjectNotFoundException;
@@ -22,6 +23,8 @@ public class CommandeService {
     private CommandeRepository commandeRepository;
 
     @Autowired
+    private BulltinPrestationService bulltinPrestationService;
+    @Autowired
     private CommandeMapper commandeMapper;
 
     public CommandeDTO findById(Long id) {
@@ -37,15 +40,15 @@ public class CommandeService {
     public CommandeDTO save(CommandeDTO dto) {
         Validate.notNull(dto, "CommandeDTO must be not null");
         CommandeEntity entity = commandeMapper.convertToEntity(dto);
-
         CommandeEntity saved = commandeRepository.save(entity);
         return commandeMapper.convertToDto(saved);
     }
 
     public CommandeDTO update(CommandeDTO dto) {
         Validate.notNull(dto, "CommandeDTO must be not null");
-        Validate.notNull(dto.getId(), "UserDTO id must be not null");
+        Validate.notNull(dto.getId(), "CommandeDTO id must be not null");
         findById(dto.getId());
+
         CommandeEntity entity = commandeMapper.convertToEntity(dto);
         CommandeEntity saved = commandeRepository.save(entity);
         return commandeMapper.convertToDto(saved);

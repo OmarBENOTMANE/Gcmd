@@ -2,6 +2,12 @@ package org.backend.gcmd.mapper;
 
 import org.backend.gcmd.dto.CommandeDTO;
 import org.backend.gcmd.entity.CommandeEntity;
+import org.backend.gcmd.repository.BulltinPrestationRepository;
+import org.backend.gcmd.repository.DevisRepository;
+import org.backend.gcmd.repository.EscaleRepository;
+import org.backend.gcmd.service.BulltinPrestationService;
+import org.backend.gcmd.service.CommandeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +22,13 @@ public class CommandeMapper implements Mapper<CommandeDTO, CommandeEntity> {
     public Page<CommandeDTO> convertToPageDto(Page<CommandeEntity> page) {
         return page.map(this::convertToDto);
     }
+
+    @Autowired
+    private BulltinPrestationRepository bulltinPrestationRepository;
+    @Autowired
+    private EscaleRepository escaleRepository;
+    @Autowired
+    private DevisRepository devisRepository;
 
     @Override
     public CommandeDTO convertToDto(CommandeEntity entity) {
@@ -35,9 +48,9 @@ public class CommandeMapper implements Mapper<CommandeDTO, CommandeEntity> {
         dto.setNumeroBc(entity.getNumeroBc());
         dto.setNumeroEscale(entity.getNumeroEscale());
         dto.setPoste(entity.getPoste());
-        dto.setCommandeId(entity.getCommandeId());
         dto.setEscaleId(entity.getEscaleId());
         dto.setDevisId(entity.getDevisId());
+        dto.setBulltinPrestationId(entity.getBulltinPrestationId());
         return dto;
     }
 
@@ -59,9 +72,12 @@ public class CommandeMapper implements Mapper<CommandeDTO, CommandeEntity> {
         entity.setNumeroBc(dto.getNumeroBc());
         entity.setNumeroEscale(dto.getNumeroEscale());
         entity.setPoste(dto.getPoste());
-        entity.setCommandeId(dto.getCommandeId());
         entity.setEscaleId(dto.getEscaleId());
         entity.setDevisId(dto.getDevisId());
+        entity.setBulltinPrestationId(dto.getBulltinPrestationId());
+        entity.setBulltinPrestation(bulltinPrestationRepository.findById(dto.getBulltinPrestationId()).get());
+        entity.setEscale(escaleRepository.findById(dto.getEscaleId()).get());
+        entity.setDevis(devisRepository.findById(dto.getDevisId()).get());
         return entity;
     }
 

@@ -27,7 +27,7 @@ public class DevisMapper implements Mapper<DevisDTO, DevisEntity> {
         dto.setDateFacturation(entity.getDateFacturation());
         dto.setDateSortie(entity.getDateSortie());
         dto.setDesignation(entity.getDesignation());
-        dto.setEngineColis(entity.getEngineColis());
+        dto.setEngineColis(entity.getEnginsColis());
         dto.setImportExport(entity.getImportExport());
         dto.setNomClient(entity.getNomClient());
         dto.setNomNavire(entity.getNomNavire());
@@ -36,7 +36,7 @@ public class DevisMapper implements Mapper<DevisDTO, DevisEntity> {
         dto.setNumeroMafi(entity.getNumeroMafi());
         dto.setPoids(entity.getPoids());
         dto.setEscaleId(entity.getEscaleId());
-        dto.setDevisId(entity.getDevisId());
+
         return dto;
     }
 
@@ -50,7 +50,7 @@ public class DevisMapper implements Mapper<DevisDTO, DevisEntity> {
         entity.setDateFacturation(dto.getDateFacturation());
         entity.setDateSortie(dto.getDateSortie());
         entity.setDesignation(dto.getDesignation());
-        entity.setEngineColis(dto.getEngineColis());
+        entity.setEnginsColis(dto.getEngineColis());
         entity.setImportExport(dto.getImportExport());
         entity.setNomClient(dto.getNomClient());
         entity.setNomNavire(dto.getNomNavire());
@@ -59,7 +59,6 @@ public class DevisMapper implements Mapper<DevisDTO, DevisEntity> {
         entity.setNumeroMafi(dto.getNumeroMafi());
         entity.setPoids(dto.getPoids());
         entity.setEscaleId(dto.getEscaleId());
-        entity.setDevisId(dto.getDevisId());
         return entity;
     }
 

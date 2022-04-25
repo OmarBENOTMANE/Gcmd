@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.backend.gcmd.enums.EngineColisEnum;
+import org.backend.gcmd.enums.EnginsColisEnum;
 import org.backend.gcmd.enums.ImportExportEnum;
 import org.backend.gcmd.enums.MmMcEnum;
 
@@ -39,7 +39,7 @@ public class DevisEntity {
     private Integer numeroMafi;
 
     @Enumerated(EnumType.STRING)
-    private EngineColisEnum engineColis;
+    private EnginsColisEnum enginsColis;
 
     private Integer numeroCommande;
     private String nomClient;
@@ -47,22 +47,22 @@ public class DevisEntity {
     private LocalDate dateSortie;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "escale_id", nullable = false)
+    @JoinColumn(name = "escale_id")
     private EscaleEntity escale;
 
-    @Column(name = "escale_id", insertable = false, updatable = false)
+    @Column(name = "escale_id", nullable=false, insertable=false, updatable=false)
     private Long escaleId;
 
-    @OneToMany(mappedBy = "devis")
-    private List<CommandeEntity> commandes;
-
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "devis_id", nullable = false)
-    private ClientEntity devis;
+    @JoinColumn(name = "client_id", nullable=false, insertable=false, updatable=false)
+    private ClientEntity client;
 
-    @Column(name = "devis_id", insertable = false, updatable = false)
-    private Long devisId;
+    @Column(name = "client_id")
+    private Long clientId;
 
-    @OneToMany(mappedBy = "devis")
-    private List<LigneDevisEntity> ligneDevis;
+    @OneToMany(mappedBy = "devis",fetch = FetchType.LAZY)
+    private List<LigneDevisEntity> ligneDevisList;
+
+    @OneToMany(mappedBy = "devis",fetch = FetchType.LAZY)
+    private List<CommandeEntity> commandeList;
 }

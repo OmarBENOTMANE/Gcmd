@@ -26,11 +26,11 @@ public class ClientEntity {
 
     private String phone;
 
-    @OneToMany(mappedBy = "devis")
-    private List<DevisEntity> devis;
+    @OneToMany(mappedBy = "client")
+    private List<DevisEntity> devisList;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "type_client_id", nullable = false,insertable = false,updatable = false)
+    @JoinColumn(name = "type_client_id", nullable=false, insertable=false, updatable=false)
     private TypeClientEntity typeClient;
 
     @Column(name = "type_client_id")

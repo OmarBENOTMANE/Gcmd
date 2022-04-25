@@ -54,11 +54,8 @@ public class BulltinPrestationEntity {
 
     private Integer numeroCmd;
 
-    @OneToMany(mappedBy = "bulltinprestation", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<LigneBpEntity> bulltinprestations;
-
-    @OneToMany(mappedBy = "commande")
-    private List<CommandeEntity> commandes;
+    @OneToMany(mappedBy = "bulltinPrestation",fetch = FetchType.LAZY)
+    private List<CommandeEntity> commandeList;
 
 
 }

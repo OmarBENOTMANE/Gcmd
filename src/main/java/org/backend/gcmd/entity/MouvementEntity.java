@@ -25,9 +25,9 @@ public class MouvementEntity {
     private LocalDate dateMouvement;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "navir_id", nullable = false)
-    private NavireEntity navir;
+    @JoinColumn(name = "navire_id", nullable = false, insertable = false, updatable = false)
+    private NavireEntity navire;
 
-    @Column(name = "navir_id", insertable = false, updatable = false)
-    private Long navirId;
+    @Column(name = "navire_id")
+    private Long navireId;
 }

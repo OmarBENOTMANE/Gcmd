@@ -27,10 +27,10 @@ public class NavireEntity {
     private LocalDate dateNavire;
     private String etat;
 
-    @OneToMany(mappedBy = "navir")
-    private List<MouvementEntity> mouvements;
+    @OneToMany(mappedBy = "navire",fetch = FetchType.LAZY)
+    private List<MouvementEntity> mouvementList;
 
-    @OneToMany(mappedBy = "navire")
-    private List<EscaleEntity> escales;
+        @OneToMany(mappedBy = "navire")
+       private List<EscaleEntity> escaleList;
 
 }

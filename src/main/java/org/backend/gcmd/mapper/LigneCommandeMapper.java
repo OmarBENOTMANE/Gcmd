@@ -25,7 +25,6 @@ public class LigneCommandeMapper implements Mapper<LigneCommandeDTO, LigneComman
         dto.setDescription(entity.getDescription());
         dto.setHeure(entity.getHeure());
         dto.setNombre(entity.getNombre());
-        dto.setPrestation(entity.getPrestation());
         dto.setProduit(entity.getProduit());
         dto.setSensTrafic(entity.getSensTrafic());
         dto.setTarifUnifie(entity.getTarifUnifie());
@@ -45,7 +44,6 @@ public class LigneCommandeMapper implements Mapper<LigneCommandeDTO, LigneComman
         entity.setDescription(dto.getDescription());
         entity.setHeure(dto.getHeure());
         entity.setNombre(dto.getNombre());
-        entity.setPrestation(dto.getPrestation());
         entity.setProduit(dto.getProduit());
         entity.setSensTrafic(dto.getSensTrafic());
         entity.setTarifUnifie(dto.getTarifUnifie());

@@ -3,7 +3,7 @@ package org.backend.gcmd.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.backend.gcmd.enums.EngineColisEnum;
+import org.backend.gcmd.enums.EnginsColisEnum;
 import org.backend.gcmd.enums.ImportExportEnum;
 import org.backend.gcmd.enums.MmMcEnum;
 
@@ -24,12 +24,12 @@ public class DevisDTO {
     private ImportExportEnum importExport;
     private MmMcEnum MmMc;
     private Integer numeroMafi;
-    private EngineColisEnum engineColis;
+    private EnginsColisEnum engineColis;
     private Integer numeroCommande;
     private String nomClient;
     private LocalDate dateFacturation;
     private LocalDate dateSortie;
 
     private Long escaleId;
-    private Long devisId;
+    private Long clientId;
 }

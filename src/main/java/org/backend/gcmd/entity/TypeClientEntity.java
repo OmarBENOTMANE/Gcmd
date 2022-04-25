@@ -22,7 +22,7 @@ public class TypeClientEntity {
 
     private String name;
 
-    @OneToMany(mappedBy = "typeClient",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "typeClient", fetch=FetchType.LAZY)
     private List<ClientEntity> clientList;
 
 }

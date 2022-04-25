@@ -23,8 +23,12 @@ public class TypePrestationEntity {
     private String name;
 
     @OneToMany(mappedBy = "typeprestation")
-    private List<SousTypePrestationEntity> soustypeprestations;
+    private List<SousTypePrestationEntity> soustypeprestationList;
 
-    @OneToMany(mappedBy = "uniteorganisationel")
-    private List<UniteOrganisationelEntity> uniteOrgaisationels;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "unite_organisationel_id", nullable=false, insertable=false, updatable=false)
+    private UniteOrganisationelEntity uniteOrganisationel;
+
+    @Column(name = "unite_organisationel_id", insertable = false, updatable = false)
+    private Long uniteorganisationelId;
 }

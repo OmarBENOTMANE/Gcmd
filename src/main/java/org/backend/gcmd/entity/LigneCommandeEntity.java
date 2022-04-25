@@ -18,12 +18,9 @@ import java.time.LocalTime;
 @Entity
 public class LigneCommandeEntity {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String prestation;
 
     private LocalDate date;
 
@@ -49,9 +46,16 @@ public class LigneCommandeEntity {
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "commande_id", nullable = false)
+    @JoinColumn(name = "commande_id", nullable = false, insertable = false, updatable = false)
     private CommandeEntity commande;
 
-    @Column(name = "commande_id", insertable = false, updatable = false)
+    @Column(name = "commande_id")
     private Long commandeId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "prestation_id", nullable = false, insertable = false, updatable = false)
+    private PrestationEntity prestation;
+
+    @Column(name = "prestation_id")
+    private Long prestationId;
 }
