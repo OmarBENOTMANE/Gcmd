@@ -1,6 +1,7 @@
 package org.backend.gcmd.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.backend.gcmd.enums.EnginsColisEnum;
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Builder
 public class DevisDTO {
 
     private Long id;
@@ -24,7 +26,7 @@ public class DevisDTO {
     private ImportExportEnum importExport;
     private MmMcEnum MmMc;
     private Integer numeroMafi;
-    private EnginsColisEnum engineColis;
+    private EnginsColisEnum enginsColis;
     private Integer numeroCommande;
     private String nomClient;
     private LocalDate dateFacturation;

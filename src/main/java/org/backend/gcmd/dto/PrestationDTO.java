@@ -15,7 +15,7 @@ public class PrestationDTO {
 
     private String typePrestation;
 
-    private Integer typeTarif;
+    private String typeTarif;
 
     private Long soustypeprestationId;
 

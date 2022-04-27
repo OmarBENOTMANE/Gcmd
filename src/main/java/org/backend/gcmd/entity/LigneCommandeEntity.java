@@ -58,4 +58,6 @@ public class LigneCommandeEntity {
 
     @Column(name = "prestation_id")
     private Long prestationId;
-}
+
+    }
+

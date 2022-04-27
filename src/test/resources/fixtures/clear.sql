@@ -4,3 +4,9 @@ TRUNCATE TABLE gcmd_client;
 TRUNCATE TABLE gcmd_devis;
 TRUNCATE TABLE gcmd_escale;
 TRUNCATE TABLE gcmd_commande;
+TRUNCATE TABLE gcmd_ligne_bp;
+TRUNCATE TABLE gcmd_ligne_commande;
+TRUNCATE TABLE gcmd_ligne_devis;
+TRUNCATE TABLE gcmd_marchandise;
+
+

@@ -2,6 +2,11 @@ package org.backend.gcmd.mapper;
 
 import org.backend.gcmd.dto.EscaleDTO;
 import org.backend.gcmd.entity.EscaleEntity;
+import org.backend.gcmd.repository.ClientRepository;
+import org.backend.gcmd.repository.DevisRepository;
+import org.backend.gcmd.repository.EscaleRepository;
+import org.backend.gcmd.repository.NavireRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +16,9 @@ import java.util.stream.Collectors;
 
 @Component
 public class EscaleMapper implements Mapper<EscaleDTO, EscaleEntity> {
+
+    @Autowired
+    private NavireRepository navireRepository;
 
     @Override
     public Page<EscaleDTO> convertToPageDto(Page<EscaleEntity> page) {
@@ -32,6 +40,7 @@ public class EscaleMapper implements Mapper<EscaleDTO, EscaleEntity> {
         entity.setId(dto.getId());
         entity.setNumeroEscale(dto.getNumeroEscale());
         entity.setNavireId(dto.getNavireId());
+        entity.setNavire(navireRepository.findById(dto.getNavireId()).get());
         return entity;
     }
 

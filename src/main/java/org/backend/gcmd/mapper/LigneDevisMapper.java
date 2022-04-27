@@ -2,6 +2,9 @@ package org.backend.gcmd.mapper;
 
 import org.backend.gcmd.dto.LigneDevisDTO;
 import org.backend.gcmd.entity.LigneDevisEntity;
+import org.backend.gcmd.repository.DevisRepository;
+import org.backend.gcmd.repository.PrestationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +14,12 @@ import java.util.stream.Collectors;
 
 @Component
 public class LigneDevisMapper implements Mapper<LigneDevisDTO, LigneDevisEntity> {
+
+    @Autowired
+    DevisRepository devisRepository;
+
+    @Autowired
+    PrestationRepository prestationRepository;
 
     @Override
     public Page<LigneDevisDTO> convertToPageDto(Page<LigneDevisEntity> page) {
@@ -40,7 +49,9 @@ public class LigneDevisMapper implements Mapper<LigneDevisDTO, LigneDevisEntity>
         entity.setQuantite(dto.getQuantite());
         entity.setTotal(dto.getTotal());
         entity.setDevisId(dto.getDevisId());
+        entity.setDevis(devisRepository.findById(dto.getDevisId()).get());
         entity.setPrestationId(dto.getPrestationId());
+        entity.setPrestation(prestationRepository.findById(dto.getPrestationId()).get());
         return entity;
     }
 

@@ -28,6 +28,7 @@ public class LigneBpEntity {
 
     private LocalTime heure;
 
+    @Enumerated(EnumType.STRING)
     private SenstraficEnum sensTrafic;
 
     private String produit;

@@ -1,12 +1,18 @@
 package org.backend.gcmd.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.backend.gcmd.enums.SenstraficEnum;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
+@Builder
 public class LigneBpDTO {
 
     private Long id;

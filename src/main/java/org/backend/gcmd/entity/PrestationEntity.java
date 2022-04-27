@@ -24,7 +24,7 @@ public class PrestationEntity {
 
     private String typePrestation;
 
-    private Integer typeTarif;
+    private String typeTarif;
 
 
     @OneToMany(mappedBy = "prestation")

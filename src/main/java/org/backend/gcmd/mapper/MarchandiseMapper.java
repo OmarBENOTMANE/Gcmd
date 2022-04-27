@@ -2,6 +2,8 @@ package org.backend.gcmd.mapper;
 
 import org.backend.gcmd.dto.MarchandiseDTO;
 import org.backend.gcmd.entity.MarchandiseEntity;
+import org.backend.gcmd.repository.EscaleRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +13,9 @@ import java.util.stream.Collectors;
 
 @Component
 public class MarchandiseMapper implements Mapper<MarchandiseDTO, MarchandiseEntity> {
+
+    @Autowired
+    EscaleRepository escaleRepository;
 
     @Override
     public Page<MarchandiseDTO> convertToPageDto(Page<MarchandiseEntity> page) {
@@ -36,6 +41,7 @@ public class MarchandiseMapper implements Mapper<MarchandiseDTO, MarchandiseEnti
         entity.setQuantite(dto.getQuantite());
         entity.setReference(dto.getReference());
         entity.setEscaleId(dto.getEscaleId());
+        entity.setEscale(escaleRepository.findById(dto.getEscaleId()).get());
         return entity;
     }
 

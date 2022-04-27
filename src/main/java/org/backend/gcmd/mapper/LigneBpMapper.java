@@ -2,6 +2,8 @@ package org.backend.gcmd.mapper;
 
 import org.backend.gcmd.dto.LigneBpDTO;
 import org.backend.gcmd.entity.LigneBpEntity;
+import org.backend.gcmd.repository.BulltinPrestationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +13,9 @@ import java.util.stream.Collectors;
 
 @Component
 public class LigneBpMapper implements Mapper<LigneBpDTO, LigneBpEntity> {
+
+    @Autowired
+    BulltinPrestationRepository bulltinprestationRepository;
 
     @Override
     public Page<LigneBpDTO> convertToPageDto(Page<LigneBpEntity> page) {
@@ -52,6 +57,7 @@ public class LigneBpMapper implements Mapper<LigneBpDTO, LigneBpEntity> {
         entity.setTonnageMinimum(dto.getTonnageMinimum());
         entity.setTonnageReel(dto.getTonnageReel());
         entity.setBulltinprestationId(dto.getBulltinprestationId());
+        entity.setBulltinprestation(bulltinprestationRepository.findById(dto.getBulltinprestationId()).get());
         return entity;
     }
 
