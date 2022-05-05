@@ -22,15 +22,15 @@ public class NavireEntity {
     private Long id;
 
     private String name;
-    private Double numeroEscale;
+    private Integer numeroEscale;
     private String consignataire;
     private LocalDate dateNavire;
     private String etat;
 
-    @OneToMany(mappedBy = "navire",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "navire")
     private List<MouvementEntity> mouvementList;
 
-        @OneToMany(mappedBy = "navire")
-       private List<EscaleEntity> escaleList;
+    @OneToMany(mappedBy = "navire")
+    private List<EscaleEntity> escaleList;
 
 }

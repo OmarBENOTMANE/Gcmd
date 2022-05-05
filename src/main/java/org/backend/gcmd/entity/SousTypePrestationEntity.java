@@ -21,13 +21,13 @@ public class SousTypePrestationEntity {
 
     private String name;
 
-    @OneToMany(mappedBy = "soustypeprestation",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "soustypeprestation", fetch = FetchType.LAZY)
     private List<PrestationEntity> prestationList;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "typeprestation_id")
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity =TypePrestationEntity.class)
+    @JoinColumn(name = "typeprestation_id", insertable = false, updatable = false)
     private TypePrestationEntity typeprestation;
 
-    @Column(name = "typeprestation_id", nullable = false, insertable = false, updatable = false)
+    @Column(name = "typeprestation_id", nullable = false)
     private Long typeprestationId;
 }

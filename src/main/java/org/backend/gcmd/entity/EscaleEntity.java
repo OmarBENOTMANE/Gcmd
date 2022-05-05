@@ -28,12 +28,12 @@ public class EscaleEntity {
     @JoinColumn(name = "navire_id", insertable = false, updatable = false)
     private NavireEntity navire;
 
-    @OneToMany(mappedBy = "escale",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "escale", fetch = FetchType.LAZY)
     private List<MarchandiseEntity> marchandiseList;
 
-    @OneToMany(mappedBy = "escale",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "escale", fetch = FetchType.LAZY)
     private List<DevisEntity> devisList;
 
-    @OneToMany(mappedBy = "escale",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "escale", fetch = FetchType.LAZY)
     private List<CommandeEntity> CommandeList;
 }

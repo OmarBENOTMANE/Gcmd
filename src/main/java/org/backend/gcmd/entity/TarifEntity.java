@@ -23,7 +23,7 @@ public class TarifEntity {
 
     private Double tarifTtc;
 
-    @OneToOne(mappedBy = "tarif",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "tarif", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private PrestationEntity prestation;
 
 }

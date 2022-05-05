@@ -1,6 +1,5 @@
 package org.backend.gcmd.service;
 
-import org.backend.gcmd.dto.BulltinPrestationDTO;
 import org.backend.gcmd.dto.CommandeDTO;
 import org.backend.gcmd.entity.CommandeEntity;
 import org.backend.gcmd.exceptions.technical.ObjectNotFoundException;

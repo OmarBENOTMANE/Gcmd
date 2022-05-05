@@ -24,10 +24,10 @@ public class MouvementEntity {
 
     private LocalDate dateMouvement;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "navire_id", nullable = false, insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = NavireEntity.class)
+    @JoinColumn(name = "navire_id", insertable = false, updatable = false)
     private NavireEntity navire;
 
-    @Column(name = "navire_id")
+    @Column(name = "navire_id", nullable = false)
     private Long navireId;
 }

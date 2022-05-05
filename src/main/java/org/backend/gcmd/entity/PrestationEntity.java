@@ -31,13 +31,13 @@ public class PrestationEntity {
     private List<LigneDevisEntity> LigneDevisList;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name="tarif_id")
+    @JoinColumn(name = "tarif_id")
     private TarifEntity tarif;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "soustypeprestation_id")
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = SousTypePrestationEntity.class)
+    @JoinColumn(name = "soustypeprestation_id", insertable = false, updatable = false)
     private SousTypePrestationEntity soustypeprestation;
 
-    @Column(name = "soustypeprestation_id", nullable=false, insertable=false, updatable=false)
+    @Column(name = "soustypeprestation_id", nullable = false)
     private Long soustypeprestationId;
 }

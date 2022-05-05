@@ -54,7 +54,7 @@ public class BulltinPrestationEntity {
 
     private Integer numeroCmd;
 
-    @OneToMany(mappedBy = "bulltinPrestation",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "bulltinPrestation", fetch = FetchType.LAZY)
     private List<CommandeEntity> commandeList;
 
 

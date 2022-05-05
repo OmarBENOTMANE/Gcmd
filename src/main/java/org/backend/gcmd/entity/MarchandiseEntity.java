@@ -22,10 +22,10 @@ public class MarchandiseEntity {
     private String reference;
     private Double quantite;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "escale_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = EscaleEntity.class)
+    @JoinColumn(name = "escale_id", insertable = false, updatable = false)
     private EscaleEntity escale;
 
-    @Column(name = "escale_id", insertable = false, updatable = false)
+    @Column(name = "escale_id", nullable = false)
     private Long escaleId;
 }

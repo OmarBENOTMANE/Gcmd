@@ -65,7 +65,7 @@ class TypePrestationServiceTest {
     void save_OK() {
         //given
         TypePrestationDTO tpdto = TypePrestationDTO.builder()
-                .id(null).name("prestation").uniteorganisationelId(1l)
+                .id(null).name("prestation")
                 .build();
         //when
         TypePrestationDTO result = typePrestationService.save(tpdto);
@@ -98,7 +98,7 @@ class TypePrestationServiceTest {
                 });
         //given
         TypePrestationDTO tpdto = TypePrestationDTO.builder()
-                .id(1L).name("prestation modif").uniteorganisationelId(1l)
+                .id(1L).name("prestation modif")
                 .build();
         //when
         TypePrestationDTO result = typePrestationService.update(tpdto);

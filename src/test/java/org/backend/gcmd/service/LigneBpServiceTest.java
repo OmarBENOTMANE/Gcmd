@@ -2,7 +2,6 @@ package org.backend.gcmd.service;
 
 
 import org.backend.gcmd.dto.LigneBpDTO;
-import org.backend.gcmd.enums.ImportExportEnum;
 import org.backend.gcmd.enums.SenstraficEnum;
 import org.backend.gcmd.exceptions.technical.IllegalNullParamException;
 import org.backend.gcmd.exceptions.technical.ObjectNotFoundException;
@@ -16,6 +15,7 @@ import org.springframework.test.context.jdbc.Sql;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest

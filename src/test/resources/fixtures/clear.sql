@@ -1,11 +1,19 @@
-SET FOREIGN_KEY_CHECKS = 0;
-DELETE from gcmd_bulltin_prestation;
-delete from gcmd_type_client;
-delete from gcmd_client;
-delete from gcmd_devis;
-delete from gcmd_navire;
-delete from gcmd_escale;
-delete from gcmd_commande;
+SET
+FOREIGN_KEY_CHECKS = 0;
+DELETE
+from gcmd_bulltin_prestation;
+delete
+from gcmd_type_client;
+delete
+from gcmd_client;
+delete
+from gcmd_devis;
+delete
+from gcmd_navire;
+delete
+from gcmd_escale;
+delete
+from gcmd_commande;
 
 
 -- delete from gcmd_ligne_bp;

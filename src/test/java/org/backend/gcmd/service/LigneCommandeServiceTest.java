@@ -69,7 +69,7 @@ class LigneCommandeServiceTest {
     void save_OK() {
         //given
         LigneCommandeDTO lcdto = LigneCommandeDTO.builder()
-                .id(1L).commandeId(1L).date(LocalDate.ofEpochDay(2022-04-27)).heure(LocalTime.parse("09:00:00")).nombre(2).prestationId(1L).produit("produit").sensTrafic(SenstraficEnum.valueOf("EXPORT")).tarifUnifie(true).tcConv(false).tcSuppl("tc sup").tonnageMinimum(33).tonnageReel(44)
+                .id(1L).commandeId(1L).date(LocalDate.ofEpochDay(2022 - 04 - 27)).heure(LocalTime.parse("09:00:00")).nombre(2).prestationId(1L).produit("produit").sensTrafic(SenstraficEnum.valueOf("EXPORT")).tarifUnifie(true).tcConv(false).tcSuppl("tc sup").tonnageMinimum(33).tonnageReel(44)
                 .build();
         //when
         LigneCommandeDTO result = ligneCommandeService.save(lcdto);
@@ -102,7 +102,7 @@ class LigneCommandeServiceTest {
                 });
         //given
         LigneCommandeDTO lcdto = LigneCommandeDTO.builder()
-                .id(1L).commandeId(1L).date(LocalDate.ofEpochDay(2022-04-27)).heure(LocalTime.parse("09:00:00")).nombre(2).prestationId(1L).produit("produit modif").sensTrafic(SenstraficEnum.valueOf("EXPORT")).tarifUnifie(true).tcConv(false).tcSuppl("tc sup").tonnageMinimum(33).tonnageReel(44)
+                .id(1L).commandeId(1L).date(LocalDate.ofEpochDay(2022 - 04 - 27)).heure(LocalTime.parse("09:00:00")).nombre(2).prestationId(1L).produit("produit modif").sensTrafic(SenstraficEnum.valueOf("EXPORT")).tarifUnifie(true).tcConv(false).tcSuppl("tc sup").tonnageMinimum(33).tonnageReel(44)
                 .build();
         //when
         LigneCommandeDTO result = ligneCommandeService.update(lcdto);

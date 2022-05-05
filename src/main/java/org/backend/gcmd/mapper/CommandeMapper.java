@@ -2,12 +2,6 @@ package org.backend.gcmd.mapper;
 
 import org.backend.gcmd.dto.CommandeDTO;
 import org.backend.gcmd.entity.CommandeEntity;
-import org.backend.gcmd.repository.BulltinPrestationRepository;
-import org.backend.gcmd.repository.DevisRepository;
-import org.backend.gcmd.repository.EscaleRepository;
-import org.backend.gcmd.service.BulltinPrestationService;
-import org.backend.gcmd.service.CommandeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 

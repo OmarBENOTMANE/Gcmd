@@ -65,7 +65,7 @@ class PrestationServiceTest {
     void save_OK() {
         //given
         PrestationDTO pdto = PrestationDTO.builder()
-                .id(null).designation("des").soustypeprestationId(1L).tarifId(1L).typePrestation("type").typeTarif("tarif")
+                .id(null).designation("des").soustypeprestationId(1L).typePrestation("type").typeTarif("tarif")
                 .build();
         //when
         PrestationDTO result = prestationService.save(pdto);
@@ -98,7 +98,7 @@ class PrestationServiceTest {
                 });
         //given
         PrestationDTO pdto = PrestationDTO.builder()
-                .id(1L).designation("des").soustypeprestationId(1L).tarifId(1L).typePrestation("type modif").typeTarif("tarif")
+                .id(1L).designation("des").soustypeprestationId(1L).typePrestation("type modif").typeTarif("tarif")
                 .build();
         //when
         PrestationDTO result = prestationService.update(pdto);

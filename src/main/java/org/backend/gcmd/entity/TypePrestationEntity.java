@@ -25,10 +25,10 @@ public class TypePrestationEntity {
     @OneToMany(mappedBy = "typeprestation")
     private List<SousTypePrestationEntity> soustypeprestationList;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "unite_organisationel_id", nullable=false, insertable=false, updatable=false)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = UniteOrganisationelEntity.class)
+    @JoinColumn(name = "unite_organisationel_id", insertable = false, updatable = false)
     private UniteOrganisationelEntity uniteOrganisationel;
 
-    @Column(name = "unite_organisationel_id", insertable = false, updatable = false)
+    @Column(name = "unite_organisationel_id", nullable = false)
     private Long uniteorganisationelId;
 }

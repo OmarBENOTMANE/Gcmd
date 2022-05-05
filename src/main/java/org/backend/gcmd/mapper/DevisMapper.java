@@ -3,7 +3,6 @@ package org.backend.gcmd.mapper;
 import org.backend.gcmd.dto.DevisDTO;
 import org.backend.gcmd.entity.DevisEntity;
 import org.backend.gcmd.repository.ClientRepository;
-import org.backend.gcmd.repository.DevisRepository;
 import org.backend.gcmd.repository.EscaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,15 +15,15 @@ import java.util.stream.Collectors;
 @Component
 public class DevisMapper implements Mapper<DevisDTO, DevisEntity> {
 
-    @Override
-    public Page<DevisDTO> convertToPageDto(Page<DevisEntity> page) {
-        return page.map(this::convertToDto);
-    }
-
     @Autowired
     private EscaleRepository escaleRepository;
     @Autowired
     private ClientRepository clientRepository;
+
+    @Override
+    public Page<DevisDTO> convertToPageDto(Page<DevisEntity> page) {
+        return page.map(this::convertToDto);
+    }
 
     @Override
     public DevisDTO convertToDto(DevisEntity entity) {

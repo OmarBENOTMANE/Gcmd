@@ -26,7 +26,7 @@ public class UniteOrganisationelEntity {
 
     private String description;
 
-    @OneToMany(mappedBy = "uniteOrganisationel", fetch=FetchType.LAZY)
+    @OneToMany(mappedBy = "uniteOrganisationel", fetch = FetchType.LAZY)
     private List<TypePrestationEntity> typePrestationList;
 
 }
