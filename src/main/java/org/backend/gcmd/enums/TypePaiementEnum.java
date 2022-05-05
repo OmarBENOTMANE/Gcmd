@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum typePaiementEnum {
+public enum TypePaiementEnum {
 
     COMPTANT(1), CREDIT(0);
 

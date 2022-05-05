@@ -2,7 +2,7 @@ package org.backend.gcmd.service;
 
 
 import org.backend.gcmd.dto.BulltinPrestationDTO;
-import org.backend.gcmd.enums.typePaiementEnum;
+import org.backend.gcmd.enums.TypePaiementEnum;
 import org.backend.gcmd.exceptions.technical.IllegalNullParamException;
 import org.backend.gcmd.exceptions.technical.ObjectNotFoundException;
 import org.junit.jupiter.api.Assertions;
@@ -69,7 +69,7 @@ class BulltinPrestationServiceTest {
     void save_OK() {
         //given
         BulltinPrestationDTO bpdto = BulltinPrestationDTO.builder()
-                .codeClient(4).codeNature(44).date(LocalDate.now()).dateDepot(LocalDate.now()).dateProbableExecution(LocalDate.now()).description("new4").moyenOdepClient(true).nomClient("clinet4").numeroCmd(444).numeroDossierPrestation(4444).numeroEscale(404).preValidation(false).text("blabla").typePaiement(typePaiementEnum.COMPTANT)
+                .codeClient(4).codeNature(44).date(LocalDate.now()).dateDepot(LocalDate.now()).dateProbableExecution(LocalDate.now()).description("new4").moyenOdepClient(true).nomClient("clinet4").numeroCmd(444).numeroDossierPrestation(4444).numeroEscale(404).preValidation(false).text("blabla").typePaiement(TypePaiementEnum.COMPTANT)
                 .build();
         //when
         BulltinPrestationDTO result = bulltinPrestationService.save(bpdto);

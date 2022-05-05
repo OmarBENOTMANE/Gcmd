@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.backend.gcmd.enums.typePaiementEnum;
+import org.backend.gcmd.enums.TypePaiementEnum;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -32,7 +32,7 @@ public class BulltinPrestationEntity {
     private Integer numeroDossierPrestation;
 
     @Enumerated(EnumType.ORDINAL)
-    private typePaiementEnum typePaiement;
+    private TypePaiementEnum typePaiement;
 
     private Integer codeClient;
 

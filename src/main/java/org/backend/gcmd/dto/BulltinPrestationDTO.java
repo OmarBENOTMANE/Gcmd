@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.backend.gcmd.enums.typePaiementEnum;
+import org.backend.gcmd.enums.TypePaiementEnum;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -25,7 +25,7 @@ public class BulltinPrestationDTO {
 
     private Integer numeroDossierPrestation;
 
-    private typePaiementEnum typePaiement;
+    private TypePaiementEnum typePaiement;
 
     private Integer codeClient;
 
