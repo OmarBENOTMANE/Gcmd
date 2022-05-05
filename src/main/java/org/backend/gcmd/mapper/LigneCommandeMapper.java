@@ -15,12 +15,6 @@ import java.util.stream.Collectors;
 @Component
 public class LigneCommandeMapper implements Mapper<LigneCommandeDTO, LigneCommandeEntity> {
 
-    @Autowired
-    PrestationRepository prestationRepository;
-
-    @Autowired
-    CommandeRepository commandeRepository;
-
     @Override
     public Page<LigneCommandeDTO> convertToPageDto(Page<LigneCommandeEntity> page) {
         return page.map(this::convertToDto);
@@ -41,8 +35,6 @@ public class LigneCommandeMapper implements Mapper<LigneCommandeDTO, LigneComman
         dto.setTcSuppl(entity.getTcSuppl());
         dto.setTonnageMinimum(entity.getTonnageMinimum());
         dto.setTonnageReel(entity.getTonnageReel());
-        dto.setPrestationId(entity.getPrestationId());
-        dto.setCommandeId(entity.getCommandeId());
         return dto;
     }
 
@@ -61,9 +53,6 @@ public class LigneCommandeMapper implements Mapper<LigneCommandeDTO, LigneComman
         entity.setTcSuppl(dto.getTcSuppl());
         entity.setTonnageMinimum(dto.getTonnageMinimum());
         entity.setTonnageReel(dto.getTonnageReel());
-        entity.setCommandeId(dto.getCommandeId());
-        entity.setPrestationId(dto.getPrestationId());
-
         return entity;
     }
 

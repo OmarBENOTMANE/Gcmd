@@ -24,7 +24,6 @@ public class PrestationMapper implements Mapper<PrestationDTO, PrestationEntity>
         dto.setDesignation(entity.getDesignation());
         dto.setTypePrestation(entity.getTypePrestation());
         dto.setTypeTarif(entity.getTypeTarif());
-        dto.setSoustypeprestationId(entity.getSoustypeprestationId());
         return dto;
     }
 
@@ -35,7 +34,6 @@ public class PrestationMapper implements Mapper<PrestationDTO, PrestationEntity>
         entity.setDesignation(dto.getDesignation());
         entity.setTypePrestation(dto.getTypePrestation());
         entity.setTypeTarif(dto.getTypeTarif());
-        entity.setSoustypeprestationId(dto.getSoustypeprestationId());
         return entity;
     }
 

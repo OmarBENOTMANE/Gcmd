@@ -26,7 +26,6 @@ public class PrestationEntity {
 
     private String typeTarif;
 
-
     @OneToMany(mappedBy = "prestation")
     private List<LigneDevisEntity> LigneDevisList;
 
@@ -35,9 +34,7 @@ public class PrestationEntity {
     private TarifEntity tarif;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = SousTypePrestationEntity.class)
-    @JoinColumn(name = "soustypeprestation_id", insertable = false, updatable = false)
+    @JoinColumn(name = "soustypeprestation_id", nullable = true, insertable = false, updatable = false)
     private SousTypePrestationEntity soustypeprestation;
 
-    @Column(name = "soustypeprestation_id", nullable = false)
-    private Long soustypeprestationId;
 }

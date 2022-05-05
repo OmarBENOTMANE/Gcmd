@@ -37,7 +37,7 @@ public class LigneBpMapper implements Mapper<LigneBpDTO, LigneBpEntity> {
         dto.setTcSuppl(entity.getTcSuppl());
         dto.setTonnageMinimum(entity.getTonnageMinimum());
         dto.setTonnageReel(entity.getTonnageReel());
-        dto.setBulltinPrestationId(entity.getBulltinPrestationId());
+
         return dto;
     }
 
@@ -56,7 +56,6 @@ public class LigneBpMapper implements Mapper<LigneBpDTO, LigneBpEntity> {
         entity.setTcSuppl(dto.getTcSuppl());
         entity.setTonnageMinimum(dto.getTonnageMinimum());
         entity.setTonnageReel(dto.getTonnageReel());
-        entity.setBulltinPrestationId(dto.getBulltinPrestationId());
         return entity;
     }
 

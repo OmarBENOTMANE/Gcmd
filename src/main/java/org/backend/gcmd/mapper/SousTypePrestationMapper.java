@@ -23,7 +23,6 @@ public class SousTypePrestationMapper implements Mapper<SousTypePrestationDTO, S
         dto.setId(entity.getId());
         dto.setId(entity.getId());
         dto.setName(entity.getName());
-        dto.setTypeprestationId(entity.getTypeprestationId());
         return dto;
     }
 
@@ -33,7 +32,6 @@ public class SousTypePrestationMapper implements Mapper<SousTypePrestationDTO, S
         entity.setId(dto.getId());
         entity.setId(dto.getId());
         entity.setName(dto.getName());
-        entity.setTypeprestationId(dto.getTypeprestationId());
         return entity;
     }
 

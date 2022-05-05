@@ -14,9 +14,6 @@ import java.util.stream.Collectors;
 @Component
 public class EscaleMapper implements Mapper<EscaleDTO, EscaleEntity> {
 
-    @Autowired
-    private NavireRepository navireRepository;
-
     @Override
     public Page<EscaleDTO> convertToPageDto(Page<EscaleEntity> page) {
         return page.map(this::convertToDto);
@@ -27,7 +24,6 @@ public class EscaleMapper implements Mapper<EscaleDTO, EscaleEntity> {
         EscaleDTO dto = new EscaleDTO();
         dto.setId(entity.getId());
         dto.setNumeroEscale(entity.getNumeroEscale());
-        dto.setNavireId(entity.getNavireId());
         return dto;
     }
 
@@ -36,7 +32,6 @@ public class EscaleMapper implements Mapper<EscaleDTO, EscaleEntity> {
         EscaleEntity entity = new EscaleEntity();
         entity.setId(dto.getId());
         entity.setNumeroEscale(dto.getNumeroEscale());
-        entity.setNavireId(dto.getNavireId());
         return entity;
     }
 

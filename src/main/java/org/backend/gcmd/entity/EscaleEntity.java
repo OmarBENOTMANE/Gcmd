@@ -21,11 +21,8 @@ public class EscaleEntity {
     private Long id;
     private Integer numeroEscale;
 
-    @Column(name = "navire_id", nullable = false)
-    private Long navireId;
-
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = NavireEntity.class)
-    @JoinColumn(name = "navire_id", insertable = false, updatable = false)
+    @JoinColumn(name = "navire_id", nullable = true, insertable = false, updatable = false)
     private NavireEntity navire;
 
     @OneToMany(mappedBy = "escale", fetch = FetchType.LAZY)

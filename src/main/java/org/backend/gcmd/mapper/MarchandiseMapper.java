@@ -14,9 +14,6 @@ import java.util.stream.Collectors;
 @Component
 public class MarchandiseMapper implements Mapper<MarchandiseDTO, MarchandiseEntity> {
 
-    @Autowired
-    EscaleRepository escaleRepository;
-
     @Override
     public Page<MarchandiseDTO> convertToPageDto(Page<MarchandiseEntity> page) {
         return page.map(this::convertToDto);
@@ -29,7 +26,6 @@ public class MarchandiseMapper implements Mapper<MarchandiseDTO, MarchandiseEnti
         dto.setDesignation(entity.getDesignation());
         dto.setQuantite(entity.getQuantite());
         dto.setReference(entity.getReference());
-        dto.setEscaleId(entity.getEscaleId());
         return dto;
     }
 
@@ -40,8 +36,6 @@ public class MarchandiseMapper implements Mapper<MarchandiseDTO, MarchandiseEnti
         entity.setDesignation(dto.getDesignation());
         entity.setQuantite(dto.getQuantite());
         entity.setReference(dto.getReference());
-        entity.setEscaleId(dto.getEscaleId());
-
         return entity;
     }
 

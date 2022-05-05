@@ -15,12 +15,6 @@ import java.util.stream.Collectors;
 @Component
 public class LigneDevisMapper implements Mapper<LigneDevisDTO, LigneDevisEntity> {
 
-    @Autowired
-    DevisRepository devisRepository;
-
-    @Autowired
-    PrestationRepository prestationRepository;
-
     @Override
     public Page<LigneDevisDTO> convertToPageDto(Page<LigneDevisEntity> page) {
         return page.map(this::convertToDto);
@@ -35,8 +29,6 @@ public class LigneDevisMapper implements Mapper<LigneDevisDTO, LigneDevisEntity>
         dto.setNombreUnite(entity.getNombreUnite());
         dto.setQuantite(entity.getQuantite());
         dto.setTotal(entity.getTotal());
-        dto.setDevisId(entity.getDevisId());
-        dto.setPrestationId(entity.getPrestationId());
         return dto;
     }
 
@@ -48,9 +40,6 @@ public class LigneDevisMapper implements Mapper<LigneDevisDTO, LigneDevisEntity>
         entity.setNombreUnite(dto.getNombreUnite());
         entity.setQuantite(dto.getQuantite());
         entity.setTotal(dto.getTotal());
-        entity.setDevisId(dto.getDevisId());
-        entity.setPrestationId(dto.getPrestationId());
-
         return entity;
     }
 

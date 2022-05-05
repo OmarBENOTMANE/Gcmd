@@ -47,18 +47,12 @@ public class DevisEntity {
     private LocalDate dateSortie;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = EscaleEntity.class)
-    @JoinColumn(name = "escale_id", insertable = false, updatable = false)
+    @JoinColumn(name = "escale_id", nullable = true, insertable = false, updatable = false)
     private EscaleEntity escale;
 
-    @Column(name = "escale_id", nullable = false)
-    private Long escaleId;
-
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = ClientEntity.class)
-    @JoinColumn(name = "client_id", insertable = false, updatable = false)
+    @JoinColumn(name = "client_id", nullable = true, insertable = false, updatable = false)
     private ClientEntity client;
-
-    @Column(name = "client_id", nullable = false)
-    private Long clientId;
 
     @OneToMany(mappedBy = "devis", fetch = FetchType.LAZY)
     private List<LigneDevisEntity> ligneDevisList;

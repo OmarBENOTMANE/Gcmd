@@ -26,9 +26,7 @@ public class TypePrestationEntity {
     private List<SousTypePrestationEntity> soustypeprestationList;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = UniteOrganisationelEntity.class)
-    @JoinColumn(name = "unite_organisationel_id", insertable = false, updatable = false)
+    @JoinColumn(name = "unite_organisationel_id", nullable = true, insertable = false, updatable = false)
     private UniteOrganisationelEntity uniteOrganisationel;
 
-    @Column(name = "unite_organisationel_id", nullable = false)
-    private Long uniteorganisationelId;
 }

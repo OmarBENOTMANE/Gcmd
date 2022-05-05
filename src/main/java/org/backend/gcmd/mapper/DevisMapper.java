@@ -15,11 +15,6 @@ import java.util.stream.Collectors;
 @Component
 public class DevisMapper implements Mapper<DevisDTO, DevisEntity> {
 
-    @Autowired
-    private EscaleRepository escaleRepository;
-    @Autowired
-    private ClientRepository clientRepository;
-
     @Override
     public Page<DevisDTO> convertToPageDto(Page<DevisEntity> page) {
         return page.map(this::convertToDto);
@@ -43,8 +38,6 @@ public class DevisMapper implements Mapper<DevisDTO, DevisEntity> {
         dto.setNumeroCommande(entity.getNumeroCommande());
         dto.setNumeroMafi(entity.getNumeroMafi());
         dto.setPoids(entity.getPoids());
-        dto.setEscaleId(entity.getEscaleId());
-        dto.setClientId(entity.getClientId());
         return dto;
     }
 
@@ -66,8 +59,6 @@ public class DevisMapper implements Mapper<DevisDTO, DevisEntity> {
         entity.setNumeroCommande(dto.getNumeroCommande());
         entity.setNumeroMafi(dto.getNumeroMafi());
         entity.setPoids(dto.getPoids());
-        entity.setEscaleId(dto.getEscaleId());
-        entity.setClientId(dto.getClientId());
         return entity;
     }
 

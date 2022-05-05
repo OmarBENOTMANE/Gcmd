@@ -49,27 +49,18 @@ public class CommandeEntity {
 
     private Integer bulletinReception;
 
-    //
-    @Column(name = "escale_id", nullable = false)
-    private Long escaleId;
-
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = EscaleEntity.class)
-    @JoinColumn(name = "escale_id", insertable = false, updatable = false)
+    @JoinColumn(name = "escale_id", nullable = true ,insertable = false, updatable = false)
     private EscaleEntity escale;
 
-    //
-    @Column(name = "devis_id", nullable = false)
-    private Long devisId;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = DevisEntity.class)
-    @JoinColumn(name = "devis_id", insertable = false, updatable = false)
+    @JoinColumn(name = "devis_id", nullable = true, insertable = false, updatable = false)
     private DevisEntity devis;
 
-    @Column(name = "bulltin_prestation_id", nullable = false)
-    private Long bulltinPrestationId;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = BulltinPrestationEntity.class)
-    @JoinColumn(name = "bulltin_prestation_id", insertable = false, updatable = false)
+    @JoinColumn(name = "bulltin_prestation_id", nullable = true, insertable = false, updatable = false)
     private BulltinPrestationEntity bulltinPrestation;
 
     @OneToMany(mappedBy = "commande", fetch = FetchType.LAZY)

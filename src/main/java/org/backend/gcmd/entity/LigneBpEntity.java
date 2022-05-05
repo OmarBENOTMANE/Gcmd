@@ -45,11 +45,8 @@ public class LigneBpEntity {
 
     private Integer tonnageMinimum;
 
-    @Column(name = "bulltin_prestation_id", nullable = false)
-    private Long bulltinPrestationId;
-
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = BulltinPrestationEntity.class)
-    @JoinColumn(name = "bulltin_prestation_id", insertable = false, updatable = false)
+    @JoinColumn(name = "bulltin_prestation_id", nullable = true, insertable = false, updatable = false)
     private BulltinPrestationEntity bulltinprestation;
 
 }
