@@ -23,13 +23,6 @@ public class CommandeMapper implements Mapper<CommandeDTO, CommandeEntity> {
         return page.map(this::convertToDto);
     }
 
-    @Autowired
-    private BulltinPrestationRepository bulltinPrestationRepository;
-    @Autowired
-    private EscaleRepository escaleRepository;
-    @Autowired
-    private DevisRepository devisRepository;
-
     @Override
     public CommandeDTO convertToDto(CommandeEntity entity) {
         CommandeDTO dto = new CommandeDTO();
@@ -75,9 +68,6 @@ public class CommandeMapper implements Mapper<CommandeDTO, CommandeEntity> {
         entity.setEscaleId(dto.getEscaleId());
         entity.setDevisId(dto.getDevisId());
         entity.setBulltinPrestationId(dto.getBulltinPrestationId());
-        entity.setBulltinPrestation(bulltinPrestationRepository.findById(dto.getBulltinPrestationId()).get());
-        entity.setEscale(escaleRepository.findById(dto.getEscaleId()).get());
-        entity.setDevis(devisRepository.findById(dto.getDevisId()).get());
         return entity;
     }
 

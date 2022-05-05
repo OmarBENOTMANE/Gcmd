@@ -49,9 +49,8 @@ public class LigneDevisMapper implements Mapper<LigneDevisDTO, LigneDevisEntity>
         entity.setQuantite(dto.getQuantite());
         entity.setTotal(dto.getTotal());
         entity.setDevisId(dto.getDevisId());
-        entity.setDevis(devisRepository.findById(dto.getDevisId()).get());
         entity.setPrestationId(dto.getPrestationId());
-        entity.setPrestation(prestationRepository.findById(dto.getPrestationId()).get());
+
         return entity;
     }
 

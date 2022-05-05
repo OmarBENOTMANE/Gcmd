@@ -1,8 +1,7 @@
 package org.backend.gcmd.service;
 
 
-import org.backend.gcmd.dto.DevisDTO;
-import org.backend.gcmd.enums.ImportExportEnum;
+import org.backend.gcmd.dto.NavireDTO;
 import org.backend.gcmd.exceptions.technical.IllegalNullParamException;
 import org.backend.gcmd.exceptions.technical.ObjectNotFoundException;
 import org.junit.jupiter.api.Assertions;
@@ -15,22 +14,20 @@ import org.springframework.test.context.jdbc.Sql;
 
 import java.time.LocalDate;
 
-import static org.backend.gcmd.enums.EnginsColisEnum.COLIS;
-import static org.backend.gcmd.enums.MmMcEnum.MM;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Sql(scripts = "classpath:/fixtures/clear.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-@Sql(scripts = "classpath:/fixtures/devis.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-class DevisServiceTest {
+@Sql(scripts = "classpath:/fixtures/navire.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+class NavireServiceTest {
 
 
     @Autowired
-    DevisService devisService;
+    NavireService navireService;
 
     @Test
     void serviceInjection() {
-        assertNotNull(devisService);
+        assertNotNull(navireService);
     }
 
     //findById
@@ -38,22 +35,23 @@ class DevisServiceTest {
     void findById_KO_nullId() {
         assertThrows(IllegalNullParamException.class,
                 () -> {
-                    devisService.findById(null);
+                    navireService.findById(null);
                 });
     }
 
     @Test
     void findById_OK_ID_Found() {
-        DevisDTO ddto = devisService.findById(1L);
-        assertNotNull(ddto);
-        assertEquals(1L, ddto.getId());
+        NavireDTO ndto = navireService.findById(1L);
+        assertNotNull(ndto);
+        assertEquals(1L, ndto.getId());
+
     }
 
     @Test
     void findById_KO_ID_Not_Found() {
         assertThrows(ObjectNotFoundException.class,
                 () -> {
-                    devisService.findById(999999L);
+                    navireService.findById(999999L);
                 });
     }
 
@@ -62,18 +60,18 @@ class DevisServiceTest {
     void save_KO_nullId() {
         assertThrows(IllegalNullParamException.class,
                 () -> {
-                    devisService.save(null);
+                    navireService.save(null);
                 });
     }
 
     @Test
     void save_OK() {
         //given
-        DevisDTO ddto = DevisDTO.builder()
-                .id(null).mmMc(MM).bl(22).clientId(1L).date(LocalDate.now()).dateFacturation(LocalDate.now()).dateSortie(LocalDate.now()).designation("design").enginsColis(COLIS).escaleId(1L).importExport(ImportExportEnum.IMPORT).nomClient("client").nomNavire("navire").nombreColis(2).numeroCommande(3).numeroMafi(4).poids(5.6)
+        NavireDTO ndto = NavireDTO.builder()
+                .id(null).consignataire("cons").dateNavire(LocalDate.now()).etat("facturé").name("bateau").numeroEscale(10)
                 .build();
         //when
-        DevisDTO result = devisService.save(ddto);
+        NavireDTO result = navireService.save(ndto);
         //then
         assertNotNull(result.getId());
     }
@@ -83,7 +81,7 @@ class DevisServiceTest {
     void update_Ok_dtoNull() {
         assertThrows(IllegalNullParamException.class,
                 () -> {
-                    devisService.update(null);
+                    navireService.update(null);
                 });
     }
 
@@ -91,7 +89,7 @@ class DevisServiceTest {
     void update_KO_dtoNull() {
         assertThrows(IllegalNullParamException.class,
                 () -> {
-                    devisService.update(null);
+                    navireService.update(null);
                 });
     }
 
@@ -99,15 +97,14 @@ class DevisServiceTest {
     void update_Ok() {
         assertThrows(IllegalNullParamException.class,
                 () -> {
-                    devisService.update(null);
+                    navireService.update(null);
                 });
         //given
-        DevisDTO ddto = DevisDTO.builder()
-                .id(1L).mmMc(MM).bl(22).clientId(1L).date(LocalDate.now()).dateFacturation(LocalDate.now()).dateSortie(LocalDate.now()).designation("desi modof").enginsColis(COLIS).escaleId(1L).importExport(ImportExportEnum.IMPORT).nomClient("modif nc").nomNavire("navire").nombreColis(2).numeroCommande(3).numeroMafi(4).poids(5.6)
-
+        NavireDTO ndto = NavireDTO.builder()
+                .id(1L).consignataire("cons").dateNavire(LocalDate.now()).etat("facturé").name("bateau").numeroEscale(10)
                 .build();
         //when
-        DevisDTO result = devisService.update(ddto);
+        NavireDTO result = navireService.update(ndto);
         //then
         assertNotNull(result.getId());
     }
@@ -117,29 +114,30 @@ class DevisServiceTest {
     void delete_KO_nullId() {
         assertThrows(IllegalNullParamException.class,
                 () -> {
-                    devisService.delete(null);
+                    navireService.delete(null);
                 });
     }
 
     @Test
     void delete_ok() {
-        devisService.delete(1L);
+        navireService.delete(1L);
         //then
         Exception exception =
-                Assertions.assertThrows(ObjectNotFoundException.class, () -> devisService.findById(1L),
+                Assertions.assertThrows(ObjectNotFoundException.class, () -> navireService.findById(1L),
                         "Expected findById() to throw ObjectNotFoundException, but it didn't");
-        String expectedMessage = "DevisDTO not found";
+        String expectedMessage = "NavireDTO not found";
         assertTrue(exception.getMessage().contains(expectedMessage));
     }
 
     // findAll
     @Test
     void findAll() {
-        Page<DevisDTO> page = devisService.findAll(PageRequest.of(0, 10));
+        Page<NavireDTO> page = navireService.findAll(PageRequest.of(0, 10));
         assertNotNull(page);
         assertEquals(1, page.getContent().size());
-        DevisDTO cDTO = page.getContent().get(0);
-        assertEquals(1L, cDTO.getId());
+        NavireDTO nDTO = page.getContent().get(0);
+        assertEquals(1L, nDTO.getId());
+
     }
 
 }

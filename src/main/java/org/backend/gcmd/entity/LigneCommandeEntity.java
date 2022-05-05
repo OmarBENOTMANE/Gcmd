@@ -45,18 +45,18 @@ public class LigneCommandeEntity {
 
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "commande_id", nullable = false, insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = CommandeEntity.class)
+    @JoinColumn(name = "commande_id", insertable = false, updatable = false)
     private CommandeEntity commande;
 
-    @Column(name = "commande_id")
+    @Column(name = "commande_id", nullable = false)
     private Long commandeId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "prestation_id", nullable = false, insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = PrestationEntity.class)
+    @JoinColumn(name = "prestation_id", insertable = false, updatable = false)
     private PrestationEntity prestation;
 
-    @Column(name = "prestation_id")
+    @Column(name = "prestation_id", nullable = false)
     private Long prestationId;
 
     }

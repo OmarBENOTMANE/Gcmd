@@ -1,3 +1,3 @@
-insert into gcmd_navire values (null, "consi", "2022-04-26", "etat", "name",2.3)
+INSERT INTO gcmd_navire (id, consignataire, date_navire, etat, name, numero_escale) VALUES (1, 'consi ', '2022-04-30', 'etat navire', 'namenavire', 2);
 
-insert into gcmd_escale values (null, 1, 33)
+insert into gcmd_escale (id, navire_id, numero_escale) values (1, 1, 2);

@@ -69,7 +69,7 @@ class LigneBpServiceTest {
     void save_OK() {
         //given
         LigneBpDTO ddto = LigneBpDTO.builder()
-                .id(null).bulltinprestationId(1L).date(LocalDate.ofEpochDay(2022-04-27)).heure(LocalTime.parse("09:00:00")).nombre(2).prestation("prestation").produit("produit").sensTrafic(SenstraficEnum.valueOf("IMPORT")).tarifUnifie(true).tcConv(false).tcSuppl("tc sup").tonnageMinimum(33).tonnageReel(44)
+                .id(null).date(LocalDate.parse("2022-04-27")).heure(LocalTime.parse("09:00:00")).nombre(2).prestation("prestation").produit("produit").sensTrafic(SenstraficEnum.valueOf("IMPORT")).tarifUnifie(true).tcConv(false).tcSuppl("tc sup").tonnageMinimum(33).tonnageReel(44).bulltinPrestationId(1L)
                 .build();
         //when
         LigneBpDTO result = ligneBpService.save(ddto);
@@ -102,7 +102,7 @@ class LigneBpServiceTest {
                 });
         //given
         LigneBpDTO ddto = LigneBpDTO.builder()
-                .id(1L).bulltinprestationId(1L).date(LocalDate.ofEpochDay(2022-04-27)).heure(LocalTime.parse("09:00:00")).nombre(2).prestation("prestation").produit("produit").sensTrafic(SenstraficEnum.valueOf("IMPORT")).tarifUnifie(true).tcConv(false).tcSuppl("tc sup").tonnageMinimum(33).tonnageReel(44)
+                .id(1L).date(LocalDate.parse("2022-04-27")).heure(LocalTime.parse("09:00:00")).nombre(2).prestation("prestation").produit("produit").sensTrafic(SenstraficEnum.valueOf("IMPORT")).tarifUnifie(true).tcConv(false).tcSuppl("tc sup").tonnageMinimum(33).tonnageReel(44).bulltinPrestationId(1L)
                 .build();
         //when
         LigneBpDTO result = ligneBpService.update(ddto);

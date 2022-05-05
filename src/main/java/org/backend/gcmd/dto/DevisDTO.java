@@ -24,7 +24,7 @@ public class DevisDTO {
     private Double poids;
     private String designation;
     private ImportExportEnum importExport;
-    private MmMcEnum MmMc;
+    private MmMcEnum mmMc;
     private Integer numeroMafi;
     private EnginsColisEnum enginsColis;
     private Integer numeroCommande;

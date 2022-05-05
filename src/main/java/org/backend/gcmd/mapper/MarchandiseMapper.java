@@ -41,7 +41,7 @@ public class MarchandiseMapper implements Mapper<MarchandiseDTO, MarchandiseEnti
         entity.setQuantite(dto.getQuantite());
         entity.setReference(dto.getReference());
         entity.setEscaleId(dto.getEscaleId());
-        entity.setEscale(escaleRepository.findById(dto.getEscaleId()).get());
+
         return entity;
     }
 

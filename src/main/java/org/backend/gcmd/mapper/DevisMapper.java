@@ -69,8 +69,6 @@ public class DevisMapper implements Mapper<DevisDTO, DevisEntity> {
         entity.setPoids(dto.getPoids());
         entity.setEscaleId(dto.getEscaleId());
         entity.setClientId(dto.getClientId());
-        entity.setEscale(escaleRepository.findById(dto.getEscaleId()).get());
-        entity.setClient(clientRepository.findById(dto.getClientId()).get());
         return entity;
     }
 

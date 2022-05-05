@@ -40,7 +40,6 @@ public class EscaleMapper implements Mapper<EscaleDTO, EscaleEntity> {
         entity.setId(dto.getId());
         entity.setNumeroEscale(dto.getNumeroEscale());
         entity.setNavireId(dto.getNavireId());
-        entity.setNavire(navireRepository.findById(dto.getNavireId()).get());
         return entity;
     }
 

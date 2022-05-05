@@ -39,5 +39,5 @@ public class LigneBpDTO {
 
     private Integer tonnageMinimum;
 
-    private Long bulltinprestationId;
+    private Long bulltinPrestationId;
 }

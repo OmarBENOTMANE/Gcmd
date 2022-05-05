@@ -63,9 +63,8 @@ public class LigneCommandeMapper implements Mapper<LigneCommandeDTO, LigneComman
         entity.setTonnageMinimum(dto.getTonnageMinimum());
         entity.setTonnageReel(dto.getTonnageReel());
         entity.setCommandeId(dto.getCommandeId());
-        entity.setCommande(commandeRepository.findById(dto.getCommandeId()).get());
         entity.setPrestationId(dto.getPrestationId());
-        entity.setPrestation(prestationRepository.findById(dto.getPrestationId()).get());
+
         return entity;
     }
 

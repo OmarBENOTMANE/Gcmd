@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/lignes_bp")
+@RequestMapping("/api/gcmd/v1/ligneBulltinPrestation")
 public class LigneBpController {
     @Autowired
     private LigneBpService ligneBpService;
@@ -34,13 +34,13 @@ public class LigneBpController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(ligneBpService.update(ligneBpDTO));
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        ligneBpService.delete(id);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-    }
+//    @DeleteMapping("{id}")
+//    public ResponseEntity<Void> delete(@PathVariable Long id) {
+//        ligneBpService.delete(id);
+//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+//    }
 
-    @GetMapping
+    @GetMapping("listLigneBulltinPrestations")
     public ResponseEntity<Page<LigneBpDTO>> findAll(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(ligneBpService.findAll(pageable));
     }

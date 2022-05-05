@@ -67,7 +67,7 @@ class CommandeServiceTest {
     void save_OK() {
         //given
         CommandeDTO cdto = CommandeDTO.builder()
-                .id(null).bulletinReception(1).bulltinPrestationId(1L).capitaine("capi").connaissement(2).consignataire("consi").dateAmarage(LocalDate.now()).dateDesamarage(LocalDate.now()).devisId(1L).escaleId(1L).jaugeBrute(2.0).lht(3).mumeroCommande(4).mumeroCredit(5).navire("navi2").numeroBc(6).numeroEscale(7).poste("poste")
+                .bulletinReception(1).bulltinPrestationId(1L).capitaine("capi").connaissement(2).consignataire("consi").dateAmarage(LocalDate.now()).dateDesamarage(LocalDate.now()).devisId(1L).escaleId(1L).jaugeBrute(2.0).lht(3).mumeroCommande(4).mumeroCredit(5).navire("navi2").numeroBc(6).numeroEscale(7).poste("poste")
                 .build();
         //when
         CommandeDTO result = commandeService.save(cdto);
