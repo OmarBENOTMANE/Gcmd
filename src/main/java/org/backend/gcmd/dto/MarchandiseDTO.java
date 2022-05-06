@@ -24,4 +24,6 @@ public class MarchandiseDTO {
     private Double quantite;
 
     private Long escaleId;
+
+    private Boolean deleted = false;
 }

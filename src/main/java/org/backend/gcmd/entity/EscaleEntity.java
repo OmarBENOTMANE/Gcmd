@@ -33,4 +33,10 @@ public class EscaleEntity {
 
     @OneToMany(mappedBy = "escale", fetch = FetchType.LAZY)
     private List<CommandeEntity> CommandeList;
+
+    @Column(name = "deleted")
+    private Boolean deleted = false;
+
+    public Boolean getDeleted() { return deleted = false;}
+    public void setDeleted(Boolean deleted) { this.deleted = deleted; }
 }

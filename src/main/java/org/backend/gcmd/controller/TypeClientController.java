@@ -33,14 +33,19 @@ public class TypeClientController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(typeClientService.update(typeClientDTO));
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        typeClientService.delete(id);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-    }
+//    @DeleteMapping("{id}")
+//    public ResponseEntity<Void> delete(@PathVariable Long id) {
+//        typeClientService.delete(id);
+//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+//    }
 
     @GetMapping
     public ResponseEntity<Page<TypeClientDTO>> findAll(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(typeClientService.findAll(pageable));
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<TypeClientDTO>> findAllByDeletedFalse(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(typeClientService.findAllByDeletedFalse(pageable));
     }
 }

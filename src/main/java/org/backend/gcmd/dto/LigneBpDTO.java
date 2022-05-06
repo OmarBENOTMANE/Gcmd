@@ -40,4 +40,6 @@ public class LigneBpDTO {
     private Integer tonnageMinimum;
 
     private Long bulltinPrestationId;
+
+    private Boolean deleted = false;
 }

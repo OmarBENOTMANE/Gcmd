@@ -47,4 +47,9 @@ public class BulltinPrestationController {
         return ResponseEntity.status(HttpStatus.OK).body(bulltinPrestationService.findAll(pageable));
     }
 
+    @GetMapping
+    public ResponseEntity<Page<BulltinPrestationDTO>> findAllByDeletedFalse(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(bulltinPrestationService.findAllByDeletedFalse(pageable));
+    }
+
 }

@@ -20,4 +20,6 @@ public class MouvementDTO {
     private LocalDate dateMouvement;
 
     private Long navirId;
+
+    private Boolean deleted = false;
 }

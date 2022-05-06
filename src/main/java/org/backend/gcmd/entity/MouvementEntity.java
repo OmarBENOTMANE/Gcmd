@@ -28,4 +28,10 @@ public class MouvementEntity {
     @JoinColumn(name = "navire_id", nullable = true, insertable = false, updatable = false)
     private NavireEntity navire;
 
+    @Column(name = "deleted")
+    private Boolean deleted = false;
+
+    public Boolean getDeleted() { return deleted = false;}
+    public void setDeleted(Boolean deleted) { this.deleted = deleted; }
+
 }

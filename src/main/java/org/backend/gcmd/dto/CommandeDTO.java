@@ -50,4 +50,6 @@ public class CommandeDTO {
 
     private Long bulltinPrestationId;
 
+    private Boolean deleted = false;
+
 }

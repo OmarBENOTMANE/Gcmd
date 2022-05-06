@@ -49,18 +49,22 @@ public class ClientService {
         ClientEntity entity = clientMapper.convertToEntity(dto);
         ClientEntity saved = clientRepository.save(entity);
         return clientMapper.convertToDto(saved);
-
     }
 
-    public void delete(Long id) {
-        Validate.notNull(id, "Id must be not null");
-        findById(id);
-        clientRepository.deleteById(id);
-    }
+//    public void delete(Long id) {
+//        Validate.notNull(id, "Id must be not null");
+//        findById(id);
+//        clientRepository.deleteById(id);
+//    }
 
     public Page<ClientDTO> findAll(Pageable pageable) {
         Page<ClientEntity> page = clientRepository.findAll(pageable);
         return clientMapper.convertToPageDto(page);
-
     }
+
+    public Page<ClientDTO> findAllByDeletedFalse(Pageable pageable) {
+        Page<ClientEntity> page = clientRepository.findAllByDeletedFalse(pageable);
+        return clientMapper.convertToPageDto(page);
+    }
+
 }

@@ -33,14 +33,19 @@ public class TypePrestationController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(typePrestationService.update(typePrestationDTO));
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        typePrestationService.delete(id);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-    }
+//    @DeleteMapping("{id}")
+//    public ResponseEntity<Void> delete(@PathVariable Long id) {
+//        typePrestationService.delete(id);
+//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+//    }
 
     @GetMapping
     public ResponseEntity<Page<TypePrestationDTO>> findAll(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(typePrestationService.findAll(pageable));
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<TypePrestationDTO>> findAllByDeletedFalse(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(typePrestationService.findAllByDeletedFalse(pageable));
     }
 }

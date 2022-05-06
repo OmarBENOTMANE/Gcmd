@@ -29,4 +29,10 @@ public class TypePrestationEntity {
     @JoinColumn(name = "unite_organisationel_id", nullable = true, insertable = false, updatable = false)
     private UniteOrganisationelEntity uniteOrganisationel;
 
+    @Column(name = "deleted")
+    private Boolean deleted = false;
+
+    public Boolean getDeleted() { return deleted = false;}
+    public void setDeleted(Boolean deleted) { this.deleted = deleted; }
+
 }

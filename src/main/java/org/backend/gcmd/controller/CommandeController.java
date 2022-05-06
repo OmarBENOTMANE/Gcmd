@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/gcmd/v1/commande")
+@RequestMapping("/api/gcmd/v1/commandes")
 public class CommandeController {
     @Autowired
     private CommandeService commandeService;
@@ -40,8 +40,13 @@ public class CommandeController {
 //        return new ResponseEntity<>(HttpStatus.ACCEPTED);
 //    }
 
-    @GetMapping("/listCommandes")
+    @GetMapping
     public ResponseEntity<Page<CommandeDTO>> findAll(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(commandeService.findAll(pageable));
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<CommandeDTO>> findAllByDeletedFalse(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(commandeService.findAllByDeletedFalse(pageable));
     }
 }

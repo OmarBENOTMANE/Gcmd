@@ -111,24 +111,24 @@ class LigneCommandeServiceTest {
     }
 
     //delete
-    @Test
-    void delete_KO_nullId() {
-        assertThrows(IllegalNullParamException.class,
-                () -> {
-                    ligneCommandeService.delete(null);
-                });
-    }
-
-    @Test
-    void delete_ok() {
-        ligneCommandeService.delete(1L);
-        //then
-        Exception exception =
-                Assertions.assertThrows(ObjectNotFoundException.class, () -> ligneCommandeService.findById(1L),
-                        "Expected findById() to throw ObjectNotFoundException, but it didn't");
-        String expectedMessage = "LigneCommandeDTO not found";
-        assertTrue(exception.getMessage().contains(expectedMessage));
-    }
+//    @Test
+//    void delete_KO_nullId() {
+//        assertThrows(IllegalNullParamException.class,
+//                () -> {
+//                    ligneCommandeService.delete(null);
+//                });
+//    }
+//
+//    @Test
+//    void delete_ok() {
+//        ligneCommandeService.delete(1L);
+//        //then
+//        Exception exception =
+//                Assertions.assertThrows(ObjectNotFoundException.class, () -> ligneCommandeService.findById(1L),
+//                        "Expected findById() to throw ObjectNotFoundException, but it didn't");
+//        String expectedMessage = "LigneCommandeDTO not found";
+//        assertTrue(exception.getMessage().contains(expectedMessage));
+//    }
 
     // findAll
     @Test

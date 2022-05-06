@@ -22,8 +22,6 @@ public class CommandeService {
     private CommandeRepository commandeRepository;
 
     @Autowired
-    private BulltinPrestationService bulltinPrestationService;
-    @Autowired
     private CommandeMapper commandeMapper;
 
     public CommandeDTO findById(Long id) {
@@ -47,22 +45,24 @@ public class CommandeService {
         Validate.notNull(dto, "CommandeDTO must be not null");
         Validate.notNull(dto.getId(), "CommandeDTO id must be not null");
         findById(dto.getId());
-
         CommandeEntity entity = commandeMapper.convertToEntity(dto);
         CommandeEntity saved = commandeRepository.save(entity);
         return commandeMapper.convertToDto(saved);
-
     }
 
-    public void delete(Long id) {
-        Validate.notNull(id, "Id must be not null");
-        findById(id);
-        commandeRepository.deleteById(id);
-    }
+//    public void delete(Long id) {
+//        Validate.notNull(id, "Id must be not null");
+//        findById(id);
+//        commandeRepository.deleteById(id);
+//    }
 
     public Page<CommandeDTO> findAll(Pageable pageable) {
         Page<CommandeEntity> page = commandeRepository.findAll(pageable);
         return commandeMapper.convertToPageDto(page);
+    }
 
+    public Page<CommandeDTO> findAllByDeletedFalse(Pageable pageable) {
+        Page<CommandeEntity> page = commandeRepository.findAllByDeletedFalse(pageable);
+        return commandeMapper.convertToPageDto(page);
     }
 }

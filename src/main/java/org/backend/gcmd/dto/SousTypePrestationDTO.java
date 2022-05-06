@@ -17,5 +17,5 @@ public class SousTypePrestationDTO {
 
     private Long typeprestationId;
 
-
+    private Boolean deleted = false;
 }

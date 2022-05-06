@@ -107,24 +107,24 @@ class TarifServiceTest {
     }
 
     //delete
-    @Test
-    void delete_KO_nullId() {
-        assertThrows(IllegalNullParamException.class,
-                () -> {
-                    tarifService.delete(null);
-                });
-    }
-
-    @Test
-    void delete_ok() {
-        tarifService.delete(1L);
-        //then
-        Exception exception =
-                Assertions.assertThrows(ObjectNotFoundException.class, () -> tarifService.findById(1L),
-                        "Expected findById() to throw ObjectNotFoundException, but it didn't");
-        String expectedMessage = "TarifDTO not found";
-        assertTrue(exception.getMessage().contains(expectedMessage));
-    }
+//    @Test
+//    void delete_KO_nullId() {
+//        assertThrows(IllegalNullParamException.class,
+//                () -> {
+//                    tarifService.delete(null);
+//                });
+//    }
+//
+//    @Test
+//    void delete_ok() {
+//        tarifService.delete(1L);
+//        //then
+//        Exception exception =
+//                Assertions.assertThrows(ObjectNotFoundException.class, () -> tarifService.findById(1L),
+//                        "Expected findById() to throw ObjectNotFoundException, but it didn't");
+//        String expectedMessage = "TarifDTO not found";
+//        assertTrue(exception.getMessage().contains(expectedMessage));
+//    }
 
     // findAll
     @Test

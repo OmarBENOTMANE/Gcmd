@@ -23,4 +23,6 @@ public class TarifDTO {
 
     private Long prestationId;
 
+    private Boolean deleted = false;
+
 }

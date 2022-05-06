@@ -20,4 +20,5 @@ public class NavireDTO {
     private LocalDate dateNavire;
     private String etat;
 
+    private Boolean deleted = false;
 }

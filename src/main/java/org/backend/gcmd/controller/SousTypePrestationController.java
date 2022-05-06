@@ -33,14 +33,19 @@ public class SousTypePrestationController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(sousTypePrestationService.update(sousTypePrestationDTO));
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        sousTypePrestationService.delete(id);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-    }
+//    @DeleteMapping("{id}")
+//    public ResponseEntity<Void> delete(@PathVariable Long id) {
+//        sousTypePrestationService.delete(id);
+//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+//    }
 
     @GetMapping
     public ResponseEntity<Page<SousTypePrestationDTO>> findAll(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(sousTypePrestationService.findAll(pageable));
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<SousTypePrestationDTO>> findAllByDeletedFalse(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(sousTypePrestationService.findAllByDeletedFalse(pageable));
     }
 }

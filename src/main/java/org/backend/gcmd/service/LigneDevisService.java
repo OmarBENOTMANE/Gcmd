@@ -37,7 +37,6 @@ public class LigneDevisService {
     public LigneDevisDTO save(LigneDevisDTO dto) {
         Validate.notNull(dto, "LigneDevisDTO must be not null");
         LigneDevisEntity entity = ligneDevisMapper.convertToEntity(dto);
-
         LigneDevisEntity saved = ligneDevisRepository.save(entity);
         return ligneDevisMapper.convertToDto(saved);
     }
@@ -49,18 +48,21 @@ public class LigneDevisService {
         LigneDevisEntity entity = ligneDevisMapper.convertToEntity(dto);
         LigneDevisEntity saved = ligneDevisRepository.save(entity);
         return ligneDevisMapper.convertToDto(saved);
-
     }
 
-    public void delete(Long id) {
-        Validate.notNull(id, "Id must be not null");
-        findById(id);
-        ligneDevisRepository.deleteById(id);
-    }
+//    public void delete(Long id) {
+//        Validate.notNull(id, "Id must be not null");
+//        findById(id);
+//        ligneDevisRepository.deleteById(id);
+//    }
 
     public Page<LigneDevisDTO> findAll(Pageable pageable) {
         Page<LigneDevisEntity> page = ligneDevisRepository.findAll(pageable);
         return ligneDevisMapper.convertToPageDto(page);
+    }
 
+    public Page<LigneDevisDTO> findAllByDeletedFalse(Pageable pageable) {
+        Page<LigneDevisEntity> page = ligneDevisRepository.findAllByDeletedFalse(pageable);
+        return ligneDevisMapper.convertToPageDto(page);
     }
 }

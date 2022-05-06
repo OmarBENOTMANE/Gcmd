@@ -37,7 +37,6 @@ public class LigneCommandeService {
     public LigneCommandeDTO save(LigneCommandeDTO dto) {
         Validate.notNull(dto, "LigneCommandeDTO must be not null");
         LigneCommandeEntity entity = ligneCommandeMapper.convertToEntity(dto);
-
         LigneCommandeEntity saved = ligneCommandeRepository.save(entity);
         return ligneCommandeMapper.convertToDto(saved);
     }
@@ -51,14 +50,19 @@ public class LigneCommandeService {
         return ligneCommandeMapper.convertToDto(saved);
     }
 
-    public void delete(Long id) {
-        Validate.notNull(id, "Id must be not null");
-        findById(id);
-        ligneCommandeRepository.deleteById(id);
-    }
+//    public void delete(Long id) {
+//        Validate.notNull(id, "Id must be not null");
+//        findById(id);
+//        ligneCommandeRepository.deleteById(id);
+//    }
 
     public Page<LigneCommandeDTO> findAll(Pageable pageable) {
         Page<LigneCommandeEntity> page = ligneCommandeRepository.findAll(pageable);
+        return ligneCommandeMapper.convertToPageDto(page);
+    }
+
+    public Page<LigneCommandeDTO> findAllByDeletedFalse(Pageable pageable) {
+        Page<LigneCommandeEntity> page = ligneCommandeRepository.findAllByDeletedFalse(pageable);
         return ligneCommandeMapper.convertToPageDto(page);
     }
 }

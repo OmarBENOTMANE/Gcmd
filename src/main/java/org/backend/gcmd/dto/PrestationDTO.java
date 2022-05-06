@@ -21,4 +21,6 @@ public class PrestationDTO {
 
     private Long soustypeprestationId;
 
+    private Boolean deleted = false;
+
 }

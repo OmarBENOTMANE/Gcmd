@@ -26,4 +26,10 @@ public class TarifEntity {
     @OneToOne(mappedBy = "tarif", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private PrestationEntity prestation;
 
+    @Column(name = "deleted")
+    private Boolean deleted = false;
+
+    public Boolean getDeleted() { return deleted = false;}
+    public void setDeleted(Boolean deleted) { this.deleted = deleted; }
+
 }

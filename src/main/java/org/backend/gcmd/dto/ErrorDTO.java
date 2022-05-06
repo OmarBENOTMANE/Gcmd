@@ -14,4 +14,6 @@ public class ErrorDTO {
     private int status;
     private LocalDateTime dateTime;
 
+    private Boolean deleted = false;
+
 }

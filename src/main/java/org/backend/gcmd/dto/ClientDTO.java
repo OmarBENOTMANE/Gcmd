@@ -21,4 +21,6 @@ public class ClientDTO {
 
     private Long typeClientId;
 
+    private Boolean deleted = false;
+
 }

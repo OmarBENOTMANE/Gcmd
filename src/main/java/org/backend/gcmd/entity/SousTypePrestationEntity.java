@@ -28,4 +28,10 @@ public class SousTypePrestationEntity {
     @JoinColumn(name = "typeprestation_id", nullable = true, insertable = false, updatable = false)
     private TypePrestationEntity typeprestation;
 
+    @Column(name = "deleted")
+    private Boolean deleted = false;
+
+    public Boolean getDeleted() { return deleted = false;}
+    public void setDeleted(Boolean deleted) { this.deleted = deleted; }
+
 }

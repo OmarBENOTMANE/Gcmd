@@ -20,4 +20,6 @@ public class EscaleDTO {
     private Long id;
     private Integer numeroEscale;
     private Long navireId;
+
+    private Boolean deleted = false;
 }

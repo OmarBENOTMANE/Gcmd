@@ -51,4 +51,6 @@ public class LigneCommandeDTO {
 
     private Long prestationId;
 
+    private Boolean deleted = false;
+
 }

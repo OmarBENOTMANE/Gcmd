@@ -37,7 +37,6 @@ public class MouvementService {
     public MouvementDTO save(MouvementDTO dto) {
         Validate.notNull(dto, "MouvementDTO must be not null");
         MouvementEntity entity = mouvementMapper.convertToEntity(dto);
-
         MouvementEntity saved = mouvementRepository.save(entity);
         return mouvementMapper.convertToDto(saved);
     }
@@ -49,18 +48,21 @@ public class MouvementService {
         MouvementEntity entity = mouvementMapper.convertToEntity(dto);
         MouvementEntity saved = mouvementRepository.save(entity);
         return mouvementMapper.convertToDto(saved);
-
     }
 
-    public void delete(Long id) {
-        Validate.notNull(id, "Id must be not null");
-        findById(id);
-        mouvementRepository.deleteById(id);
-    }
+//    public void delete(Long id) {
+//        Validate.notNull(id, "Id must be not null");
+//        findById(id);
+//        mouvementRepository.deleteById(id);
+//    }
 
     public Page<MouvementDTO> findAll(Pageable pageable) {
         Page<MouvementEntity> page = mouvementRepository.findAll(pageable);
         return mouvementMapper.convertToPageDto(page);
+    }
 
+    public Page<MouvementDTO> findAllByDeletedFalse(Pageable pageable) {
+        Page<MouvementEntity> page = mouvementRepository.findAllByDeletedFalse(pageable);
+        return mouvementMapper.convertToPageDto(page);
     }
 }

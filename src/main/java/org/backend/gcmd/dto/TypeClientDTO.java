@@ -15,5 +15,7 @@ public class TypeClientDTO {
 
     private String name;
 
+    private Boolean deleted = false;
+
 
 }

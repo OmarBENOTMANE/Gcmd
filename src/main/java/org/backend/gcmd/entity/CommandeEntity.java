@@ -66,5 +66,11 @@ public class CommandeEntity {
     @OneToMany(mappedBy = "commande", fetch = FetchType.LAZY)
     private List<LigneCommandeEntity> ligneCommandeList;
 
+    @Column(name = "deleted")
+    private Boolean deleted = false;
+
+    public Boolean getDeleted() { return deleted = false;}
+    public void setDeleted(Boolean deleted) { this.deleted = deleted; }
+
 
 }

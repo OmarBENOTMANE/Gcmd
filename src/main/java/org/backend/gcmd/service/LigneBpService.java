@@ -37,7 +37,6 @@ public class LigneBpService {
     public LigneBpDTO save(LigneBpDTO dto) {
         Validate.notNull(dto, "LigneBpDTO must be not null");
         LigneBpEntity entity = ligneBpMapper.convertToEntity(dto);
-
         LigneBpEntity saved = ligneBpRepository.save(entity);
         return ligneBpMapper.convertToDto(saved);
     }
@@ -49,7 +48,6 @@ public class LigneBpService {
         LigneBpEntity entity = ligneBpMapper.convertToEntity(dto);
         LigneBpEntity saved = ligneBpRepository.save(entity);
         return ligneBpMapper.convertToDto(saved);
-
     }
 
     public void delete(Long id) {
@@ -61,6 +59,10 @@ public class LigneBpService {
     public Page<LigneBpDTO> findAll(Pageable pageable) {
         Page<LigneBpEntity> page = ligneBpRepository.findAll(pageable);
         return ligneBpMapper.convertToPageDto(page);
+    }
 
+    public Page<LigneBpDTO> findAllByDeletedFalse(Pageable pageable) {
+        Page<LigneBpEntity> page = ligneBpRepository.findAllByDeletedFalse(pageable);
+        return ligneBpMapper.convertToPageDto(page);
     }
 }

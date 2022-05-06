@@ -44,4 +44,9 @@ public class LigneBpController {
     public ResponseEntity<Page<LigneBpDTO>> findAll(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(ligneBpService.findAll(pageable));
     }
+
+    @GetMapping
+    public ResponseEntity<Page<LigneBpDTO>> findAllByDeletedFalse(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(ligneBpService.findAllByDeletedFalse(pageable));
+    }
 }

@@ -52,16 +52,20 @@ public class BulltinPrestationService {
 
     }
 
-    public void delete(Long id) {
-        Validate.notNull(id, "Id must be not null");
-        findById(id);
-        bulltinPrestationRepository.deleteById(id);
-    }
+//    public void delete(Long id) {
+//        Validate.notNull(id, "Id must be not null");
+//        findById(id);
+//        bulltinPrestationRepository.deleteById(id);
+//    }
 
     public Page<BulltinPrestationDTO> findAll(Pageable pageable) {
         Page<BulltinPrestationEntity> page = bulltinPrestationRepository.findAll(pageable);
         return bulltinPrestationMapper.convertToPageDto(page);
+    }
 
+    public Page<BulltinPrestationDTO> findAllByDeletedFalse(Pageable pageable) {
+        Page<BulltinPrestationEntity> page = bulltinPrestationRepository.findAllByDeletedFalse(pageable);
+        return bulltinPrestationMapper.convertToPageDto(page);
     }
 
 }

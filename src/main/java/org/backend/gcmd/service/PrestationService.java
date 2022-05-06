@@ -49,18 +49,21 @@ public class PrestationService {
         PrestationEntity entity = prestationMapper.convertToEntity(dto);
         PrestationEntity saved = prestationRepository.save(entity);
         return prestationMapper.convertToDto(saved);
-
     }
 
-    public void delete(Long id) {
-        Validate.notNull(id, "Id must be not null");
-        findById(id);
-        prestationRepository.deleteById(id);
-    }
+//    public void delete(Long id) {
+//        Validate.notNull(id, "Id must be not null");
+//        findById(id);
+//        prestationRepository.deleteById(id);
+//    }
 
     public Page<PrestationDTO> findAll(Pageable pageable) {
         Page<PrestationEntity> page = prestationRepository.findAll(pageable);
         return prestationMapper.convertToPageDto(page);
+    }
 
+    public Page<PrestationDTO> findAllByDeletedFalse(Pageable pageable) {
+        Page<PrestationEntity> page = prestationRepository.findAllByDeletedFalse(pageable);
+        return prestationMapper.convertToPageDto(page);
     }
 }

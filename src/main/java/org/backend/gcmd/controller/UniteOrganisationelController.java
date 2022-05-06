@@ -34,14 +34,19 @@ public class UniteOrganisationelController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(uniteOrganisationelService.update(uniteOrganisationelDTO));
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        uniteOrganisationelService.delete(id);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-    }
+//    @DeleteMapping("{id}")
+//    public ResponseEntity<Void> delete(@PathVariable Long id) {
+//        uniteOrganisationelService.delete(id);
+//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+//    }
 
     @GetMapping
     public ResponseEntity<Page<UniteOrganisationelDTO>> findAll(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(uniteOrganisationelService.findAll(pageable));
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<UniteOrganisationelDTO>> findAllByDeletedFalse(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(uniteOrganisationelService.findAllByDeletedFalse(pageable));
     }
 }

@@ -37,7 +37,6 @@ public class TarifService {
     public TarifDTO save(TarifDTO dto) {
         Validate.notNull(dto, "TarifDTO must be not null");
         TarifEntity entity = tarifMapper.convertToEntity(dto);
-
         TarifEntity saved = tarifRepository.save(entity);
         return tarifMapper.convertToDto(saved);
     }
@@ -52,15 +51,19 @@ public class TarifService {
 
     }
 
-    public void delete(Long id) {
-        Validate.notNull(id, "Id must be not null");
-        findById(id);
-        tarifRepository.deleteById(id);
-    }
+//    public void delete(Long id) {
+//        Validate.notNull(id, "Id must be not null");
+//        findById(id);
+//        tarifRepository.deleteById(id);
+//    }
 
     public Page<TarifDTO> findAll(Pageable pageable) {
         Page<TarifEntity> page = tarifRepository.findAll(pageable);
         return tarifMapper.convertToPageDto(page);
+    }
 
+    public Page<TarifDTO> findAllByDeletedFalse(Pageable pageable) {
+        Page<TarifEntity> page = tarifRepository.findAllByDeletedFalse(pageable);
+        return tarifMapper.convertToPageDto(page);
     }
 }

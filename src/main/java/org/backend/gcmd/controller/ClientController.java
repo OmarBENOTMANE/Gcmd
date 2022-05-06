@@ -34,14 +34,19 @@ public class ClientController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(clientService.update(clientDTO));
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        clientService.delete(id);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-    }
+//    @DeleteMapping("{id}")
+//    public ResponseEntity<Void> delete(@PathVariable Long id) {
+//        clientService.delete(id);
+//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+//    }
 
     @GetMapping
     public ResponseEntity<Page<ClientDTO>> findAll(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(clientService.findAll(pageable));
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<ClientDTO>> findAllByDeletedFalse(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(clientService.findAllByDeletedFalse(pageable));
     }
 }

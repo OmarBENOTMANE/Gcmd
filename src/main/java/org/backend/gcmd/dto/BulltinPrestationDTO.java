@@ -47,5 +47,6 @@ public class BulltinPrestationDTO {
 
     private Integer numeroCmd;
 
+    private Boolean deleted = false;
 
 }

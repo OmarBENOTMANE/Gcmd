@@ -110,25 +110,25 @@ class BulltinPrestationServiceTest {
         assertNotNull(result.getId());
     }
 
-    //delete
-    @Test
-    void delete_KO_nullId() {
-        assertThrows(IllegalNullParamException.class,
-                () -> {
-                    bulltinPrestationService.delete(null);
-                });
-    }
-
-    @Test
-    void delete_ok() {
-        bulltinPrestationService.delete(1L);
-        //then
-        Exception exception =
-                Assertions.assertThrows(ObjectNotFoundException.class, () -> bulltinPrestationService.findById(1L),
-                        "Expected findById() to throw ObjectNotFoundException, but it didn't");
-        String expectedMessage = "BulltinPrestationDTO not found";
-        assertTrue(exception.getMessage().contains(expectedMessage));
-    }
+//    //delete
+//    @Test
+//    void delete_KO_nullId() {
+//        assertThrows(IllegalNullParamException.class,
+//                () -> {
+//                    bulltinPrestationService.delete(null);
+//                });
+//    }
+//
+//    @Test
+//    void delete_ok() {
+//        bulltinPrestationService.delete(1L);
+//        //then
+//        Exception exception =
+//                Assertions.assertThrows(ObjectNotFoundException.class, () -> bulltinPrestationService.findById(1L),
+//                        "Expected findById() to throw ObjectNotFoundException, but it didn't");
+//        String expectedMessage = "BulltinPrestationDTO not found";
+//        assertTrue(exception.getMessage().contains(expectedMessage));
+//    }
 
     // findAll
     @Test

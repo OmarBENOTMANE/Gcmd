@@ -33,14 +33,20 @@ public class MouvementController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(mouvementService.update(mouvementDTO));
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        mouvementService.delete(id);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-    }
+//    @DeleteMapping("{id}")
+//    public ResponseEntity<Void> delete(@PathVariable Long id) {
+//        mouvementService.delete(id);
+//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+//    }
 
     @GetMapping
     public ResponseEntity<Page<MouvementDTO>> findAll(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(mouvementService.findAll(pageable));
     }
+
+    @GetMapping
+    public ResponseEntity<Page<MouvementDTO>> findAllByDeletedFalse(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(mouvementService.findAllByDeletedFalse(pageable));
+    }
+
 }

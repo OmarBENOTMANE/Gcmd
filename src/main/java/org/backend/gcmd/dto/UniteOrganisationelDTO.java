@@ -19,5 +19,7 @@ public class UniteOrganisationelDTO {
 
     private String description;
 
-    private Long uniteorganisationelId;
+    private Long uniteOrganisationelId;
+
+    private Boolean deleted = false;
 }

@@ -15,4 +15,6 @@ public class TypePrestationDTO {
 
     private String name;
 
+    private Boolean deleted = false;
+
 }

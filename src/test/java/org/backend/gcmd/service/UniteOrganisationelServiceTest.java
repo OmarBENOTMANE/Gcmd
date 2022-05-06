@@ -65,7 +65,7 @@ class UniteOrganisationelServiceTest {
     void save_OK() {
         //given
         UniteOrganisationelDTO udto = UniteOrganisationelDTO.builder()
-                .id(null).label("label").type("type").description("desciption").uniteorganisationelId(1L)
+                .id(null).label("label").type("type").description("desciption").uniteOrganisationelId(1L)
                 .build();
         //when
         UniteOrganisationelDTO result = uniteOrganisationelService.save(udto);
@@ -98,7 +98,7 @@ class UniteOrganisationelServiceTest {
                 });
         //given
         UniteOrganisationelDTO udto = UniteOrganisationelDTO.builder()
-                .id(1L).label("label").type("type").description("desciption").uniteorganisationelId(1L)
+                .id(1L).label("label").type("type").description("desciption").uniteOrganisationelId(1L)
                 .build();
         //when
         UniteOrganisationelDTO result = uniteOrganisationelService.update(udto);
@@ -107,24 +107,24 @@ class UniteOrganisationelServiceTest {
     }
 
     //delete
-    @Test
-    void delete_KO_nullId() {
-        assertThrows(IllegalNullParamException.class,
-                () -> {
-                    uniteOrganisationelService.delete(null);
-                });
-    }
-
-    @Test
-    void delete_ok() {
-        uniteOrganisationelService.delete(1L);
-        //then
-        Exception exception =
-                Assertions.assertThrows(ObjectNotFoundException.class, () -> uniteOrganisationelService.findById(1L),
-                        "Expected findById() to throw ObjectNotFoundException, but it didn't");
-        String expectedMessage = "UniteOrganisationelDTO not found";
-        assertTrue(exception.getMessage().contains(expectedMessage));
-    }
+//    @Test
+//    void delete_KO_nullId() {
+//        assertThrows(IllegalNullParamException.class,
+//                () -> {
+//                    uniteOrganisationelService.delete(null);
+//                });
+//    }
+//
+//    @Test
+//    void delete_ok() {
+//        uniteOrganisationelService.delete(1L);
+//        //then
+//        Exception exception =
+//                Assertions.assertThrows(ObjectNotFoundException.class, () -> uniteOrganisationelService.findById(1L),
+//                        "Expected findById() to throw ObjectNotFoundException, but it didn't");
+//        String expectedMessage = "UniteOrganisationelDTO not found";
+//        assertTrue(exception.getMessage().contains(expectedMessage));
+//    }
 
     // findAll
     @Test

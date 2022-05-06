@@ -22,4 +22,6 @@ public class LigneDevisDTO {
     private Long prestationId;
     private Long devisId;
 
+    private Boolean deleted = false;
+
 }

@@ -37,7 +37,6 @@ public class MarchandiseService {
     public MarchandiseDTO save(MarchandiseDTO dto) {
         Validate.notNull(dto, "MarchandiseDTO must be not null");
         MarchandiseEntity entity = marchandiseMapper.convertToEntity(dto);
-
         MarchandiseEntity saved = marchandiseRepository.save(entity);
         return marchandiseMapper.convertToDto(saved);
     }
@@ -49,18 +48,21 @@ public class MarchandiseService {
         MarchandiseEntity entity = marchandiseMapper.convertToEntity(dto);
         MarchandiseEntity saved = marchandiseRepository.save(entity);
         return marchandiseMapper.convertToDto(saved);
-
     }
 
-    public void delete(Long id) {
-        Validate.notNull(id, "Id must be not null");
-        findById(id);
-        marchandiseRepository.deleteById(id);
-    }
+//    public void delete(Long id) {
+//        Validate.notNull(id, "Id must be not null");
+//        findById(id);
+//        marchandiseRepository.deleteById(id);
+//    }
 
     public Page<MarchandiseDTO> findAll(Pageable pageable) {
         Page<MarchandiseEntity> page = marchandiseRepository.findAll(pageable);
         return marchandiseMapper.convertToPageDto(page);
+    }
 
+    public Page<MarchandiseDTO> findAllByDeletedFalse(Pageable pageable) {
+        Page<MarchandiseEntity> page = marchandiseRepository.findAllByDeletedFalse(pageable);
+        return marchandiseMapper.convertToPageDto(page);
     }
 }

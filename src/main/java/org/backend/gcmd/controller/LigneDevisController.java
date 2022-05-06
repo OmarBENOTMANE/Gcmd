@@ -33,14 +33,21 @@ public class LigneDevisController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(ligneDevisService.update(ligneDevisDTO));
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        ligneDevisService.delete(id);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-    }
+//    @DeleteMapping("{id}")
+//    public ResponseEntity<Void> delete(@PathVariable Long id) {
+//        ligneDevisService.delete(id);
+//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+//    }
 
     @GetMapping
     public ResponseEntity<Page<LigneDevisDTO>> findAll(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(ligneDevisService.findAll(pageable));
     }
+
+    @GetMapping
+    public ResponseEntity<Page<LigneDevisDTO>> findAllByDeletedFalse(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(ligneDevisService.findAllByDeletedFalse(pageable));
+    }
+
+
 }

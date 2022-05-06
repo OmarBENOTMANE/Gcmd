@@ -33,4 +33,10 @@ public class NavireEntity {
     @OneToMany(mappedBy = "navire")
     private List<EscaleEntity> escaleList;
 
+    @Column(name = "deleted")
+    private Boolean deleted = false;
+
+    public Boolean getDeleted() { return deleted = false;}
+    public void setDeleted(Boolean deleted) { this.deleted = deleted; }
+
 }

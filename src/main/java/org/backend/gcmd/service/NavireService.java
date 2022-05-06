@@ -52,15 +52,19 @@ public class NavireService {
 
     }
 
-    public void delete(Long id) {
-        Validate.notNull(id, "Id must be not null");
-        findById(id);
-        navireRepository.deleteById(id);
-    }
+//    public void delete(Long id) {
+//        Validate.notNull(id, "Id must be not null");
+//        findById(id);
+//        navireRepository.deleteById(id);
+//    }
 
     public Page<NavireDTO> findAll(Pageable pageable) {
         Page<NavireEntity> page = navireRepository.findAll(pageable);
         return navireMapper.convertToPageDto(page);
+    }
 
+    public Page<NavireDTO> findAllByDeletedFalse(Pageable pageable) {
+        Page<NavireEntity> page = navireRepository.findAllByDeletedFalse(pageable);
+        return navireMapper.convertToPageDto(page);
     }
 }

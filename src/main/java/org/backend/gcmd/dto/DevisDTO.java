@@ -34,4 +34,6 @@ public class DevisDTO {
 
     private Long escaleId;
     private Long clientId;
+
+    private Boolean deleted = false;
 }

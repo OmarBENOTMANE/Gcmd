@@ -43,4 +43,9 @@ public class LigneCommandeController {
     public ResponseEntity<Page<LigneCommandeDTO>> findAll(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(ligneCommandeService.findAll(pageable));
     }
+
+    @GetMapping
+    public ResponseEntity<Page<LigneCommandeDTO>> findAllByDeletedFalse(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(ligneCommandeService.findAllByDeletedFalse(pageable));
+    }
 }

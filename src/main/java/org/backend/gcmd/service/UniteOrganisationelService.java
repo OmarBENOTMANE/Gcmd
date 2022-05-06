@@ -37,7 +37,6 @@ public class UniteOrganisationelService {
     public UniteOrganisationelDTO save(UniteOrganisationelDTO dto) {
         Validate.notNull(dto, "UniteOrganisationelDTO must be not null");
         UniteOrganisationelEntity entity = uniteOrganisationelMapper.convertToEntity(dto);
-
         UniteOrganisationelEntity saved = uniteOrganisationelRepository.save(entity);
         return uniteOrganisationelMapper.convertToDto(saved);
     }
@@ -49,18 +48,22 @@ public class UniteOrganisationelService {
         UniteOrganisationelEntity entity = uniteOrganisationelMapper.convertToEntity(dto);
         UniteOrganisationelEntity saved = uniteOrganisationelRepository.save(entity);
         return uniteOrganisationelMapper.convertToDto(saved);
-
     }
 
-    public void delete(Long id) {
-        Validate.notNull(id, "Id must be not null");
-        findById(id);
-        uniteOrganisationelRepository.deleteById(id);
-    }
+//    public void delete(Long id) {
+//        Validate.notNull(id, "Id must be not null");
+//        findById(id);
+//        uniteOrganisationelRepository.deleteById(id);
+//    }
 
     public Page<UniteOrganisationelDTO> findAll(Pageable pageable) {
         Page<UniteOrganisationelEntity> page = uniteOrganisationelRepository.findAll(pageable);
         return uniteOrganisationelMapper.convertToPageDto(page);
-
     }
+
+    public Page<UniteOrganisationelDTO> findAllByDeletedFalse(Pageable pageable) {
+        Page<UniteOrganisationelEntity> page = uniteOrganisationelRepository.findAllByDeletedFalse(pageable);
+        return uniteOrganisationelMapper.convertToPageDto(page);
+    }
+
 }

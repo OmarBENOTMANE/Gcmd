@@ -37,7 +37,6 @@ public class DevisService {
     public DevisDTO save(DevisDTO dto) {
         Validate.notNull(dto, "DevisDTO must be not null");
         DevisEntity entity = devisMapper.convertToEntity(dto);
-
         DevisEntity saved = devisRepository.save(entity);
         return devisMapper.convertToDto(saved);
     }
@@ -49,17 +48,22 @@ public class DevisService {
         DevisEntity entity = devisMapper.convertToEntity(dto);
         DevisEntity saved = devisRepository.save(entity);
         return devisMapper.convertToDto(saved);
-
     }
 
-    public void delete(Long id) {
-        Validate.notNull(id, "Id must be not null");
-        findById(id);
-        devisRepository.deleteById(id);
-    }
+//    public void delete(Long id) {
+//        Validate.notNull(id, "Id must be not null");
+//        findById(id);
+//        devisRepository.deleteById(id);
+//    }
 
     public Page<DevisDTO> findAll(Pageable pageable) {
         Page<DevisEntity> page = devisRepository.findAll(pageable);
+        return devisMapper.convertToPageDto(page);
+
+    }
+
+    public Page<DevisDTO> findAllByDeletedFalse(Pageable pageable) {
+        Page<DevisEntity> page = devisRepository.findAllByDeletedFalse(pageable);
         return devisMapper.convertToPageDto(page);
 
     }

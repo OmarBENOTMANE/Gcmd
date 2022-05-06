@@ -52,15 +52,19 @@ public class TypeClientService {
 
     }
 
-    public void delete(Long id) {
-        Validate.notNull(id, "Id must be not null");
-        findById(id);
-        typeClientRepository.deleteById(id);
-    }
+//    public void delete(Long id) {
+//        Validate.notNull(id, "Id must be not null");
+//        findById(id);
+//        typeClientRepository.deleteById(id);
+//    }
 
     public Page<TypeClientDTO> findAll(Pageable pageable) {
         Page<TypeClientEntity> page = typeClientRepository.findAll(pageable);
         return typeClientMapper.convertToPageDto(page);
+    }
 
+    public Page<TypeClientDTO> findAllByDeletedFalse(Pageable pageable) {
+        Page<TypeClientEntity> page = typeClientRepository.findAllByDeletedFalse(pageable);
+        return typeClientMapper.convertToPageDto(page);
     }
 }
