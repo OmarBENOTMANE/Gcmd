@@ -53,6 +53,6 @@ public class LigneCommandeDTO {
 
     private Boolean deleted = false;
 
-    private Boolean isAffected= false;
+    private Boolean isAffected = false;
 
 }

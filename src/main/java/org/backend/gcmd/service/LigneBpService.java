@@ -43,7 +43,7 @@ public class LigneBpService {
 
     public LigneBpDTO update(LigneBpDTO dto) {
         Validate.notNull(dto, "LigneBpDTO must be not null");
-        Validate.notNull(dto.getId(), "UserDTO id must be not null");
+        Validate.notNull(dto.getId(), "LigneBpDTOO id must be not null");
         findById(dto.getId());
         LigneBpEntity entity = ligneBpMapper.convertToEntity(dto);
         LigneBpEntity saved = ligneBpRepository.save(entity);

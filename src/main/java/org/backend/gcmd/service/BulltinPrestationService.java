@@ -52,7 +52,6 @@ public class BulltinPrestationService {
 
     }
 
-
     public Page<BulltinPrestationDTO> findAllByDeletedFalse(Pageable pageable) {
         Page<BulltinPrestationEntity> page = bulltinPrestationRepository.findAllByDeletedFalse(pageable);
         return bulltinPrestationMapper.convertToPageDto(page);

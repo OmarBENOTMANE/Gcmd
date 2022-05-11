@@ -1,8 +1,6 @@
 package org.backend.gcmd.controller;
 
-import org.backend.gcmd.dto.LigneBpDTO;
 import org.backend.gcmd.dto.LigneCommandeDTO;
-import org.backend.gcmd.service.LigneBpService;
 import org.backend.gcmd.service.LigneCommandeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -44,7 +42,7 @@ public class LigneCommandeController {
 
     @GetMapping("changeStatus/{id}/{isAffected}")
     public ResponseEntity<LigneCommandeDTO> changeStatus(@PathVariable Long id,
-                                                               @PathVariable Boolean isAffected) {
+                                                         @PathVariable Boolean isAffected) {
         return ResponseEntity.status(HttpStatus.OK).body(ligneCommandeService.affecter(id, isAffected));
     }
 

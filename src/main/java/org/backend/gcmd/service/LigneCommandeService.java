@@ -4,7 +4,6 @@ import org.backend.gcmd.dto.LigneBpDTO;
 import org.backend.gcmd.dto.LigneCommandeDTO;
 import org.backend.gcmd.entity.LigneCommandeEntity;
 import org.backend.gcmd.exceptions.technical.ObjectNotFoundException;
-import org.backend.gcmd.mapper.LigneBpMapper;
 import org.backend.gcmd.mapper.LigneCommandeMapper;
 import org.backend.gcmd.repository.LigneCommandeRepository;
 import org.backend.gcmd.validator.Validate;
@@ -14,10 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
-
-import static java.util.stream.Collectors.toList;
 
 @Service
 @Transactional
@@ -31,12 +27,6 @@ public class LigneCommandeService {
 
     @Autowired
     private LigneBpService ligneBpService;
-
-
-    private LigneBpDTO ligneBpDTO;
-
-    @Autowired
-    private LigneBpMapper ligneBpMapper;
 
     public LigneCommandeDTO findById(Long id) {
         Validate.notNull(id, "id mus be not null");
@@ -81,7 +71,7 @@ public class LigneCommandeService {
     }
 
     public void genererbp(LigneCommandeDTO ligneCommandeDTO) {
-        if (ligneCommandeDTO.getIsAffected()) {
+        if (ligneCommandeDTO.getIsAffected() == true) {
             LigneBpDTO ligneBpDTO = new LigneBpDTO();
             ligneBpDTO.setPrestation(ligneCommandeDTO.getPrestation());
             ligneBpDTO.setDate(ligneCommandeDTO.getDate());
