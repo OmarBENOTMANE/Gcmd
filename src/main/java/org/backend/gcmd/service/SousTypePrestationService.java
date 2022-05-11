@@ -51,16 +51,7 @@ public class SousTypePrestationService {
 
     }
 
-//    public void delete(Long id) {
-//        Validate.notNull(id, "Id must be not null");
-//        findById(id);
-//        sousTypePrestationRepository.deleteById(id);
-//    }
 
-    public Page<SousTypePrestationDTO> findAll(Pageable pageable) {
-        Page<SousTypePrestationEntity> page = sousTypePrestationRepository.findAll(pageable);
-        return sousTypePrestationMapper.convertToPageDto(page);
-    }
 
     public Page<SousTypePrestationDTO> findAllByDeletedFalse(Pageable pageable) {
         Page<SousTypePrestationEntity> page = sousTypePrestationRepository.findAllByDeletedFalse(pageable);

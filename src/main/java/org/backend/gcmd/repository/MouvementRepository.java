@@ -1,6 +1,5 @@
 package org.backend.gcmd.repository;
 
-import org.backend.gcmd.entity.ClientEntity;
 import org.backend.gcmd.entity.MouvementEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

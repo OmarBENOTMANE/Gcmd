@@ -50,17 +50,7 @@ public class DevisService {
         return devisMapper.convertToDto(saved);
     }
 
-//    public void delete(Long id) {
-//        Validate.notNull(id, "Id must be not null");
-//        findById(id);
-//        devisRepository.deleteById(id);
-//    }
 
-    public Page<DevisDTO> findAll(Pageable pageable) {
-        Page<DevisEntity> page = devisRepository.findAll(pageable);
-        return devisMapper.convertToPageDto(page);
-
-    }
 
     public Page<DevisDTO> findAllByDeletedFalse(Pageable pageable) {
         Page<DevisEntity> page = devisRepository.findAllByDeletedFalse(pageable);

@@ -34,17 +34,6 @@ public class CommandeController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(commandeService.update(commandeDTO));
     }
 
-//    @DeleteMapping("{id}")
-//    public ResponseEntity<Void> delete(@PathVariable Long id) {
-//        commandeService.delete(id);
-//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-//    }
-
-    @GetMapping
-    public ResponseEntity<Page<CommandeDTO>> findAll(Pageable pageable) {
-        return ResponseEntity.status(HttpStatus.OK).body(commandeService.findAll(pageable));
-    }
-
     @GetMapping
     public ResponseEntity<Page<CommandeDTO>> findAllByDeletedFalse(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(commandeService.findAllByDeletedFalse(pageable));

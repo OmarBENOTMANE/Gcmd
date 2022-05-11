@@ -2,8 +2,6 @@ package org.backend.gcmd.mapper;
 
 import org.backend.gcmd.dto.MarchandiseDTO;
 import org.backend.gcmd.entity.MarchandiseEntity;
-import org.backend.gcmd.repository.EscaleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 

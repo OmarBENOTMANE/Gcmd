@@ -56,10 +56,10 @@ public class UniteOrganisationelService {
 //        uniteOrganisationelRepository.deleteById(id);
 //    }
 
-    public Page<UniteOrganisationelDTO> findAll(Pageable pageable) {
-        Page<UniteOrganisationelEntity> page = uniteOrganisationelRepository.findAll(pageable);
-        return uniteOrganisationelMapper.convertToPageDto(page);
-    }
+  //  public Page<UniteOrganisationelDTO> findAll(Pageable pageable) {
+    //    Page<UniteOrganisationelEntity> page = uniteOrganisationelRepository.findAll(pageable);
+      //  return uniteOrganisationelMapper.convertToPageDto(page);
+    //}
 
     public Page<UniteOrganisationelDTO> findAllByDeletedFalse(Pageable pageable) {
         Page<UniteOrganisationelEntity> page = uniteOrganisationelRepository.findAllByDeletedFalse(pageable);

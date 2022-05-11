@@ -2,8 +2,6 @@ package org.backend.gcmd.mapper;
 
 import org.backend.gcmd.dto.EscaleDTO;
 import org.backend.gcmd.entity.EscaleEntity;
-import org.backend.gcmd.repository.NavireRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 

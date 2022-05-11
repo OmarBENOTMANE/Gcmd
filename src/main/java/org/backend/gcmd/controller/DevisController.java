@@ -34,17 +34,6 @@ public class DevisController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(devisService.update(devisDTO));
     }
 
-//    @DeleteMapping("{id}")
-//    public ResponseEntity<Void> delete(@PathVariable Long id) {
-//        devisService.delete(id);
-//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-//    }
-
-    @GetMapping
-    public ResponseEntity<Page<DevisDTO>> findAll(Pageable pageable) {
-        return ResponseEntity.status(HttpStatus.OK).body(devisService.findAll(pageable));
-    }
-
     @GetMapping
     public ResponseEntity<Page<DevisDTO>> findAllByDeletedFalse(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(devisService.findAllByDeletedFalse(pageable));

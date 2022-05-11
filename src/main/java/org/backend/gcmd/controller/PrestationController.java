@@ -33,17 +33,6 @@ public class PrestationController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(prestationService.update(prestationDTO));
     }
 
-//    @DeleteMapping("{id}")
-//    public ResponseEntity<Void> delete(@PathVariable Long id) {
-//        prestationService.delete(id);
-//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-//    }
-
-    @GetMapping
-    public ResponseEntity<Page<PrestationDTO>> findAll(Pageable pageable) {
-        return ResponseEntity.status(HttpStatus.OK).body(prestationService.findAll(pageable));
-    }
-
     @GetMapping
     public ResponseEntity<Page<PrestationDTO>> findAllByDeletedFalse(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(prestationService.findAllByDeletedFalse(pageable));

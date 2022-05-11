@@ -5,12 +5,9 @@ import org.backend.gcmd.dto.LigneBpDTO;
 import org.backend.gcmd.enums.SenstraficEnum;
 import org.backend.gcmd.exceptions.technical.IllegalNullParamException;
 import org.backend.gcmd.exceptions.technical.ObjectNotFoundException;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.jdbc.Sql;
 
 import java.time.LocalDate;
@@ -110,34 +107,5 @@ class LigneBpServiceTest {
         assertNotNull(result.getId());
     }
 
-    //delete
-    @Test
-    void delete_KO_nullId() {
-        assertThrows(IllegalNullParamException.class,
-                () -> {
-                    ligneBpService.delete(null);
-                });
-    }
-
-    @Test
-    void delete_ok() {
-        ligneBpService.delete(1L);
-        //then
-        Exception exception =
-                Assertions.assertThrows(ObjectNotFoundException.class, () -> ligneBpService.findById(1L),
-                        "Expected findById() to throw ObjectNotFoundException, but it didn't");
-        String expectedMessage = "LigneBpDTO not found";
-        assertTrue(exception.getMessage().contains(expectedMessage));
-    }
-
-    // findAll
-    @Test
-    void findAll() {
-        Page<LigneBpDTO> page = ligneBpService.findAll(PageRequest.of(0, 10));
-        assertNotNull(page);
-        assertEquals(1, page.getContent().size());
-        LigneBpDTO cDTO = page.getContent().get(0);
-        assertEquals(1L, cDTO.getId());
-    }
 
 }

@@ -33,17 +33,6 @@ public class EscaleController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(escaleService.update(escaleDTO));
     }
 
-//    @DeleteMapping("{id}")
-//    public ResponseEntity<Void> delete(@PathVariable Long id) {
-//        escaleService.delete(id);
-//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-//    }
-
-    @GetMapping
-    public ResponseEntity<Page<EscaleDTO>> findAll(Pageable pageable) {
-        return ResponseEntity.status(HttpStatus.OK).body(escaleService.findAll(pageable));
-    }
-
     @GetMapping
     public ResponseEntity<Page<EscaleDTO>> findAllByDeletedFalse(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(escaleService.findAllByDeletedFalse(pageable));

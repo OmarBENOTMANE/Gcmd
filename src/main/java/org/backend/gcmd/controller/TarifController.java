@@ -33,17 +33,6 @@ public class TarifController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(tarifService.update(tarifDTO));
     }
 
-//    @DeleteMapping("{id}")
-//    public ResponseEntity<Void> delete(@PathVariable Long id) {
-//        tarifService.delete(id);
-//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-//    }
-
-    @GetMapping
-    public ResponseEntity<Page<TarifDTO>> findAll(Pageable pageable) {
-        return ResponseEntity.status(HttpStatus.OK).body(tarifService.findAll(pageable));
-    }
-
     @GetMapping
     public ResponseEntity<Page<TarifDTO>> findAllByDeletedFalse(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(tarifService.findAllByDeletedFalse(pageable));

@@ -50,16 +50,6 @@ public class EscaleService {
         return escaleMapper.convertToDto(saved);
     }
 
-//    public void delete(Long id) {
-//        Validate.notNull(id, "Id must be not null");
-//        findById(id);
-//        escaleRepository.deleteById(id);
-//    }
-
-    public Page<EscaleDTO> findAll(Pageable pageable) {
-        Page<EscaleEntity> page = escaleRepository.findAll(pageable);
-        return escaleMapper.convertToPageDto(page);
-    }
 
     public Page<EscaleDTO> findAllByDeletedFalse(Pageable pageable) {
         Page<EscaleEntity> page = escaleRepository.findAllByDeletedFalse(pageable);

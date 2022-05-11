@@ -50,16 +50,6 @@ public class TypePrestationService {
         return typePrestationMapper.convertToDto(saved);
     }
 
-//    public void delete(Long id) {
-//        Validate.notNull(id, "Id must be not null");
-//        findById(id);
-//        typePrestationRepository.deleteById(id);
-//    }
-
-    public Page<TypePrestationDTO> findAll(Pageable pageable) {
-        Page<TypePrestationEntity> page = typePrestationRepository.findAll(pageable);
-        return typePrestationMapper.convertToPageDto(page);
-    }
 
     public Page<TypePrestationDTO> findAllByDeletedFalse(Pageable pageable) {
         Page<TypePrestationEntity> page = typePrestationRepository.findAllByDeletedFalse(pageable);

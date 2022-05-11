@@ -2,9 +2,6 @@ package org.backend.gcmd.mapper;
 
 import org.backend.gcmd.dto.LigneCommandeDTO;
 import org.backend.gcmd.entity.LigneCommandeEntity;
-import org.backend.gcmd.repository.CommandeRepository;
-import org.backend.gcmd.repository.PrestationRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 

@@ -2,9 +2,6 @@ package org.backend.gcmd.mapper;
 
 import org.backend.gcmd.dto.DevisDTO;
 import org.backend.gcmd.entity.DevisEntity;
-import org.backend.gcmd.repository.ClientRepository;
-import org.backend.gcmd.repository.EscaleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 

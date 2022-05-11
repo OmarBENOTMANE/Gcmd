@@ -50,17 +50,6 @@ public class MarchandiseService {
         return marchandiseMapper.convertToDto(saved);
     }
 
-//    public void delete(Long id) {
-//        Validate.notNull(id, "Id must be not null");
-//        findById(id);
-//        marchandiseRepository.deleteById(id);
-//    }
-
-    public Page<MarchandiseDTO> findAll(Pageable pageable) {
-        Page<MarchandiseEntity> page = marchandiseRepository.findAll(pageable);
-        return marchandiseMapper.convertToPageDto(page);
-    }
-
     public Page<MarchandiseDTO> findAllByDeletedFalse(Pageable pageable) {
         Page<MarchandiseEntity> page = marchandiseRepository.findAllByDeletedFalse(pageable);
         return marchandiseMapper.convertToPageDto(page);

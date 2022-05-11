@@ -59,5 +59,7 @@ public class LigneCommandeEntity {
     public Boolean getDeleted() { return deleted = false;}
     public void setDeleted(Boolean deleted) { this.deleted = deleted; }
 
+    private Boolean isAffected= false;
+
 }
 

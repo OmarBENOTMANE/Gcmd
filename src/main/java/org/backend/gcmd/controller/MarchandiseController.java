@@ -33,17 +33,6 @@ public class MarchandiseController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(marchandiseService.update(marchandiseDTO));
     }
 
-//    @DeleteMapping("{id}")
-//    public ResponseEntity<Void> delete(@PathVariable Long id) {
-//        marchandiseService.delete(id);
-//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-//    }
-
-    @GetMapping
-    public ResponseEntity<Page<MarchandiseDTO>> findAll(Pageable pageable) {
-        return ResponseEntity.status(HttpStatus.OK).body(marchandiseService.findAll(pageable));
-    }
-
     @GetMapping
     public ResponseEntity<Page<MarchandiseDTO>> findAllByDeletedFalse(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(marchandiseService.findAllByDeletedFalse(pageable));

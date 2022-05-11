@@ -1,8 +1,10 @@
 package org.backend.gcmd.service;
 
+import org.backend.gcmd.dto.LigneBpDTO;
 import org.backend.gcmd.dto.LigneCommandeDTO;
 import org.backend.gcmd.entity.LigneCommandeEntity;
 import org.backend.gcmd.exceptions.technical.ObjectNotFoundException;
+import org.backend.gcmd.mapper.LigneBpMapper;
 import org.backend.gcmd.mapper.LigneCommandeMapper;
 import org.backend.gcmd.repository.LigneCommandeRepository;
 import org.backend.gcmd.validator.Validate;
@@ -12,7 +14,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
+
+import static java.util.stream.Collectors.toList;
 
 @Service
 @Transactional
@@ -23,6 +28,15 @@ public class LigneCommandeService {
 
     @Autowired
     private LigneCommandeMapper ligneCommandeMapper;
+
+    @Autowired
+    private LigneBpService ligneBpService;
+
+
+    private LigneBpDTO ligneBpDTO;
+
+    @Autowired
+    private LigneBpMapper ligneBpMapper;
 
     public LigneCommandeDTO findById(Long id) {
         Validate.notNull(id, "id mus be not null");
@@ -43,26 +57,44 @@ public class LigneCommandeService {
 
     public LigneCommandeDTO update(LigneCommandeDTO dto) {
         Validate.notNull(dto, "LigneCommandeDTO must be not null");
-        Validate.notNull(dto.getId(), "UserDTO id must be not null");
+        Validate.notNull(dto.getId(), "LigneCommandeDTO id must be not null");
         findById(dto.getId());
         LigneCommandeEntity entity = ligneCommandeMapper.convertToEntity(dto);
         LigneCommandeEntity saved = ligneCommandeRepository.save(entity);
         return ligneCommandeMapper.convertToDto(saved);
     }
 
-//    public void delete(Long id) {
-//        Validate.notNull(id, "Id must be not null");
-//        findById(id);
-//        ligneCommandeRepository.deleteById(id);
-//    }
-
-    public Page<LigneCommandeDTO> findAll(Pageable pageable) {
-        Page<LigneCommandeEntity> page = ligneCommandeRepository.findAll(pageable);
-        return ligneCommandeMapper.convertToPageDto(page);
-    }
 
     public Page<LigneCommandeDTO> findAllByDeletedFalse(Pageable pageable) {
         Page<LigneCommandeEntity> page = ligneCommandeRepository.findAllByDeletedFalse(pageable);
         return ligneCommandeMapper.convertToPageDto(page);
+    }
+
+    public LigneCommandeDTO affecter(Long id, Boolean isAffected) {
+        Validate.notNull(id, "LigneCommandeDTO must be not null");
+        Validate.notNull(isAffected, "LigneCommandeDTO id must be not null");
+        LigneCommandeDTO lcdto = findById(id);
+        lcdto.setIsAffected(isAffected);
+        update(lcdto);
+        genererbp(lcdto);
+        return lcdto;
+    }
+
+    public void genererbp(LigneCommandeDTO ligneCommandeDTO) {
+        if (ligneCommandeDTO.getIsAffected()) {
+            LigneBpDTO ligneBpDTO = new LigneBpDTO();
+            ligneBpDTO.setPrestation(ligneCommandeDTO.getPrestation());
+            ligneBpDTO.setDate(ligneCommandeDTO.getDate());
+            ligneBpDTO.setHeure(ligneCommandeDTO.getHeure());
+            ligneBpDTO.setSensTrafic(ligneCommandeDTO.getSensTrafic());
+            ligneBpDTO.setTcSuppl(ligneCommandeDTO.getTcSuppl());
+            ligneBpDTO.setTcConv(ligneCommandeDTO.getTcConv());
+            ligneBpDTO.setNombre(ligneCommandeDTO.getNombre());
+            ligneBpDTO.setTarifUnifie(ligneCommandeDTO.getTarifUnifie());
+            ligneBpDTO.setTonnageReel(ligneCommandeDTO.getTonnageReel());
+            ligneBpDTO.setTonnageMinimum(ligneCommandeDTO.getTonnageMinimum());
+            ligneBpDTO.setDeleted(ligneCommandeDTO.getDeleted());
+            ligneBpService.save(ligneBpDTO);
+        }
     }
 }

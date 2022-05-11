@@ -33,17 +33,6 @@ public class NavireController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(navireService.update(navireDTO));
     }
 
-//    @DeleteMapping("{id}")
-//    public ResponseEntity<Void> delete(@PathVariable Long id) {
-//        navireService.delete(id);
-//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-//    }
-
-    @GetMapping
-    public ResponseEntity<Page<NavireDTO>> findAll(Pageable pageable) {
-        return ResponseEntity.status(HttpStatus.OK).body(navireService.findAll(pageable));
-    }
-
     @GetMapping
     public ResponseEntity<Page<NavireDTO>> findAllByDeletedFalse(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(navireService.findAllByDeletedFalse(pageable));

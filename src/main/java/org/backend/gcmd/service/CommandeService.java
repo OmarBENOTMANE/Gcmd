@@ -50,16 +50,7 @@ public class CommandeService {
         return commandeMapper.convertToDto(saved);
     }
 
-//    public void delete(Long id) {
-//        Validate.notNull(id, "Id must be not null");
-//        findById(id);
-//        commandeRepository.deleteById(id);
-//    }
 
-    public Page<CommandeDTO> findAll(Pageable pageable) {
-        Page<CommandeEntity> page = commandeRepository.findAll(pageable);
-        return commandeMapper.convertToPageDto(page);
-    }
 
     public Page<CommandeDTO> findAllByDeletedFalse(Pageable pageable) {
         Page<CommandeEntity> page = commandeRepository.findAllByDeletedFalse(pageable);

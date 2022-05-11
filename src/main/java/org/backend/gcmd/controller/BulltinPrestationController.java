@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api/gcmd/v1/bulltinPrestation")
+@RequestMapping("/api/gcmd/v1/bulltinPrestations")
 public class BulltinPrestationController {
 
     @Autowired
@@ -35,21 +35,8 @@ public class BulltinPrestationController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(bulltinPrestationService.update(bulltinPrestationDTO));
     }
 
-//    @DeleteMapping("{id}")
-//    public ResponseEntity<Void> delete(@PathVariable Long id) {
-//        bulltinPrestationService.delete(id);
-//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-//    }
-
-    @GetMapping("/listBulltinPrestations")
-    public ResponseEntity<Page<BulltinPrestationDTO>> findAll(Pageable pageable) {
-
-        return ResponseEntity.status(HttpStatus.OK).body(bulltinPrestationService.findAll(pageable));
-    }
-
     @GetMapping
     public ResponseEntity<Page<BulltinPrestationDTO>> findAllByDeletedFalse(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(bulltinPrestationService.findAllByDeletedFalse(pageable));
     }
-
 }

@@ -50,16 +50,6 @@ public class LigneDevisService {
         return ligneDevisMapper.convertToDto(saved);
     }
 
-//    public void delete(Long id) {
-//        Validate.notNull(id, "Id must be not null");
-//        findById(id);
-//        ligneDevisRepository.deleteById(id);
-//    }
-
-    public Page<LigneDevisDTO> findAll(Pageable pageable) {
-        Page<LigneDevisEntity> page = ligneDevisRepository.findAll(pageable);
-        return ligneDevisMapper.convertToPageDto(page);
-    }
 
     public Page<LigneDevisDTO> findAllByDeletedFalse(Pageable pageable) {
         Page<LigneDevisEntity> page = ligneDevisRepository.findAllByDeletedFalse(pageable);

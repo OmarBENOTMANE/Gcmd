@@ -4,12 +4,9 @@ package org.backend.gcmd.service;
 import org.backend.gcmd.dto.EscaleDTO;
 import org.backend.gcmd.exceptions.technical.IllegalNullParamException;
 import org.backend.gcmd.exceptions.technical.ObjectNotFoundException;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.jdbc.Sql;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -104,36 +101,6 @@ class EscaleServiceTest {
         EscaleDTO result = escaleService.update(edto);
         //then
         assertNotNull(result.getId());
-    }
-
-    //delete
-//    @Test
-//    void delete_KO_nullId() {
-//        assertThrows(IllegalNullParamException.class,
-//                () -> {
-//                    escaleService.delete(null);
-//                });
-//    }
-//
-//    @Test
-//    void delete_ok() {
-//        escaleService.delete(1L);
-//        //then
-//        Exception exception =
-//                Assertions.assertThrows(ObjectNotFoundException.class, () -> escaleService.findById(1L),
-//                        "Expected findById() to throw ObjectNotFoundException, but it didn't");
-//        String expectedMessage = "EscaleDTO not found";
-//        assertTrue(exception.getMessage().contains(expectedMessage));
-//    }
-
-    // findAll
-    @Test
-    void findAll() {
-        Page<EscaleDTO> page = escaleService.findAll(PageRequest.of(0, 10));
-        assertNotNull(page);
-        assertEquals(1, page.getContent().size());
-        EscaleDTO cDTO = page.getContent().get(0);
-        assertEquals(1L, cDTO.getId());
     }
 
 }

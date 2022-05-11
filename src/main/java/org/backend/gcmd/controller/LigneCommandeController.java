@@ -1,6 +1,8 @@
 package org.backend.gcmd.controller;
 
+import org.backend.gcmd.dto.LigneBpDTO;
 import org.backend.gcmd.dto.LigneCommandeDTO;
+import org.backend.gcmd.service.LigneBpService;
 import org.backend.gcmd.service.LigneCommandeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,10 +12,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/gcmd/v1/ligneCommande")
+@RequestMapping("/api/gcmd/v1/ligneCommandes")
 public class LigneCommandeController {
+
     @Autowired
     private LigneCommandeService ligneCommandeService;
+
 
     @GetMapping("{id}")
     public ResponseEntity<LigneCommandeDTO> findById(@PathVariable Long id) {
@@ -33,19 +37,15 @@ public class LigneCommandeController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(ligneCommandeService.update(ligneCommandeDTO));
     }
 
-//    @DeleteMapping("{id}")
-//    public ResponseEntity<Void> delete(@PathVariable Long id) {
-//        ligneCommandeService.delete(id);
-//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-//    }
-
-    @GetMapping("/listLigneCommandes")
-    public ResponseEntity<Page<LigneCommandeDTO>> findAll(Pageable pageable) {
-        return ResponseEntity.status(HttpStatus.OK).body(ligneCommandeService.findAll(pageable));
-    }
-
     @GetMapping
     public ResponseEntity<Page<LigneCommandeDTO>> findAllByDeletedFalse(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(ligneCommandeService.findAllByDeletedFalse(pageable));
     }
+
+    @GetMapping("changeStatus/{id}/{isAffected}")
+    public ResponseEntity<LigneCommandeDTO> changeStatus(@PathVariable Long id,
+                                                               @PathVariable Boolean isAffected) {
+        return ResponseEntity.status(HttpStatus.OK).body(ligneCommandeService.affecter(id, isAffected));
+    }
+
 }

@@ -50,17 +50,6 @@ public class LigneBpService {
         return ligneBpMapper.convertToDto(saved);
     }
 
-    public void delete(Long id) {
-        Validate.notNull(id, "Id must be not null");
-        findById(id);
-        ligneBpRepository.deleteById(id);
-    }
-
-    public Page<LigneBpDTO> findAll(Pageable pageable) {
-        Page<LigneBpEntity> page = ligneBpRepository.findAll(pageable);
-        return ligneBpMapper.convertToPageDto(page);
-    }
-
     public Page<LigneBpDTO> findAllByDeletedFalse(Pageable pageable) {
         Page<LigneBpEntity> page = ligneBpRepository.findAllByDeletedFalse(pageable);
         return ligneBpMapper.convertToPageDto(page);

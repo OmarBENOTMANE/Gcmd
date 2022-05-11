@@ -4,12 +4,9 @@ package org.backend.gcmd.service;
 import org.backend.gcmd.dto.UniteOrganisationelDTO;
 import org.backend.gcmd.exceptions.technical.IllegalNullParamException;
 import org.backend.gcmd.exceptions.technical.ObjectNotFoundException;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.jdbc.Sql;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -127,14 +124,12 @@ class UniteOrganisationelServiceTest {
 //    }
 
     // findAll
-    @Test
-    void findAll() {
-        Page<UniteOrganisationelDTO> page = uniteOrganisationelService.findAll(PageRequest.of(0, 10));
-        assertNotNull(page);
-        assertEquals(1, page.getContent().size());
-        UniteOrganisationelDTO uDTO = page.getContent().get(0);
-        assertEquals(1L, uDTO.getId());
-
-    }
+   // @Test
+  //  void findAll() {
+     //   Page<UniteOrganisationelDTO> page = uniteOrganisationelService.findAll(PageRequest.of(0, 10));
+       // assertNotNull(page);
+       // assertEquals(1, page.getContent().size());
+       // UniteOrganisationelDTO uDTO = page.getContent().get(0);
+       // assertEquals(1L, uDTO.getId());
 
 }
