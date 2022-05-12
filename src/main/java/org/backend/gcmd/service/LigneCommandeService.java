@@ -72,8 +72,8 @@ public class LigneCommandeService {
             genererbp(lcdto);
         } else {
 
-            ligneBpDTO.getId();
-            ligneBpDTO.setDeleted(true);
+           // ligneBpDTO.getId();
+           // ligneBpDTO.setDeleted(true);
         }
         return lcdto;
     }
