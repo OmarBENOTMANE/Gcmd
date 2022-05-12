@@ -40,7 +40,7 @@ public class LigneCommandeController {
         return ResponseEntity.status(HttpStatus.OK).body(ligneCommandeService.findAllByDeletedFalse(pageable));
     }
 
-    @GetMapping("changeStatus/{id}/{isAffected}")
+    @PutMapping("{id}/actions/changeStatus/{isAffected}")
     public ResponseEntity<LigneCommandeDTO> changeStatus(@PathVariable Long id,
                                                          @PathVariable Boolean isAffected) {
         return ResponseEntity.status(HttpStatus.OK).body(ligneCommandeService.affecter(id, isAffected));

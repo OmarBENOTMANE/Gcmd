@@ -36,6 +36,9 @@ public class BulltinPrestationMapper implements Mapper<BulltinPrestationDTO, Bul
         dto.setPreValidation(entity.getPreValidation());
         dto.setText(entity.getText());
         dto.setTypePaiement(entity.getTypePaiement());
+        dto.setDeleted(entity.getDeleted());
+        dto.setValidated(entity.getValidated());
+        dto.setInvoiced(entity.getInvoiced());
         return dto;
     }
 
@@ -58,6 +61,9 @@ public class BulltinPrestationMapper implements Mapper<BulltinPrestationDTO, Bul
         entity.setPreValidation(dto.getPreValidation());
         entity.setText(dto.getText());
         entity.setTypePaiement(dto.getTypePaiement());
+        entity.setDeleted(dto.getDeleted());
+        entity.setValidated(dto.getValidated());
+        entity.setInvoiced(dto.getInvoiced());
         return entity;
     }
 

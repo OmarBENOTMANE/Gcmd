@@ -28,6 +28,9 @@ public class LigneCommandeService {
     @Autowired
     private LigneBpService ligneBpService;
 
+    @Autowired
+    private LigneBpDTO ligneBpDTO;
+
     public LigneCommandeDTO findById(Long id) {
         Validate.notNull(id, "id mus be not null");
         Optional<LigneCommandeEntity> entity = ligneCommandeRepository.findById(id);
@@ -54,7 +57,6 @@ public class LigneCommandeService {
         return ligneCommandeMapper.convertToDto(saved);
     }
 
-
     public Page<LigneCommandeDTO> findAllByDeletedFalse(Pageable pageable) {
         Page<LigneCommandeEntity> page = ligneCommandeRepository.findAllByDeletedFalse(pageable);
         return ligneCommandeMapper.convertToPageDto(page);
@@ -66,12 +68,17 @@ public class LigneCommandeService {
         LigneCommandeDTO lcdto = findById(id);
         lcdto.setIsAffected(isAffected);
         update(lcdto);
-        genererbp(lcdto);
+        if (lcdto.getIsAffected() == true) {
+            genererbp(lcdto);
+        } else {
+
+            ligneBpDTO.getId();
+            ligneBpDTO.setDeleted(true);
+        }
         return lcdto;
     }
 
     public void genererbp(LigneCommandeDTO ligneCommandeDTO) {
-        if (ligneCommandeDTO.getIsAffected() == true) {
             LigneBpDTO ligneBpDTO = new LigneBpDTO();
             ligneBpDTO.setPrestation(ligneCommandeDTO.getPrestation());
             ligneBpDTO.setDate(ligneCommandeDTO.getDate());
@@ -83,8 +90,6 @@ public class LigneCommandeService {
             ligneBpDTO.setTarifUnifie(ligneCommandeDTO.getTarifUnifie());
             ligneBpDTO.setTonnageReel(ligneCommandeDTO.getTonnageReel());
             ligneBpDTO.setTonnageMinimum(ligneCommandeDTO.getTonnageMinimum());
-            ligneBpDTO.setDeleted(ligneCommandeDTO.getDeleted());
             ligneBpService.save(ligneBpDTO);
-        }
     }
 }

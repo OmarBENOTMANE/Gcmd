@@ -49,4 +49,8 @@ public class BulltinPrestationDTO {
 
     private Boolean deleted = false;
 
+    private Boolean validated = false;
+
+    private Boolean invoiced = false;
+
 }

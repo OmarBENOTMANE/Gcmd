@@ -32,6 +32,8 @@ public class LigneCommandeMapper implements Mapper<LigneCommandeDTO, LigneComman
         dto.setTcSuppl(entity.getTcSuppl());
         dto.setTonnageMinimum(entity.getTonnageMinimum());
         dto.setTonnageReel(entity.getTonnageReel());
+        dto.setDeleted(entity.getDeleted());
+        dto.setIsAffected(entity.getIsAffected());
         return dto;
     }
 
@@ -50,6 +52,8 @@ public class LigneCommandeMapper implements Mapper<LigneCommandeDTO, LigneComman
         entity.setTcSuppl(dto.getTcSuppl());
         entity.setTonnageMinimum(dto.getTonnageMinimum());
         entity.setTonnageReel(dto.getTonnageReel());
+        entity.setDeleted(dto.getDeleted());
+        entity.setIsAffected(dto.getIsAffected());
         return entity;
     }
 
