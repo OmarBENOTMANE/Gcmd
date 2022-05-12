@@ -27,10 +27,6 @@ public class LigneCommandeService {
 
     @Autowired
     private LigneBpService ligneBpService;
-
-//    @Autowired
-//    private LigneBpDTO ligneBpDTO;
-
     public LigneCommandeDTO findById(Long id) {
         Validate.notNull(id, "id mus be not null");
         Optional<LigneCommandeEntity> entity = ligneCommandeRepository.findById(id);
@@ -72,8 +68,8 @@ public class LigneCommandeService {
             genererbp(lcdto);
         } else {
 
-           // ligneBpDTO.getId();
-           // ligneBpDTO.setDeleted(true);
+
+
         }
         return lcdto;
     }
