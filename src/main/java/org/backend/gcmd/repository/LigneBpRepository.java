@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LigneBpRepository extends JpaRepository<LigneBpEntity, Long> {
 
-    Page<LigneBpEntity> findAllByDeletedFalse(Pageable page);
+	Page<LigneBpEntity> findAllByDeletedFalse(Pageable page);
 }

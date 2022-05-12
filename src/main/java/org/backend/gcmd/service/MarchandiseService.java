@@ -1,5 +1,7 @@
 package org.backend.gcmd.service;
 
+import java.util.Optional;
+
 import org.backend.gcmd.dto.MarchandiseDTO;
 import org.backend.gcmd.entity.MarchandiseEntity;
 import org.backend.gcmd.exceptions.technical.ObjectNotFoundException;
@@ -12,46 +14,44 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
 @Service
 @Transactional
 public class MarchandiseService {
 
-    @Autowired
-    private MarchandiseRepository marchandiseRepository;
+	@Autowired
+	private MarchandiseRepository marchandiseRepository;
 
-    @Autowired
-    private MarchandiseMapper marchandiseMapper;
+	@Autowired
+	private MarchandiseMapper marchandiseMapper;
 
-    public MarchandiseDTO findById(Long id) {
-        Validate.notNull(id, "id mus be not null");
-        Optional<MarchandiseEntity> entity = marchandiseRepository.findById(id);
-        if (entity.isPresent()) {
-            return marchandiseMapper.convertToDto(entity.get());
-        } else {
-            throw new ObjectNotFoundException("MarchandiseDTO not found");
-        }
-    }
+	public MarchandiseDTO findById(Long id) {
+		Validate.notNull(id, "id mus be not null");
+		Optional<MarchandiseEntity> entity = marchandiseRepository.findById(id);
+		if (entity.isPresent()) {
+			return marchandiseMapper.convertToDto(entity.get());
+		} else {
+			throw new ObjectNotFoundException("MarchandiseDTO not found");
+		}
+	}
 
-    public MarchandiseDTO save(MarchandiseDTO dto) {
-        Validate.notNull(dto, "MarchandiseDTO must be not null");
-        MarchandiseEntity entity = marchandiseMapper.convertToEntity(dto);
-        MarchandiseEntity saved = marchandiseRepository.save(entity);
-        return marchandiseMapper.convertToDto(saved);
-    }
+	public MarchandiseDTO save(MarchandiseDTO dto) {
+		Validate.notNull(dto, "MarchandiseDTO must be not null");
+		MarchandiseEntity entity = marchandiseMapper.convertToEntity(dto);
+		MarchandiseEntity saved = marchandiseRepository.save(entity);
+		return marchandiseMapper.convertToDto(saved);
+	}
 
-    public MarchandiseDTO update(MarchandiseDTO dto) {
-        Validate.notNull(dto, "MarchandiseDTO must be not null");
-        Validate.notNull(dto.getId(), "UserDTO id must be not null");
-        findById(dto.getId());
-        MarchandiseEntity entity = marchandiseMapper.convertToEntity(dto);
-        MarchandiseEntity saved = marchandiseRepository.save(entity);
-        return marchandiseMapper.convertToDto(saved);
-    }
+	public MarchandiseDTO update(MarchandiseDTO dto) {
+		Validate.notNull(dto, "MarchandiseDTO must be not null");
+		Validate.notNull(dto.getId(), "UserDTO id must be not null");
+		findById(dto.getId());
+		MarchandiseEntity entity = marchandiseMapper.convertToEntity(dto);
+		MarchandiseEntity saved = marchandiseRepository.save(entity);
+		return marchandiseMapper.convertToDto(saved);
+	}
 
-    public Page<MarchandiseDTO> findAllByDeletedFalse(Pageable pageable) {
-        Page<MarchandiseEntity> page = marchandiseRepository.findAllByDeletedFalse(pageable);
-        return marchandiseMapper.convertToPageDto(page);
-    }
+	public Page<MarchandiseDTO> findAllByDeletedFalse(Pageable pageable) {
+		Page<MarchandiseEntity> page = marchandiseRepository.findAllByDeletedFalse(pageable);
+		return marchandiseMapper.convertToPageDto(page);
+	}
 }

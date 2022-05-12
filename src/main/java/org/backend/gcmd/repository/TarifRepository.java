@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TarifRepository extends JpaRepository<TarifEntity, Long> {
 
-    Page<TarifEntity> findAllByDeletedFalse(Pageable page);
+	Page<TarifEntity> findAllByDeletedFalse(Pageable page);
 }

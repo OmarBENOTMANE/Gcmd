@@ -11,11 +11,10 @@ import lombok.NoArgsConstructor;
 @Data
 public class TypeClientDTO {
 
-    private Long id;
+	private Long id;
 
-    private String name;
+	private String name;
 
-    private Boolean deleted = false;
-
+	private Boolean deleted = false;
 
 }

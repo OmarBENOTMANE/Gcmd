@@ -1,10 +1,14 @@
 package org.backend.gcmd.dto;
 
-import lombok.*;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Builder
 @Getter
@@ -13,16 +17,16 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class TarifDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    private Double tarifHt;
+	private Double tarifHt;
 
-    private Double tarifTtc;
+	private Double tarifTtc;
 
-    private Long prestationId;
+	private Long prestationId;
 
-    private Boolean deleted = false;
+	private Boolean deleted = false;
 
 }

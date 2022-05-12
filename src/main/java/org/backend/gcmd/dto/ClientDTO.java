@@ -11,16 +11,16 @@ import lombok.NoArgsConstructor;
 @Data
 public class ClientDTO {
 
-    private Long id;
+	private Long id;
 
-    private String name;
+	private String name;
 
-    private String email;
+	private String email;
 
-    private String phone;
+	private String phone;
 
-    private Long typeClientId;
+	private Long typeClientId;
 
-    private Boolean deleted = false;
+	private Boolean deleted = false;
 
 }

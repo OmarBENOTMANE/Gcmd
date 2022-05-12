@@ -7,35 +7,39 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/devis")
 public class DevisController {
-    @Autowired
-    private DevisService devisService;
+	@Autowired
+	private DevisService devisService;
 
+	@GetMapping("{id}")
+	public ResponseEntity<DevisDTO> findById(@PathVariable Long id) {
+		DevisDTO devisDTO = devisService.findById(id);
+		return ResponseEntity.status(HttpStatus.OK).body(devisDTO);
+	}
 
-    @GetMapping("{id}")
-    public ResponseEntity<DevisDTO> findById(@PathVariable Long id) {
-        DevisDTO devisDTO = devisService.findById(id);
-        return ResponseEntity.status(HttpStatus.OK).body(devisDTO);
-    }
+	@PostMapping
+	public ResponseEntity<DevisDTO> save(@RequestBody DevisDTO devisDTO) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(devisService.save(devisDTO));
+	}
 
-    @PostMapping
-    public ResponseEntity<DevisDTO> save(@RequestBody DevisDTO devisDTO) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(devisService.save(devisDTO));
-    }
+	@PutMapping("{id}")
+	public ResponseEntity<DevisDTO> update(@PathVariable Long id, @RequestBody DevisDTO devisDTO) {
+		devisDTO.setId(id);
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(devisService.update(devisDTO));
+	}
 
-    @PutMapping("{id}")
-    public ResponseEntity<DevisDTO> update(@PathVariable Long id,
-                                           @RequestBody DevisDTO devisDTO) {
-        devisDTO.setId(id);
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(devisService.update(devisDTO));
-    }
-
-    @GetMapping
-    public ResponseEntity<Page<DevisDTO>> findAllByDeletedFalse(Pageable pageable) {
-        return ResponseEntity.status(HttpStatus.OK).body(devisService.findAllByDeletedFalse(pageable));
-    }
+	@GetMapping
+	public ResponseEntity<Page<DevisDTO>> findAllByDeletedFalse(Pageable pageable) {
+		return ResponseEntity.status(HttpStatus.OK).body(devisService.findAllByDeletedFalse(pageable));
+	}
 }

@@ -1,19 +1,19 @@
 package org.backend.gcmd.dto;
 
+import java.time.LocalDateTime;
+
 import lombok.Builder;
 import lombok.Data;
-
-import java.time.LocalDateTime;
 
 @Data
 @Builder
 public class ErrorDTO {
 
-    private String code;
-    private String message;
-    private int status;
-    private LocalDateTime dateTime;
+	private String code;
+	private String message;
+	private int status;
+	private LocalDateTime dateTime;
 
-    private Boolean deleted = false;
+	private Boolean deleted = false;
 
 }

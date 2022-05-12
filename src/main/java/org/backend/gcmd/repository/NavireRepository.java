@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface NavireRepository extends JpaRepository<NavireEntity, Long> {
 
-    Page<NavireEntity> findAllByDeletedFalse(Pageable page);
+	Page<NavireEntity> findAllByDeletedFalse(Pageable page);
 }

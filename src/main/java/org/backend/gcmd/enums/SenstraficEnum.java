@@ -7,9 +7,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum SenstraficEnum {
 
-    IMPORT("import"), EXPORT("export"), TRANSIT("transit");
+	IMPORT("import"), EXPORT("export"), TRANSIT("transit");
 
-    private String value;
-
+	private String value;
 
 }

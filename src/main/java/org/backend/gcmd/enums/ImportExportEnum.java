@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ImportExportEnum {
 
-    IMPORT("import"), EXPORT("export");
+	IMPORT("import"), EXPORT("export");
 
-    private String value;
+	private String value;
 }

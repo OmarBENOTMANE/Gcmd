@@ -1,5 +1,7 @@
 package org.backend.gcmd.service;
 
+import java.util.Optional;
+
 import org.backend.gcmd.dto.LigneBpDTO;
 import org.backend.gcmd.dto.LigneCommandeDTO;
 import org.backend.gcmd.entity.LigneCommandeEntity;
@@ -13,79 +15,76 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
 @Service
 @Transactional
 public class LigneCommandeService {
 
-    @Autowired
-    private LigneCommandeRepository ligneCommandeRepository;
+	@Autowired
+	private LigneCommandeRepository ligneCommandeRepository;
 
-    @Autowired
-    private LigneCommandeMapper ligneCommandeMapper;
+	@Autowired
+	private LigneCommandeMapper ligneCommandeMapper;
 
-    @Autowired
-    private LigneBpService ligneBpService;
-    public LigneCommandeDTO findById(Long id) {
-        Validate.notNull(id, "id mus be not null");
-        Optional<LigneCommandeEntity> entity = ligneCommandeRepository.findById(id);
-        if (entity.isPresent()) {
-            return ligneCommandeMapper.convertToDto(entity.get());
-        } else {
-            throw new ObjectNotFoundException("LigneCommandeDTO not found");
-        }
-    }
+	@Autowired
+	private LigneBpService ligneBpService;
 
-    public LigneCommandeDTO save(LigneCommandeDTO dto) {
-        Validate.notNull(dto, "LigneCommandeDTO must be not null");
-        LigneCommandeEntity entity = ligneCommandeMapper.convertToEntity(dto);
-        LigneCommandeEntity saved = ligneCommandeRepository.save(entity);
-        return ligneCommandeMapper.convertToDto(saved);
-    }
+	public LigneCommandeDTO findById(Long id) {
+		Validate.notNull(id, "id mus be not null");
+		Optional<LigneCommandeEntity> entity = ligneCommandeRepository.findById(id);
+		if (entity.isPresent()) {
+			return ligneCommandeMapper.convertToDto(entity.get());
+		} else {
+			throw new ObjectNotFoundException("LigneCommandeDTO not found");
+		}
+	}
 
-    public LigneCommandeDTO update(LigneCommandeDTO dto) {
-        Validate.notNull(dto, "LigneCommandeDTO must be not null");
-        Validate.notNull(dto.getId(), "LigneCommandeDTO id must be not null");
-        findById(dto.getId());
-        LigneCommandeEntity entity = ligneCommandeMapper.convertToEntity(dto);
-        LigneCommandeEntity saved = ligneCommandeRepository.save(entity);
-        return ligneCommandeMapper.convertToDto(saved);
-    }
+	public LigneCommandeDTO save(LigneCommandeDTO dto) {
+		Validate.notNull(dto, "LigneCommandeDTO must be not null");
+		LigneCommandeEntity entity = ligneCommandeMapper.convertToEntity(dto);
+		LigneCommandeEntity saved = ligneCommandeRepository.save(entity);
+		return ligneCommandeMapper.convertToDto(saved);
+	}
 
-    public Page<LigneCommandeDTO> findAllByDeletedFalse(Pageable pageable) {
-        Page<LigneCommandeEntity> page = ligneCommandeRepository.findAllByDeletedFalse(pageable);
-        return ligneCommandeMapper.convertToPageDto(page);
-    }
+	public LigneCommandeDTO update(LigneCommandeDTO dto) {
+		Validate.notNull(dto, "LigneCommandeDTO must be not null");
+		Validate.notNull(dto.getId(), "LigneCommandeDTO id must be not null");
+		findById(dto.getId());
+		LigneCommandeEntity entity = ligneCommandeMapper.convertToEntity(dto);
+		LigneCommandeEntity saved = ligneCommandeRepository.save(entity);
+		return ligneCommandeMapper.convertToDto(saved);
+	}
 
-    public LigneCommandeDTO affecter(Long id, Boolean isAffected) {
-        Validate.notNull(id, "LigneCommandeDTO must be not null");
-        Validate.notNull(isAffected, "LigneCommandeDTO id must be not null");
-        LigneCommandeDTO lcdto = findById(id);
-        lcdto.setIsAffected(isAffected);
-        update(lcdto);
-        if (lcdto.getIsAffected() == true) {
-            genererbp(lcdto);
-        } else {
+	public Page<LigneCommandeDTO> findAllByDeletedFalse(Pageable pageable) {
+		Page<LigneCommandeEntity> page = ligneCommandeRepository.findAllByDeletedFalse(pageable);
+		return ligneCommandeMapper.convertToPageDto(page);
+	}
 
+	public LigneCommandeDTO affecter(Long id, Boolean isAffected) {
+		Validate.notNull(id, "LigneCommandeDTO must be not null");
+		Validate.notNull(isAffected, "LigneCommandeDTO id must be not null");
+		LigneCommandeDTO lcdto = findById(id);
+		lcdto.setIsAffected(isAffected);
+		update(lcdto);
+		if (lcdto.getIsAffected()) {
+			genererbp(lcdto);
+		} else {
 
+		}
+		return lcdto;
+	}
 
-        }
-        return lcdto;
-    }
-
-    public void genererbp(LigneCommandeDTO ligneCommandeDTO) {
-            LigneBpDTO ligneBpDTO = new LigneBpDTO();
-            ligneBpDTO.setPrestation(ligneCommandeDTO.getPrestation());
-            ligneBpDTO.setDate(ligneCommandeDTO.getDate());
-            ligneBpDTO.setHeure(ligneCommandeDTO.getHeure());
-            ligneBpDTO.setSensTrafic(ligneCommandeDTO.getSensTrafic());
-            ligneBpDTO.setTcSuppl(ligneCommandeDTO.getTcSuppl());
-            ligneBpDTO.setTcConv(ligneCommandeDTO.getTcConv());
-            ligneBpDTO.setNombre(ligneCommandeDTO.getNombre());
-            ligneBpDTO.setTarifUnifie(ligneCommandeDTO.getTarifUnifie());
-            ligneBpDTO.setTonnageReel(ligneCommandeDTO.getTonnageReel());
-            ligneBpDTO.setTonnageMinimum(ligneCommandeDTO.getTonnageMinimum());
-            ligneBpService.save(ligneBpDTO);
-    }
+	public void genererbp(LigneCommandeDTO ligneCommandeDTO) {
+		LigneBpDTO ligneBpDTO = new LigneBpDTO();
+		ligneBpDTO.setPrestation(ligneCommandeDTO.getPrestation());
+		ligneBpDTO.setDate(ligneCommandeDTO.getDate());
+		ligneBpDTO.setHeure(ligneCommandeDTO.getHeure());
+		ligneBpDTO.setSensTrafic(ligneCommandeDTO.getSensTrafic());
+		ligneBpDTO.setTcSuppl(ligneCommandeDTO.getTcSuppl());
+		ligneBpDTO.setTcConv(ligneCommandeDTO.getTcConv());
+		ligneBpDTO.setNombre(ligneCommandeDTO.getNombre());
+		ligneBpDTO.setTarifUnifie(ligneCommandeDTO.getTarifUnifie());
+		ligneBpDTO.setTonnageReel(ligneCommandeDTO.getTonnageReel());
+		ligneBpDTO.setTonnageMinimum(ligneCommandeDTO.getTonnageMinimum());
+		ligneBpService.save(ligneBpDTO);
+	}
 }

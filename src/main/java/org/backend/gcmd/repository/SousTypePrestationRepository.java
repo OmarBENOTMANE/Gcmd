@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SousTypePrestationRepository extends JpaRepository<SousTypePrestationEntity, Long> {
 
-    Page<SousTypePrestationEntity> findAllByDeletedFalse(Pageable page);
+	Page<SousTypePrestationEntity> findAllByDeletedFalse(Pageable page);
 }

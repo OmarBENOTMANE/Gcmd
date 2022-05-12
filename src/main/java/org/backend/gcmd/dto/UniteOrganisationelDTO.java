@@ -11,15 +11,15 @@ import lombok.NoArgsConstructor;
 @Data
 public class UniteOrganisationelDTO {
 
-    private Long id;
+	private Long id;
 
-    private String label;
+	private String label;
 
-    private String type;
+	private String type;
 
-    private String description;
+	private String description;
 
-    private Long uniteOrganisationelId;
+	private Long uniteOrganisationelId;
 
-    private Boolean deleted = false;
+	private Boolean deleted = false;
 }

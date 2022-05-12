@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MarchandiseRepository extends JpaRepository<MarchandiseEntity, Long> {
 
-    Page<MarchandiseEntity> findAllByDeletedFalse(Pageable page);
+	Page<MarchandiseEntity> findAllByDeletedFalse(Pageable page);
 }
