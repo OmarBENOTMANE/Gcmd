@@ -28,8 +28,8 @@ public class LigneCommandeService {
     @Autowired
     private LigneBpService ligneBpService;
 
-    @Autowired
-    private LigneBpDTO ligneBpDTO;
+//    @Autowired
+//    private LigneBpDTO ligneBpDTO;
 
     public LigneCommandeDTO findById(Long id) {
         Validate.notNull(id, "id mus be not null");
