@@ -71,15 +71,14 @@ public class LigneCommandeService {
         if (lcdto.getIsAffected() == true) {
             genererbp(lcdto);
         } else {
-            List<LigneBpDTO> byIdLigneCommande = ligneBpService.findByIdLigneCommande(lcdto.getId());
-            if (!CollectionUtils.isEmpty(byIdLigneCommande)) {
-                byIdLigneCommande.get(0).setDeleted(true);
-                ligneBpService.save(byIdLigneCommande.get(0));
+            List<LigneBpDTO> lbpdto = ligneBpService.findByLigneCmdId(lcdto.getId());
+            if (!CollectionUtils.isEmpty(lbpdto)) {
+                lbpdto.get(0).setDeleted(true);
+                ligneBpService.update(lbpdto.get(0));
             }
         }
         return lcdto;
     }
-
     public LigneBpDTO genererbp(LigneCommandeDTO ligneCommandeDTO) {
         LigneBpDTO ligneBpDTO = new LigneBpDTO();
         ligneBpDTO.setPrestations(ligneCommandeDTO.getPrestations());

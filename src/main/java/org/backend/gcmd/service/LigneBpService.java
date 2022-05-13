@@ -56,8 +56,8 @@ public class LigneBpService {
         return ligneBpMapper.convertToPageDto(page);
     }
 
-    public List<LigneBpDTO> findByIdLigneCommande(Long idLigneCommande) {
-        List<LigneBpEntity> list = ligneBpRepository.findByIdLigneCommande(idLigneCommande);
-        return ligneBpMapper.convertToDtoList(list);
+    public List<LigneBpDTO> findByLigneCmdId(Long ligneCmdId) {
+        List<LigneBpEntity> ligneBpEntity = ligneBpRepository.findByLigneCmdId(ligneCmdId);
+        return ligneBpMapper.convertToDtoList(ligneBpEntity);
     }
 }
