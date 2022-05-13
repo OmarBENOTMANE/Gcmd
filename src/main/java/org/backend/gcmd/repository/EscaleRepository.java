@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EscaleRepository extends JpaRepository<EscaleEntity, Long> {
 
-	Page<EscaleEntity> findAllByDeletedFalse(Pageable page);
+    Page<EscaleEntity> findAllByDeletedFalse(Pageable page);
 }

@@ -1,13 +1,14 @@
 package org.backend.gcmd.dto;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,14 +16,14 @@ import lombok.NoArgsConstructor;
 @Builder
 public class MarchandiseDTO {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String designation;
-	private String reference;
-	private Double quantite;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String designation;
+    private String reference;
+    private Double quantite;
 
-	private Long escaleId;
+    private Long escaleId;
 
-	private Boolean deleted = false;
+    private Boolean deleted = false;
 }

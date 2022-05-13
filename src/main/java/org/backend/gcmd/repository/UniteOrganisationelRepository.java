@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UniteOrganisationelRepository extends JpaRepository<UniteOrganisationelEntity, Long> {
 
-	Page<UniteOrganisationelEntity> findAllByDeletedFalse(Pageable page);
+    Page<UniteOrganisationelEntity> findAllByDeletedFalse(Pageable page);
 }

@@ -1,18 +1,16 @@
 package org.backend.gcmd.dto;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-import org.backend.gcmd.enums.SenstraficEnum;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.backend.gcmd.enums.SenstraficEnum;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,40 +18,41 @@ import lombok.NoArgsConstructor;
 @Builder
 public class LigneCommandeDTO {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 
-	private String prestation;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	private LocalDate date;
+    private String prestation;
 
-	private LocalTime heure;
+    private LocalDate date;
 
-	private SenstraficEnum sensTrafic;
+    private LocalTime heure;
 
-	private String produit;
+    private SenstraficEnum sensTrafic;
 
-	private String tcSuppl;
+    private String produit;
 
-	private Boolean tcConv;
+    private String tcSuppl;
 
-	private Integer nombre;
+    private Boolean tcConv;
 
-	private Boolean tarifUnifie;
+    private Integer nombre;
 
-	private Integer tonnageReel;
+    private Boolean tarifUnifie;
 
-	private Integer tonnageMinimum;
+    private Integer tonnageReel;
 
-	private String description;
+    private Integer tonnageMinimum;
 
-	private Long commandeId;
+    private String description;
 
-	private Long prestationId;
+    private Long commandeId;
 
-	private Boolean deleted = false;
+    private Long prestationId;
 
-	private Boolean isAffected = false;
+    private Boolean deleted = false;
+
+    private Boolean isAffected = false;
 
 }

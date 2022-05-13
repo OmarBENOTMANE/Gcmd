@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ClientRepository extends JpaRepository<ClientEntity, Long> {
 
-	Page<ClientEntity> findAllByDeletedFalse(Pageable page);
+    Page<ClientEntity> findAllByDeletedFalse(Pageable page);
 }

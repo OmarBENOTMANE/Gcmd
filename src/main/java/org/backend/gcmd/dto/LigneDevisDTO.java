@@ -11,16 +11,17 @@ import lombok.NoArgsConstructor;
 @Builder
 public class LigneDevisDTO {
 
-	private Long id;
 
-	private String designation;
-	private Integer quantite;
-	private Double nombreUnite;
-	private Double total;
+    private Long id;
 
-	private Long prestationId;
-	private Long devisId;
+    private String designation;
+    private Integer quantite;
+    private Double nombreUnite;
+    private Double total;
 
-	private Boolean deleted = false;
+    private Long prestationId;
+    private Long devisId;
+
+    private Boolean deleted = false;
 
 }

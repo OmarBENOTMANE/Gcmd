@@ -7,39 +7,34 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/escales")
 public class EscaleController {
-	@Autowired
-	private EscaleService escaleService;
+    @Autowired
+    private EscaleService escaleService;
 
-	@GetMapping("{id}")
-	public ResponseEntity<EscaleDTO> findById(@PathVariable Long id) {
-		EscaleDTO escaleDTO = escaleService.findById(id);
-		return ResponseEntity.status(HttpStatus.OK).body(escaleDTO);
-	}
+    @GetMapping("{id}")
+    public ResponseEntity<EscaleDTO> findById(@PathVariable Long id) {
+        EscaleDTO escaleDTO = escaleService.findById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(escaleDTO);
+    }
 
-	@PostMapping
-	public ResponseEntity<EscaleDTO> save(@RequestBody EscaleDTO escaleDTO) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(escaleService.save(escaleDTO));
-	}
+    @PostMapping
+    public ResponseEntity<EscaleDTO> save(@RequestBody EscaleDTO escaleDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(escaleService.save(escaleDTO));
+    }
 
-	@PutMapping("{id}")
-	public ResponseEntity<EscaleDTO> update(@PathVariable Long id, @RequestBody EscaleDTO escaleDTO) {
-		escaleDTO.setId(id);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(escaleService.update(escaleDTO));
-	}
+    @PutMapping("{id}")
+    public ResponseEntity<EscaleDTO> update(@PathVariable Long id,
+                                            @RequestBody EscaleDTO escaleDTO) {
+        escaleDTO.setId(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(escaleService.update(escaleDTO));
+    }
 
-	@GetMapping
-	public ResponseEntity<Page<EscaleDTO>> findAllByDeletedFalse(Pageable pageable) {
-		return ResponseEntity.status(HttpStatus.OK).body(escaleService.findAllByDeletedFalse(pageable));
-	}
+    @GetMapping
+    public ResponseEntity<Page<EscaleDTO>> findAllByDeletedFalse(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(escaleService.findAllByDeletedFalse(pageable));
+    }
 }

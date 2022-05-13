@@ -7,47 +7,43 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/gcmd/v1/ligneCommandes")
 public class LigneCommandeController {
 
-	@Autowired
-	private LigneCommandeService ligneCommandeService;
+    @Autowired
+    private LigneCommandeService ligneCommandeService;
 
-	@GetMapping("{id}")
-	public ResponseEntity<LigneCommandeDTO> findById(@PathVariable Long id) {
-		LigneCommandeDTO ligneCommandeDTO = ligneCommandeService.findById(id);
-		return ResponseEntity.status(HttpStatus.OK).body(ligneCommandeDTO);
-	}
 
-	@PostMapping
-	public ResponseEntity<LigneCommandeDTO> save(@RequestBody LigneCommandeDTO ligneCommandeDTO) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(ligneCommandeService.save(ligneCommandeDTO));
-	}
+    @GetMapping("{id}")
+    public ResponseEntity<LigneCommandeDTO> findById(@PathVariable Long id) {
+        LigneCommandeDTO ligneCommandeDTO = ligneCommandeService.findById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(ligneCommandeDTO);
+    }
 
-	@PutMapping("{id}")
-	public ResponseEntity<LigneCommandeDTO> update(@PathVariable Long id,
-			@RequestBody LigneCommandeDTO ligneCommandeDTO) {
-		ligneCommandeDTO.setId(id);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(ligneCommandeService.update(ligneCommandeDTO));
-	}
+    @PostMapping
+    public ResponseEntity<LigneCommandeDTO> save(@RequestBody LigneCommandeDTO ligneCommandeDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(ligneCommandeService.save(ligneCommandeDTO));
+    }
 
-	@GetMapping
-	public ResponseEntity<Page<LigneCommandeDTO>> findAllByDeletedFalse(Pageable pageable) {
-		return ResponseEntity.status(HttpStatus.OK).body(ligneCommandeService.findAllByDeletedFalse(pageable));
-	}
+    @PutMapping("{id}")
+    public ResponseEntity<LigneCommandeDTO> update(@PathVariable Long id,
+                                                   @RequestBody LigneCommandeDTO ligneCommandeDTO) {
+        ligneCommandeDTO.setId(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(ligneCommandeService.update(ligneCommandeDTO));
+    }
 
-	@PutMapping("{id}/actions/changeStatus/{isAffected}")
-	public ResponseEntity<LigneCommandeDTO> changeStatus(@PathVariable Long id, @PathVariable Boolean isAffected) {
-		return ResponseEntity.status(HttpStatus.OK).body(ligneCommandeService.affecter(id, isAffected));
-	}
+    @GetMapping
+    public ResponseEntity<Page<LigneCommandeDTO>> findAllByDeletedFalse(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(ligneCommandeService.findAllByDeletedFalse(pageable));
+    }
+
+    @PutMapping("{id}/actions/changeStatus/{isAffected}")
+    public ResponseEntity<LigneCommandeDTO> changeStatus(@PathVariable Long id,
+                                                         @PathVariable Boolean isAffected) {
+        return ResponseEntity.status(HttpStatus.OK).body(ligneCommandeService.affecter(id, isAffected));
+    }
 
 }

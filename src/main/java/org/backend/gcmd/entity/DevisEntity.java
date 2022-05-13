@@ -1,29 +1,16 @@
 package org.backend.gcmd.entity;
 
-import java.time.LocalDate;
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import org.backend.gcmd.enums.EnginsColisEnum;
-import org.backend.gcmd.enums.ImportExportEnum;
-import org.backend.gcmd.enums.MmMcEnum;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.backend.gcmd.enums.EnginsColisEnum;
+import org.backend.gcmd.enums.ImportExportEnum;
+import org.backend.gcmd.enums.MmMcEnum;
+
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -33,54 +20,49 @@ import lombok.Setter;
 @Entity
 public class DevisEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	private String nomNavire;
-	private LocalDate date;
-	private Integer bl;
-	private Integer nombreColis;
-	private Double poids;
-	private String designation;
+    private String nomNavire;
+    private LocalDate date;
+    private Integer bl;
+    private Integer nombreColis;
+    private Double poids;
+    private String designation;
 
-	@Enumerated(EnumType.STRING)
-	private ImportExportEnum importExport;
+    @Enumerated(EnumType.STRING)
+    private ImportExportEnum importExport;
 
-	@Enumerated(EnumType.STRING)
-	private MmMcEnum mmMc;
-	private Integer numeroMafi;
+    @Enumerated(EnumType.STRING)
+    private MmMcEnum mmMc;
+    private Integer numeroMafi;
 
-	@Enumerated(EnumType.STRING)
-	private EnginsColisEnum enginsColis;
+    @Enumerated(EnumType.STRING)
+    private EnginsColisEnum enginsColis;
 
-	private Integer numeroCommande;
-	private String nomClient;
-	private LocalDate dateFacturation;
-	private LocalDate dateSortie;
+    private Integer numeroCommande;
+    private String nomClient;
+    private LocalDate dateFacturation;
+    private LocalDate dateSortie;
 
-	@ManyToOne(fetch = FetchType.LAZY, targetEntity = EscaleEntity.class)
-	@JoinColumn(name = "escale_id", nullable = true, insertable = false, updatable = false)
-	private EscaleEntity escale;
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = EscaleEntity.class)
+    @JoinColumn(name = "escale_id", nullable = true, insertable = false, updatable = false)
+    private EscaleEntity escale;
 
-	@ManyToOne(fetch = FetchType.LAZY, targetEntity = ClientEntity.class)
-	@JoinColumn(name = "client_id", nullable = true, insertable = false, updatable = false)
-	private ClientEntity client;
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = ClientEntity.class)
+    @JoinColumn(name = "client_id", nullable = true, insertable = false, updatable = false)
+    private ClientEntity client;
 
-	@OneToMany(mappedBy = "devis", fetch = FetchType.LAZY)
-	private List<LigneDevisEntity> ligneDevisList;
+    @OneToMany(mappedBy = "devis", fetch = FetchType.LAZY)
+    private List<LigneDevisEntity> ligneDevisList;
 
-	@OneToMany(mappedBy = "devis", fetch = FetchType.LAZY)
-	private List<CommandeEntity> commandeList;
+    @OneToMany(mappedBy = "devis", fetch = FetchType.LAZY)
+    private List<CommandeEntity> commandeList;
 
-	@Column(name = "deleted")
-	private Boolean deleted = false;
+    @Column(name = "deleted")
+    private Boolean deleted = false;
 
-	public Boolean getDeleted() {
-		return deleted = false;
-	}
-
-	public void setDeleted(Boolean deleted) {
-		this.deleted = deleted;
-	}
+    public Boolean getDeleted() { return deleted = false;}
+    public void setDeleted(Boolean deleted) { this.deleted = deleted; }
 }

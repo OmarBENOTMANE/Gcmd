@@ -1,14 +1,13 @@
 package org.backend.gcmd.dto;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-
-import org.backend.gcmd.enums.TypePaiementEnum;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.backend.gcmd.enums.TypePaiementEnum;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Data
 @Builder
@@ -16,42 +15,42 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class BulltinPrestationDTO {
 
-	private Long id;
+    private Long id;
 
-	private String description;
+    private String description;
 
-	private LocalDate date;
+    private LocalDate date;
 
-	private LocalTime heure;
+    private LocalTime heure;
 
-	private Integer numeroDossierPrestation;
+    private Integer numeroDossierPrestation;
 
-	private TypePaiementEnum typePaiement;
+    private TypePaiementEnum typePaiement;
 
-	private Integer codeClient;
+    private Integer codeClient;
 
-	private String nomClient;
+    private String nomClient;
 
-	private Integer numeroEscale;
+    private Integer numeroEscale;
 
-	private Boolean moyenOdepClient;
+    private Boolean moyenOdepClient;
 
-	private Integer codeNature;
+    private Integer codeNature;
 
-	private Boolean preValidation;
+    private Boolean preValidation;
 
-	private LocalDate dateDepot;
+    private LocalDate dateDepot;
 
-	private LocalDate dateProbableExecution;
+    private LocalDate dateProbableExecution;
 
-	private String text;
+    private String text;
 
-	private Integer numeroCmd;
+    private Integer numeroCmd;
 
-	private Boolean deleted = false;
+    private Boolean deleted = false;
 
-	private Boolean validated = false;
+    private Boolean validated = false;
 
-	private Boolean invoiced = false;
+    private Boolean invoiced = false;
 
 }

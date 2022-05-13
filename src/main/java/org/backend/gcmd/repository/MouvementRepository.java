@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MouvementRepository extends JpaRepository<MouvementEntity, Long> {
 
-	Page<MouvementEntity> findAllByDeletedFalse(Pageable page);
+    Page<MouvementEntity> findAllByDeletedFalse(Pageable page);
 }

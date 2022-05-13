@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
 @Data
 public class SousTypePrestationDTO {
 
-	private Long id;
+    private Long id;
 
-	private String name;
+    private String name;
 
-	private Long typeprestationId;
+    private Long typeprestationId;
 
-	private Boolean deleted = false;
+    private Boolean deleted = false;
 }

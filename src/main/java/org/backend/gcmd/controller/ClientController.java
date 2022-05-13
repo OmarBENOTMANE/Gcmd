@@ -7,40 +7,35 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/clients")
 public class ClientController {
 
-	@Autowired
-	private ClientService clientService;
+    @Autowired
+    private ClientService clientService;
 
-	@GetMapping("{id}")
-	public ResponseEntity<ClientDTO> findById(@PathVariable Long id) {
-		ClientDTO clientDTO = clientService.findById(id);
-		return ResponseEntity.status(HttpStatus.OK).body(clientDTO);
-	}
+    @GetMapping("{id}")
+    public ResponseEntity<ClientDTO> findById(@PathVariable Long id) {
+        ClientDTO clientDTO = clientService.findById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(clientDTO);
+    }
 
-	@PostMapping
-	public ResponseEntity<ClientDTO> save(@RequestBody ClientDTO clientDTO) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(clientService.save(clientDTO));
-	}
+    @PostMapping
+    public ResponseEntity<ClientDTO> save(@RequestBody ClientDTO clientDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(clientService.save(clientDTO));
+    }
 
-	@PutMapping("{id}")
-	public ResponseEntity<ClientDTO> update(@PathVariable Long id, @RequestBody ClientDTO clientDTO) {
-		clientDTO.setId(id);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(clientService.update(clientDTO));
-	}
+    @PutMapping("{id}")
+    public ResponseEntity<ClientDTO> update(@PathVariable Long id,
+                                            @RequestBody ClientDTO clientDTO) {
+        clientDTO.setId(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(clientService.update(clientDTO));
+    }
 
-	@GetMapping
-	public ResponseEntity<Page<ClientDTO>> findAllByDeletedFalse(Pageable pageable) {
-		return ResponseEntity.status(HttpStatus.OK).body(clientService.findAllByDeletedFalse(pageable));
-	}
+    @GetMapping
+    public ResponseEntity<Page<ClientDTO>> findAllByDeletedFalse(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(clientService.findAllByDeletedFalse(pageable));
+    }
 }

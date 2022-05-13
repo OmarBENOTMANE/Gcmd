@@ -1,21 +1,23 @@
 package org.backend.gcmd.enums;
 
-import java.util.stream.Stream;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
+import java.util.stream.Stream;
 
 @Getter
 @AllArgsConstructor
 public enum ErrorCode {
-	CODE_1("Code 1"), CODE_2("Code 2"), CODE_3("Code 3");
+    CODE_1("Code 1"),
+    CODE_2("Code 2"),
+    CODE_3("Code 3");
 
-	private String code;
+    private String code;
 
-	// standard getters and setters
+    // standard getters and setters
 
-	public static Stream<ErrorCode> stream() {
-		return Stream.of(ErrorCode.values());
-	}
+    public static Stream<ErrorCode> stream() {
+        return Stream.of(ErrorCode.values());
+    }
 
 }
