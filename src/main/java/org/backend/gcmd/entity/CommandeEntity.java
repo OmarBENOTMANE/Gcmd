@@ -49,28 +49,24 @@ public class CommandeEntity {
 
     private Integer bulletinReception;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = EscaleEntity.class)
-    @JoinColumn(name = "escale_id", nullable = true ,insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "escale_id", nullable = true )
     private EscaleEntity escale;
 
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = DevisEntity.class)
-    @JoinColumn(name = "devis_id", nullable = true, insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "devis_id", nullable = true)
     private DevisEntity devis;
 
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = BulltinPrestationEntity.class)
-    @JoinColumn(name = "bulltin_prestation_id", nullable = true, insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "bulltin_prestation_id", nullable = true)
     private BulltinPrestationEntity bulltinPrestation;
 
-    @OneToMany(mappedBy = "commande", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "commande", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<LigneCommandeEntity> ligneCommandeList;
 
-    @Column(name = "deleted")
     private Boolean deleted = false;
-
-    public Boolean getDeleted() { return deleted = false;}
-    public void setDeleted(Boolean deleted) { this.deleted = deleted; }
 
 
 }

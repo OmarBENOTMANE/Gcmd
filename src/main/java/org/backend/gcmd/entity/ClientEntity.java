@@ -26,19 +26,13 @@ public class ClientEntity {
 
     private String phone;
 
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<DevisEntity> devisList;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "type_client_id", nullable = false, insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "type_client_id", nullable = false)
     private TypeClientEntity typeClient;
 
-    @Column(name = "type_client_id")
-    private Long typeClientId;
-
-    @Column(name = "deleted")
     private Boolean deleted = false;
 
-    public Boolean getDeleted() { return deleted = false;}
-    public void setDeleted(Boolean deleted) { this.deleted = deleted; }
 }

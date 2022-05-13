@@ -46,23 +46,20 @@ public class DevisEntity {
     private LocalDate dateFacturation;
     private LocalDate dateSortie;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = EscaleEntity.class)
-    @JoinColumn(name = "escale_id", nullable = true, insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "escale_id", nullable = true)
     private EscaleEntity escale;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = ClientEntity.class)
-    @JoinColumn(name = "client_id", nullable = true, insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "client_id", nullable = true)
     private ClientEntity client;
 
-    @OneToMany(mappedBy = "devis", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "devis", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<LigneDevisEntity> ligneDevisList;
 
-    @OneToMany(mappedBy = "devis", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "devis", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<CommandeEntity> commandeList;
 
-    @Column(name = "deleted")
     private Boolean deleted = false;
 
-    public Boolean getDeleted() { return deleted = false;}
-    public void setDeleted(Boolean deleted) { this.deleted = deleted; }
 }

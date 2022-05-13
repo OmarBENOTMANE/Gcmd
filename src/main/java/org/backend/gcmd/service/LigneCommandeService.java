@@ -82,7 +82,7 @@ public class LigneCommandeService {
 
     public LigneBpDTO genererbp(LigneCommandeDTO ligneCommandeDTO) {
         LigneBpDTO ligneBpDTO = new LigneBpDTO();
-        ligneBpDTO.setPrestation(ligneCommandeDTO.getPrestation());
+        ligneBpDTO.setPrestations(ligneCommandeDTO.getPrestations());
         ligneBpDTO.setDate(ligneCommandeDTO.getDate());
         ligneBpDTO.setHeure(ligneCommandeDTO.getHeure());
         ligneBpDTO.setSensTrafic(ligneCommandeDTO.getSensTrafic());

@@ -22,7 +22,7 @@ public class LigneBpEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String prestation;
+    private String prestations;
 
     private LocalDate date;
 
@@ -47,18 +47,11 @@ public class LigneBpEntity {
 
     private Long idLigneCommande;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = BulltinPrestationEntity.class)
-    @JoinColumn(name = "bulltin_prestation_id", nullable = true, insertable = false, updatable = false)
-    private BulltinPrestationEntity bulltinprestation;
+    @ManyToOne
+    @JoinColumn(name = "bulltin_prestation_id", nullable = true)
+    private BulltinPrestationEntity bulltinPrestation;
 
     private Boolean deleted = false;
 
-    public Boolean getDeleted() {
-        return deleted = false;
-    }
-
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
-    }
 
 }

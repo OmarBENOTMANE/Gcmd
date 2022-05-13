@@ -23,7 +23,7 @@ public class LigneCommandeDTO {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String prestation;
+    private String prestations;
 
     private LocalDate date;
 

@@ -22,6 +22,8 @@ public class LigneCommandeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String prestations;
+
     private LocalDate date;
 
     private LocalTime heure;
@@ -45,24 +47,15 @@ public class LigneCommandeEntity {
 
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = CommandeEntity.class)
-    @JoinColumn(name = "commande_id", nullable = true, insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "commande_id", nullable = true)
     private CommandeEntity commande;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = PrestationEntity.class)
-    @JoinColumn(name = "prestation_id", nullable = true, insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "prestation_id", nullable = true)
     private PrestationEntity prestation;
 
-    @Column(name = "deleted")
     private Boolean deleted = false;
-
-    public Boolean getDeleted() {
-        return deleted = false;
-    }
-
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
-    }
 
     private Boolean isAffected = false;
 

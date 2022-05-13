@@ -24,7 +24,8 @@ public class ClientMapper implements Mapper<ClientDTO, ClientEntity> {
         dto.setEmail(entity.getEmail());
         dto.setName(entity.getName());
         dto.setPhone(entity.getPhone());
-        dto.setTypeClientId(entity.getTypeClientId());
+        if(entity.getTypeClient()!=null)
+            dto.setTypeClientId(entity.getTypeClient().getId());
         return dto;
     }
 
@@ -35,7 +36,6 @@ public class ClientMapper implements Mapper<ClientDTO, ClientEntity> {
         entity.setEmail(dto.getEmail());
         entity.setName(dto.getName());
         entity.setPhone(dto.getPhone());
-        entity.setTypeClientId(dto.getTypeClientId());
         return entity;
     }
 

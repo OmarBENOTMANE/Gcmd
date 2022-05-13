@@ -1,9 +1,6 @@
 package org.backend.gcmd.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.backend.gcmd.enums.TypePaiementEnum;
 
 import javax.persistence.*;
@@ -17,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 public class BulltinPrestationEntity {
 
     @Id
@@ -54,7 +52,7 @@ public class BulltinPrestationEntity {
 
     private Integer numeroCmd;
 
-    @OneToMany(mappedBy = "bulltinPrestation", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "bulltinPrestation", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<CommandeEntity> commandeList;
 
     private Boolean deleted = false;
@@ -62,11 +60,4 @@ public class BulltinPrestationEntity {
     private Boolean validated = false;
     private Boolean invoiced = false;
 
-    public Boolean getDeleted() {
-        return deleted = false;
-    }
-
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
-    }
 }

@@ -37,7 +37,7 @@ public class LigneBpMapper implements Mapper<LigneBpDTO, LigneBpEntity> {
         dto.setDate(entity.getDate());
         dto.setHeure(entity.getHeure());
         dto.setNombre(entity.getNombre());
-        dto.setPrestation(entity.getPrestation());
+        dto.setPrestations(entity.getPrestations());
         dto.setProduit(entity.getProduit());
         dto.setSensTrafic(entity.getSensTrafic());
         dto.setTarifUnifie(entity.getTarifUnifie());
@@ -56,7 +56,7 @@ public class LigneBpMapper implements Mapper<LigneBpDTO, LigneBpEntity> {
         entity.setDate(dto.getDate());
         entity.setHeure(dto.getHeure());
         entity.setNombre(dto.getNombre());
-        entity.setPrestation(dto.getPrestation());
+        entity.setPrestations(dto.getPrestations());
         entity.setProduit(dto.getProduit());
         entity.setSensTrafic(dto.getSensTrafic());
         entity.setTarifUnifie(dto.getTarifUnifie());
@@ -65,6 +65,8 @@ public class LigneBpMapper implements Mapper<LigneBpDTO, LigneBpEntity> {
         entity.setTonnageMinimum(dto.getTonnageMinimum());
         entity.setTonnageReel(dto.getTonnageReel());
         entity.setIdLigneCommande(dto.getIdLigneCommande());
+        if(entity.getBulltinPrestation()!=null)
+            dto.setBulltinPrestationId(entity.getBulltinPrestation().getId());
         return entity;
     }
 

@@ -21,22 +21,18 @@ public class EscaleEntity {
     private Long id;
     private Integer numeroEscale;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = NavireEntity.class)
-    @JoinColumn(name = "navire_id", nullable = true, insertable = false, updatable = false)
+    @ManyToOne
     private NavireEntity navire;
 
-    @OneToMany(mappedBy = "escale", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "escale", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<MarchandiseEntity> marchandiseList;
 
-    @OneToMany(mappedBy = "escale", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "escale", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<DevisEntity> devisList;
 
-    @OneToMany(mappedBy = "escale", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "escale", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<CommandeEntity> commandeList;
 
-    @Column(name = "deleted")
     private Boolean deleted = false;
 
-    public Boolean getDeleted() { return deleted = false;}
-    public void setDeleted(Boolean deleted) { this.deleted = deleted; }
 }

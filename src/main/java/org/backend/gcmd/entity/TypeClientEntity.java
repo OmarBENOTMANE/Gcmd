@@ -23,7 +23,7 @@ public class TypeClientEntity {
     private String name;
 
     @OneToMany(mappedBy = "typeClient", fetch = FetchType.LAZY)
-    private List<ClientEntity> clientList;
+    private List<ClientEntity> clients;
 
     @Column(name = "deleted")
     private Boolean deleted = false;
