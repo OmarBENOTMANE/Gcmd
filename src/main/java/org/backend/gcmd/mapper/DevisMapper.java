@@ -35,9 +35,9 @@ public class DevisMapper implements Mapper<DevisDTO, DevisEntity> {
         dto.setNumeroCommande(entity.getNumeroCommande());
         dto.setNumeroMafi(entity.getNumeroMafi());
         dto.setPoids(entity.getPoids());
-        if(entity.getEscale()!=null)
+        if (entity.getEscale() != null)
             dto.setEscaleId(entity.getEscale().getId());
-        if(entity.getClient()!=null)
+        if (entity.getClient() != null)
             dto.setClientId(entity.getClient().getId());
         return dto;
     }

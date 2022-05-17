@@ -10,7 +10,6 @@ import org.backend.gcmd.mapper.BulltinPrestationMapper;
 import org.backend.gcmd.mapper.CommandeMapper;
 import org.backend.gcmd.mapper.DevisMapper;
 import org.backend.gcmd.mapper.EscaleMapper;
-import org.backend.gcmd.repository.BulltinPrestationRepository;
 import org.backend.gcmd.repository.CommandeRepository;
 import org.backend.gcmd.validator.Validate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,20 +66,18 @@ public class CommandeService {
         Validate.notNull(dto.getId(), "CommandeDTO id must be not null");
         findById(dto.getId());
         CommandeEntity entity = commandeMapper.convertToEntity(dto);
-
-        if(dto.getBulltinPrestationId()!=null) {
+        if (dto.getBulltinPrestationId() != null) {
             BulltinPrestationDTO bulltinPrestationDTO = bulltinPrestationService.findById(dto.getBulltinPrestationId());
             entity.setBulltinPrestation(bulltinPrestationMapper.convertToEntity(bulltinPrestationDTO));
         }
-        if(dto.getEscaleId()!=null) {
+        if (dto.getEscaleId() != null) {
             EscaleDTO escaleDTO = escaleService.findById(dto.getEscaleId());
             entity.setEscale(escaleMapper.convertToEntity(escaleDTO));
         }
-        if(dto.getDevisId()!=null) {
-        DevisDTO devisDTO = devisService.findById(dto.getDevisId());
-        entity.setDevis(devisMapper.convertToEntity(devisDTO));
+        if (dto.getDevisId() != null) {
+            DevisDTO devisDTO = devisService.findById(dto.getDevisId());
+            entity.setDevis(devisMapper.convertToEntity(devisDTO));
         }
-
         CommandeEntity saved = commandeRepository.save(entity);
         return commandeMapper.convertToDto(saved);
     }

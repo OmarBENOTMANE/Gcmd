@@ -35,11 +35,11 @@ public class CommandeMapper implements Mapper<CommandeDTO, CommandeEntity> {
         dto.setNumeroBc(entity.getNumeroBc());
         dto.setNumeroEscale(entity.getNumeroEscale());
         dto.setPoste(entity.getPoste());
-        if(entity.getBulltinPrestation()!=null)
+        if (entity.getBulltinPrestation() != null)
             dto.setBulltinPrestationId(entity.getBulltinPrestation().getId());
-        if(entity.getEscale()!=null)
+        if (entity.getEscale() != null)
             dto.setEscaleId(entity.getEscale().getId());
-        if(entity.getDevis()!=null)
+        if (entity.getDevis() != null)
             dto.setDevisId(entity.getDevis().getId());
         return dto;
     }
@@ -62,7 +62,7 @@ public class CommandeMapper implements Mapper<CommandeDTO, CommandeEntity> {
         entity.setNumeroBc(dto.getNumeroBc());
         entity.setNumeroEscale(dto.getNumeroEscale());
         entity.setPoste(dto.getPoste());
-         return entity;
+        return entity;
     }
 
     @Override

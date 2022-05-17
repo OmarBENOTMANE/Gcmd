@@ -34,10 +34,11 @@ public class LigneCommandeMapper implements Mapper<LigneCommandeDTO, LigneComman
         dto.setTonnageReel(entity.getTonnageReel());
         dto.setDeleted(entity.getDeleted());
         dto.setIsAffected(entity.getIsAffected());
-        if(entity.getCommande()!=null)
+        if (entity.getCommande() != null)
             dto.setCommandeId(entity.getCommande().getId());
-        if(entity.getPrestation()!=null)
+        if (entity.getPrestation() != null)
             dto.setPrestationId(entity.getPrestation().getId());
+        dto.setGenlbp(entity.getGenlbp());
         return dto;
     }
 
@@ -58,6 +59,9 @@ public class LigneCommandeMapper implements Mapper<LigneCommandeDTO, LigneComman
         entity.setTonnageReel(dto.getTonnageReel());
         entity.setDeleted(dto.getDeleted());
         entity.setIsAffected(dto.getIsAffected());
+        entity.setGenlbp(dto.getGenlbp());
+//        if(dto.getCommandeId()!=null)
+//        entity.setCommande(CommandeEntity.builder().id(dto.getCommandeId()).build());
         return entity;
     }
 

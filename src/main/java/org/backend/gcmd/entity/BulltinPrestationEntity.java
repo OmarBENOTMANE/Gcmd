@@ -66,5 +66,4 @@ public class BulltinPrestationEntity {
     private BulltinPrestationEntity bulltinPrestation;
 
 
-
 }

@@ -9,14 +9,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("api/gcmd/v1/ligneBulltinPrestations")
 public class LigneBpController {
+
     @Autowired
     private LigneBpService ligneBpService;
-
 
     @GetMapping("{id}")
     public ResponseEntity<LigneBpDTO> findById(@PathVariable Long id) {

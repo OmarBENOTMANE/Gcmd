@@ -1,9 +1,6 @@
 package org.backend.gcmd.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -11,6 +8,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@Builder
 @Table(name = "Gcmd_commande")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -50,7 +48,7 @@ public class CommandeEntity {
     private Integer bulletinReception;
 
     @ManyToOne
-    @JoinColumn(name = "escale_id", nullable = true )
+    @JoinColumn(name = "escale_id", nullable = true)
     private EscaleEntity escale;
 
 

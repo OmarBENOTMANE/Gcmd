@@ -55,4 +55,6 @@ public class LigneCommandeDTO {
 
     private Boolean isAffected = false;
 
+    private Long genlbp;
+
 }

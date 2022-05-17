@@ -4,6 +4,7 @@ import org.backend.gcmd.dto.LigneBpDTO;
 import org.backend.gcmd.dto.LigneCommandeDTO;
 import org.backend.gcmd.entity.LigneCommandeEntity;
 import org.backend.gcmd.exceptions.technical.ObjectNotFoundException;
+import org.backend.gcmd.mapper.CommandeMapper;
 import org.backend.gcmd.mapper.LigneCommandeMapper;
 import org.backend.gcmd.repository.LigneCommandeRepository;
 import org.backend.gcmd.validator.Validate;
@@ -12,9 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.CollectionUtils;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -30,6 +29,11 @@ public class LigneCommandeService {
     @Autowired
     private LigneBpService ligneBpService;
 
+    @Autowired
+    private CommandeService commandeService;
+
+    @Autowired
+    private CommandeMapper commandeMapper;
 
     public LigneCommandeDTO findById(Long id) {
         Validate.notNull(id, "id mus be not null");
@@ -53,6 +57,11 @@ public class LigneCommandeService {
         Validate.notNull(dto.getId(), "LigneCommandeDTO id must be not null");
         findById(dto.getId());
         LigneCommandeEntity entity = ligneCommandeMapper.convertToEntity(dto);
+        if (dto.getCommandeId() != null) {
+            entity.setCommande(commandeMapper.convertToEntity(commandeService.findById(dto.getCommandeId())));
+        } else {
+            entity.setCommande(null);
+        }
         LigneCommandeEntity saved = ligneCommandeRepository.save(entity);
         return ligneCommandeMapper.convertToDto(saved);
     }
@@ -62,23 +71,26 @@ public class LigneCommandeService {
         return ligneCommandeMapper.convertToPageDto(page);
     }
 
-    public LigneCommandeDTO affecter(Long id, Boolean isAffected) {
+    public LigneCommandeDTO affecter(Long id) {
         Validate.notNull(id, "LigneCommandeDTO must be not null");
-        Validate.notNull(isAffected, "LigneCommandeDTO id must be not null");
         LigneCommandeDTO lcdto = findById(id);
-        lcdto.setIsAffected(isAffected);
         update(lcdto);
-        if (lcdto.getIsAffected() == true) {
-            genererbp(lcdto);
+        if (!lcdto.getIsAffected()) {
+            LigneBpDTO lbpdto = genererbp(lcdto);
+            lcdto.setGenlbp(lbpdto.getId());
+            lcdto.setIsAffected(true);
+            update(lcdto);
         } else {
-            List<LigneBpDTO> lbpdto = ligneBpService.findByLigneCmdId(lcdto.getId());
-            if (!CollectionUtils.isEmpty(lbpdto)) {
-                lbpdto.get(0).setDeleted(true);
-                ligneBpService.update(lbpdto.get(0));
-            }
+            LigneBpDTO lbpdto = ligneBpService.findById(lcdto.getGenlbp());
+            lbpdto.setDeleted(true);
+            ligneBpService.update(lbpdto);
+            lcdto.setGenlbp(null);
+            lcdto.setIsAffected(false);
+            update(lcdto);
         }
         return lcdto;
     }
+
     public LigneBpDTO genererbp(LigneCommandeDTO ligneCommandeDTO) {
         LigneBpDTO ligneBpDTO = new LigneBpDTO();
         ligneBpDTO.setPrestations(ligneCommandeDTO.getPrestations());
@@ -94,4 +106,5 @@ public class LigneCommandeService {
         ligneBpDTO = ligneBpService.save(ligneBpDTO);
         return ligneBpDTO;
     }
+
 }

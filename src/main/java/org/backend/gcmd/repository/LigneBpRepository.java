@@ -15,7 +15,7 @@ public interface LigneBpRepository extends JpaRepository<LigneBpEntity, Long> {
     Page<LigneBpEntity> findAllByDeletedFalse(Pageable page);
 
 
-    @Query(nativeQuery = true, value="SELECT lbp.* FROM gcmd_ligne_bp lbp," +
+    @Query(nativeQuery = true, value = "SELECT lbp.* FROM gcmd_ligne_bp lbp," +
             "gcmd_bulltin_prestation bp,gcmd_commande cmd, gcmd_ligne_commande lcmd " +
             "where  lbp.bulltin_prestation_id=bp.id and bp.id=cmd.bulltin_prestation_id " +
             "and lcmd.commande_id=cmd.id and lcmd.id= :ligneCmdId")
