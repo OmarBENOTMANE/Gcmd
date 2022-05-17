@@ -39,4 +39,10 @@ public class CommandeController {
     public ResponseEntity<Page<CommandeDTO>> findAllByDeletedFalse(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(commandeService.findAllByDeletedFalse(pageable));
     }
+
+    @GetMapping("/bpCmd/{id}")
+    public ResponseEntity<Page<CommandeDTO>> findCmdByBpId(@PathVariable Long id,
+                                                            Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(commandeService.findCommandeEntitiesByBulltinPrestation_Id(id, pageable));
+    }
 }

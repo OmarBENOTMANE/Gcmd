@@ -54,6 +54,16 @@ public class CommandeService {
             throw new ObjectNotFoundException("CommandeDTO not found");
         }
     }
+    public Page<CommandeDTO> findCommandeEntitiesByBulltinPrestation_Id(Long bpId,Pageable page) {
+        Validate.notNull(bpId, "id mus be not null");
+        Page<CommandeEntity> entity = commandeRepository.findCommandeEntitiesByBulltinPrestation_Id(bpId,page);
+            return commandeMapper.convertToPageDto(entity);
+
+    }
+
+
+
+
 
     public CommandeDTO save(CommandeDTO dto) {
         Validate.notNull(dto, "CommandeDTO must be not null");
@@ -81,4 +91,5 @@ public class CommandeService {
         Page<CommandeEntity> page = commandeRepository.findAllByDeletedFalse(pageable);
         return commandeMapper.convertToPageDto(page);
     }
+
 }

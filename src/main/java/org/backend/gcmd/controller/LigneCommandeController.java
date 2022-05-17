@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/gcmd/v1/ligneCommandes")
 public class LigneCommandeController {
@@ -44,6 +44,10 @@ public class LigneCommandeController {
     public ResponseEntity<LigneCommandeDTO> changeStatus(@PathVariable Long id,
                                                          @PathVariable Boolean isAffected) {
         return ResponseEntity.status(HttpStatus.OK).body(ligneCommandeService.affecter(id, isAffected));
+    }
+    @GetMapping("cmd/{id}")
+    public ResponseEntity<Page<LigneCommandeDTO>> findAllByCmdId(@PathVariable Long id, Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(ligneCommandeService.findLigneCmdByCmdId(id, pageable));
     }
 
 }

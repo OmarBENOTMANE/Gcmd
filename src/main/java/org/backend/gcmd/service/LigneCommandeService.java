@@ -1,7 +1,9 @@
 package org.backend.gcmd.service;
 
+import org.backend.gcmd.dto.BulltinPrestationDTO;
 import org.backend.gcmd.dto.LigneBpDTO;
 import org.backend.gcmd.dto.LigneCommandeDTO;
+import org.backend.gcmd.entity.BulltinPrestationEntity;
 import org.backend.gcmd.entity.LigneCommandeEntity;
 import org.backend.gcmd.exceptions.technical.ObjectNotFoundException;
 import org.backend.gcmd.mapper.LigneCommandeMapper;
@@ -95,5 +97,9 @@ public class LigneCommandeService {
         ligneBpDTO.setIdLigneCommande(ligneCommandeDTO.getId());
         ligneBpDTO = ligneBpService.save(ligneBpDTO);
         return ligneBpDTO;
+    }
+    public Page<LigneCommandeDTO> findLigneCmdByCmdId(Long id, Pageable pageable) {
+        Page<LigneCommandeEntity> page = ligneCommandeRepository.findAllByCommande_Id(id ,pageable);
+        return ligneCommandeMapper.convertToPageDto(page);
     }
 }

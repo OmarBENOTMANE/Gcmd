@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BulltinPrestationRepository extends JpaRepository<BulltinPrestationEntity, Long> {
+    Page<BulltinPrestationEntity> findAllByInvoicedIsFalseAndDeletedIsFalse(Pageable page);
 
     Page<BulltinPrestationEntity> findAllByDeletedFalse(Pageable page);
 }

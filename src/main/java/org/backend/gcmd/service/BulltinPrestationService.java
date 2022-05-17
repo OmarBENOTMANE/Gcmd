@@ -56,5 +56,12 @@ public class BulltinPrestationService {
         Page<BulltinPrestationEntity> page = bulltinPrestationRepository.findAllByDeletedFalse(pageable);
         return bulltinPrestationMapper.convertToPageDto(page);
     }
+    public Page<BulltinPrestationDTO> findAllByInvoicedFalse(Pageable pageable) {
+        Page<BulltinPrestationEntity> page = bulltinPrestationRepository.findAllByInvoicedIsFalseAndDeletedIsFalse(pageable);
+        return bulltinPrestationMapper.convertToPageDto(page);
+    }
+
+    //public void AddLineBPBy
+
 
 }

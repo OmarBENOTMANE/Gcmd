@@ -10,4 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface LigneCommandeRepository extends JpaRepository<LigneCommandeEntity, Long> {
 
     Page<LigneCommandeEntity> findAllByDeletedFalse(Pageable page);
+    Page<LigneCommandeEntity> findAllByCommande_Id(Long id, Pageable page);
+
 }

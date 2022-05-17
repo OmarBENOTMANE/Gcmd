@@ -39,4 +39,8 @@ public class BulltinPrestationController {
     public ResponseEntity<Page<BulltinPrestationDTO>> findAllByDeletedFalse(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(bulltinPrestationService.findAllByDeletedFalse(pageable));
     }
+    @GetMapping("notInvoiced")
+    public ResponseEntity<Page<BulltinPrestationDTO>> findAllByInvoicedFalse(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(bulltinPrestationService.findAllByInvoicedFalse(pageable));
+    }
 }
