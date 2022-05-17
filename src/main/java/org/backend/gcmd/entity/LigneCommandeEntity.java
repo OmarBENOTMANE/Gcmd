@@ -59,5 +59,8 @@ public class LigneCommandeEntity {
 
     private Boolean isAffected = false;
 
+    private Long genlbp;
+
+
 }
 

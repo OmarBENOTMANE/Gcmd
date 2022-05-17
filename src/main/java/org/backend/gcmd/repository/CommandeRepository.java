@@ -12,5 +12,5 @@ public interface CommandeRepository extends JpaRepository<CommandeEntity, Long> 
 
     Page<CommandeEntity> findAllByDeletedFalse(Pageable page);
     Page<CommandeEntity> findCommandeEntitiesByBulltinPrestation_Id(Long bpId, Pageable pageable);
-
+    Page<CommandeEntity> findCommandByBulltinPrestationIsNull(Pageable page);
 }

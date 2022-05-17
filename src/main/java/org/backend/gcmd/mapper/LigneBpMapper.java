@@ -17,6 +17,8 @@ public class LigneBpMapper implements Mapper<LigneBpDTO, LigneBpEntity> {
     @Autowired
     BulltinPrestationRepository bulltinprestationRepository;
 
+
+
     @Override
     public Page<LigneBpDTO> convertToPageDto(Page<LigneBpEntity> page) {
         return page.map(this::convertToDto);

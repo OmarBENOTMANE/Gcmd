@@ -2,6 +2,8 @@ package org.backend.gcmd.mapper;
 
 import org.backend.gcmd.dto.LigneCommandeDTO;
 import org.backend.gcmd.entity.LigneCommandeEntity;
+import org.backend.gcmd.repository.CommandeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +13,8 @@ import java.util.stream.Collectors;
 
 @Component
 public class LigneCommandeMapper implements Mapper<LigneCommandeDTO, LigneCommandeEntity> {
+    @Autowired
+    CommandeRepository commandeRepository;
 
     @Override
     public Page<LigneCommandeDTO> convertToPageDto(Page<LigneCommandeEntity> page) {
@@ -58,6 +62,7 @@ public class LigneCommandeMapper implements Mapper<LigneCommandeDTO, LigneComman
         entity.setTonnageReel(dto.getTonnageReel());
         entity.setDeleted(dto.getDeleted());
         entity.setIsAffected(dto.getIsAffected());
+        entity.setCommande(commandeRepository.findById(dto.getCommandeId()).get());
         return entity;
     }
 

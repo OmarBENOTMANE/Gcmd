@@ -77,12 +77,17 @@ public class CommandeService {
         Validate.notNull(dto.getId(), "CommandeDTO id must be not null");
         findById(dto.getId());
         CommandeEntity entity = commandeMapper.convertToEntity(dto);
-        BulltinPrestationDTO bulltinPrestationDTO = bulltinPrestationService.findById(dto.getBulltinPrestationId());
-        entity.setBulltinPrestation(bulltinPrestationMapper.convertToEntity(bulltinPrestationDTO));
+        if(dto.getBulltinPrestationId()!= null){
+            BulltinPrestationDTO bulltinPrestationDTO = bulltinPrestationService.findById(dto.getBulltinPrestationId());
+            entity.setBulltinPrestation(bulltinPrestationMapper.convertToEntity(bulltinPrestationDTO));
+        }
+        if(dto.getEscaleId()!= null){
+
         EscaleDTO escaleDTO = escaleService.findById(dto.getEscaleId());
-        entity.setEscale(escaleMapper.convertToEntity(escaleDTO));
+        entity.setEscale(escaleMapper.convertToEntity(escaleDTO));}
+        if(dto.getDevisId()!= null){
         DevisDTO devisDTO = devisService.findById(dto.getDevisId());
-        entity.setDevis(devisMapper.convertToEntity(devisDTO));
+        entity.setDevis(devisMapper.convertToEntity(devisDTO));}
         CommandeEntity saved = commandeRepository.save(entity);
         return commandeMapper.convertToDto(saved);
     }
@@ -92,4 +97,8 @@ public class CommandeService {
         return commandeMapper.convertToPageDto(page);
     }
 
+    public Page<CommandeDTO> findCmdNotAffected(Pageable pageable) {
+        Page<CommandeEntity> page = commandeRepository.findCommandByBulltinPrestationIsNull(pageable);
+        return commandeMapper.convertToPageDto(page);
+    }
 }

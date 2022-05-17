@@ -1,16 +1,23 @@
 package org.backend.gcmd.mapper;
 
 import org.backend.gcmd.dto.CommandeDTO;
+import org.backend.gcmd.entity.BulltinPrestationEntity;
 import org.backend.gcmd.entity.CommandeEntity;
+import org.backend.gcmd.repository.BulltinPrestationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
 public class CommandeMapper implements Mapper<CommandeDTO, CommandeEntity> {
+
+    @Autowired
+    private BulltinPrestationRepository bprestationRepository;
 
     @Override
     public Page<CommandeDTO> convertToPageDto(Page<CommandeEntity> page) {
@@ -62,6 +69,10 @@ public class CommandeMapper implements Mapper<CommandeDTO, CommandeEntity> {
         entity.setNumeroBc(dto.getNumeroBc());
         entity.setNumeroEscale(dto.getNumeroEscale());
         entity.setPoste(dto.getPoste());
+        if(dto.getBulltinPrestationId()!=null){
+            Optional<BulltinPrestationEntity> bp = bprestationRepository.findById(dto.getBulltinPrestationId());
+            entity.setBulltinPrestation(bp.get());
+        }
          return entity;
     }
 

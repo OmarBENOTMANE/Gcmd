@@ -12,6 +12,7 @@ import java.util.List;
 public interface LigneBpRepository extends JpaRepository<LigneBpEntity, Long> {
 
     Page<LigneBpEntity> findAllByDeletedFalse(Pageable page);
+    Page<LigneBpEntity> findAllByBulltinPrestation_Id(Long id ,Pageable page);
 
     List<LigneBpEntity> findByIdLigneCommande(Long idLigneCommande);
 

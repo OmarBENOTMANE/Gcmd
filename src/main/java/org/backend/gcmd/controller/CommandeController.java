@@ -45,4 +45,10 @@ public class CommandeController {
                                                             Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(commandeService.findCommandeEntitiesByBulltinPrestation_Id(id, pageable));
     }
+    @GetMapping("/notAffected")
+    public ResponseEntity<Page<CommandeDTO>> findCmdNotAffected(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(commandeService.findCmdNotAffected(pageable));
+    }
+
+
 }
