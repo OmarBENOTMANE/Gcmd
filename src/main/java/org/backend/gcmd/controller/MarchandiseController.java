@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/marchandises")
+@RequestMapping("marchandises")
 public class MarchandiseController {
     @Autowired
     private MarchandiseService marchandiseService;

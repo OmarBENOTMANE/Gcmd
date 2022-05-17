@@ -9,6 +9,7 @@ import org.backend.gcmd.enums.SenstraficEnum;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -45,11 +46,12 @@ public class LigneBpEntity {
 
     private Integer tonnageMinimum;
 
-    private Long idLigneCommande;
-
     @ManyToOne
     @JoinColumn(name = "bulltin_prestation_id", nullable = true)
     private BulltinPrestationEntity bulltinPrestation;
+
+    @OneToMany(mappedBy = "bulltinPrestation", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private List<LigneBpEntity> ligneBpList;
 
     private Boolean deleted = false;
 

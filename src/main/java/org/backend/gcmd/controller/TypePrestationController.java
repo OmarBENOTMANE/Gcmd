@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/Gcmd_typePrestation")
+@RequestMapping("api/gcmd/v1/typePrestation")
 public class TypePrestationController {
     @Autowired
     private TypePrestationService typePrestationService;

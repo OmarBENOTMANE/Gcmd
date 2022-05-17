@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/Gcmd_uniteOrganisationel")
+@RequestMapping("api/gcmd/v1/uniteOrganisationel")
 public class UniteOrganisationelController {
     @Autowired
     private UniteOrganisationelService uniteOrganisationelService;

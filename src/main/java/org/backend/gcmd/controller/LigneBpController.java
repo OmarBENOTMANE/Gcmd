@@ -9,8 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/gcmd/v1/ligneBulltinPrestations")
+@RequestMapping("api/gcmd/v1/ligneBulltinPrestations")
 public class LigneBpController {
     @Autowired
     private LigneBpService ligneBpService;
@@ -38,4 +40,6 @@ public class LigneBpController {
     public ResponseEntity<Page<LigneBpDTO>> findAllByDeletedFalse(Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(ligneBpService.findAllByDeletedFalse(pageable));
     }
+
+
 }

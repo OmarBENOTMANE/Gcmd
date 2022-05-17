@@ -91,7 +91,6 @@ public class LigneCommandeService {
         ligneBpDTO.setTarifUnifie(ligneCommandeDTO.getTarifUnifie());
         ligneBpDTO.setTonnageReel(ligneCommandeDTO.getTonnageReel());
         ligneBpDTO.setTonnageMinimum(ligneCommandeDTO.getTonnageMinimum());
-        ligneBpDTO.setIdLigneCommande(ligneCommandeDTO.getId());
         ligneBpDTO = ligneBpService.save(ligneBpDTO);
         return ligneBpDTO;
     }

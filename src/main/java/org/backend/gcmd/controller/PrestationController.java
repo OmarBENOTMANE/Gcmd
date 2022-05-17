@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/Gcmd_prestation")
+@RequestMapping("api/gcmd/v1/prestations")
 public class PrestationController {
     @Autowired
     private PrestationService prestationService;

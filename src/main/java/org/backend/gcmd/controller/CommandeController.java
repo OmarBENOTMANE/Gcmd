@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api/gcmd/v1/commandes")
+@RequestMapping("api/gcmd/v1/commandes")
 public class CommandeController {
     @Autowired
     private CommandeService commandeService;

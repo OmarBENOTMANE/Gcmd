@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/lignes_devis")
+@RequestMapping("lignes_devis")
 public class LigneDevisController {
     @Autowired
     private LigneDevisService ligneDevisService;

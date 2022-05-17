@@ -25,7 +25,7 @@ public class EscaleService {
     private EscaleMapper escaleMapper;
 
     public EscaleDTO findById(Long id) {
-        Validate.notNull(id, "id mus be not null");
+        Validate.notNull(id, "id e mus be not null");
         Optional<EscaleEntity> entity = escaleRepository.findById(id);
         if (entity.isPresent()) {
             return escaleMapper.convertToDto(entity.get());

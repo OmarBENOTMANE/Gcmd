@@ -25,7 +25,7 @@ public class DevisService {
     private DevisMapper devisMapper;
 
     public DevisDTO findById(Long id) {
-        Validate.notNull(id, "id mus be not null");
+        Validate.notNull(id, "id d mus be not null");
         Optional<DevisEntity> entity = devisRepository.findById(id);
         if (entity.isPresent()) {
             return devisMapper.convertToDto(entity.get());

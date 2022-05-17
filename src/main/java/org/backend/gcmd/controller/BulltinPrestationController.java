@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api/gcmd/v1/bulltinPrestations")
+@RequestMapping("api/gcmd/v1/bulltinPrestations")
 public class BulltinPrestationController {
 
     @Autowired
@@ -31,6 +31,7 @@ public class BulltinPrestationController {
     @PutMapping("{id}")
     public ResponseEntity<BulltinPrestationDTO> update(@PathVariable Long id,
                                                        @RequestBody BulltinPrestationDTO bulltinPrestationDTO) {
+
         bulltinPrestationDTO.setId(id);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(bulltinPrestationService.update(bulltinPrestationDTO));
     }

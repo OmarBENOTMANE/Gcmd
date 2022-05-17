@@ -22,6 +22,7 @@ public class EscaleMapper implements Mapper<EscaleDTO, EscaleEntity> {
         EscaleDTO dto = new EscaleDTO();
         dto.setId(entity.getId());
         dto.setNumeroEscale(entity.getNumeroEscale());
+
         return dto;
     }
 

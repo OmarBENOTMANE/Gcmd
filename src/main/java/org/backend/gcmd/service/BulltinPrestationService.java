@@ -26,7 +26,7 @@ public class BulltinPrestationService {
 
 
     public BulltinPrestationDTO findById(Long id) {
-        Validate.notNull(id, "id mus be not null");
+        Validate.notNull(id, "id bp mus be not null");
         Optional<BulltinPrestationEntity> entity = bulltinPrestationRepository.findById(id);
         if (entity.isPresent()) {
             return bulltinPrestationMapper.convertToDto(entity.get());

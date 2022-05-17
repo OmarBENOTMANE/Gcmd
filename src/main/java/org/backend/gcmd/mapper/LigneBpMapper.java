@@ -22,14 +22,6 @@ public class LigneBpMapper implements Mapper<LigneBpDTO, LigneBpEntity> {
         return page.map(this::convertToDto);
     }
 
-//    public List<LigneBpDTO> convertToListDto(List<LigneBpEntity> list) {
-//        List<LigneBpDTO> ligneBpDTOList=new ArrayList<>();
-//        for (LigneBpEntity ligneBpEntity : list) {
-//            ligneBpDTOList.add(convertToDto(ligneBpEntity));
-//        }
-//        return ligneBpDTOList;
-//    }
-
     @Override
     public LigneBpDTO convertToDto(LigneBpEntity entity) {
         LigneBpDTO dto = new LigneBpDTO();
@@ -45,7 +37,8 @@ public class LigneBpMapper implements Mapper<LigneBpDTO, LigneBpEntity> {
         dto.setTcSuppl(entity.getTcSuppl());
         dto.setTonnageMinimum(entity.getTonnageMinimum());
         dto.setTonnageReel(entity.getTonnageReel());
-        dto.setIdLigneCommande(entity.getIdLigneCommande());
+        if(entity.getBulltinPrestation()!=null)
+            dto.setBulltinPrestationId(entity.getBulltinPrestation().getId());
         return dto;
     }
 
@@ -64,9 +57,6 @@ public class LigneBpMapper implements Mapper<LigneBpDTO, LigneBpEntity> {
         entity.setTcSuppl(dto.getTcSuppl());
         entity.setTonnageMinimum(dto.getTonnageMinimum());
         entity.setTonnageReel(dto.getTonnageReel());
-        entity.setIdLigneCommande(dto.getIdLigneCommande());
-        if(entity.getBulltinPrestation()!=null)
-            dto.setBulltinPrestationId(entity.getBulltinPrestation().getId());
         return entity;
     }
 

@@ -58,6 +58,13 @@ public class BulltinPrestationEntity {
     private Boolean deleted = false;
 
     private Boolean validated = false;
+
     private Boolean invoiced = false;
+
+    @ManyToOne
+    @JoinColumn(name = "bulltin_prestation_id", nullable = true)
+    private BulltinPrestationEntity bulltinPrestation;
+
+
 
 }

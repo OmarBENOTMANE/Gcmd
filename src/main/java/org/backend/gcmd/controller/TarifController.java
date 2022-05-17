@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/Gcmd_tarif")
+@RequestMapping("api/gcmd/v1/tarif")
 public class TarifController {
     @Autowired
     private TarifService tarifService;

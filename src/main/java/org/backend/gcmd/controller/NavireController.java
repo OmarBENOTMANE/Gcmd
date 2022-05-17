@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/navires")
+@RequestMapping("api/gcmd/v1/navires")
 public class NavireController {
     @Autowired
     private NavireService navireService;
